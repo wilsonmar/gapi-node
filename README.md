@@ -7,7 +7,7 @@ This repo was created to meet these objectives:
 3. explain [JWT construction internals](#JWT_internals) (base64, signing, etc.) used in the code; and
 4. show additional variations on use of Google APIs, such as the [Reports API](#Reports_API) 
   to collect and display analytics data Google collects.
-
+ 
 # Tasks To Build This
 - [ ] Objective 2 - Explore libraries (done first to not waste time on objective 1)
 
@@ -94,6 +94,7 @@ k)	Make web service (API) call to Google servers
 l)	Manually retrieve report on short URL resolution history 
 m)	Retrieve report on short URL resolution history using Node.js
 
+<hr />
 
 # <a name="Altertives_to_call"></a> Alternatives to use Google to shorten URLs
 
