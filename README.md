@@ -74,7 +74,7 @@ is structured like an app that calls the Google API.
 
 The remainder of this tutorial takes a "deep dive" into the different ways Google's URL Shortener service can be accessed.
 
-1.	[Obtain short URL manually from goo.gl as an anonymous user}(#goo.gl)
+1.	[Obtain short URL manually from goo.gl as an anonymous user](#goo.gl)
 2.	Obtain short URL manually as a signed-in Google user
 3.	Obtain short URL manually using Node.js command line
 4.	Obtain short URL from Google's Node.js program 
