@@ -32,6 +32,7 @@ Videos have been created to make dynamic reveal of illustrations with spoken tex
 The following is the narration to a video on YouTube.com and DailyMotion.com.
 
 [While viewing scroll of API Explorer from top to bottom]
+![Google API Explorer sample](http://www.merc.tv/img/fig/google.explorer_list_v01.png "Google API Explorer sample")
 
 This tutorial is a guided exploration for developers to quickly learn, in a hands-on way, how to perform server-to-server communication with Google's many web services.
 Google provides a large number of APIs (Application Programming Interfaces) so programs in servers can communicate with other computers directly without human interaction: Information from users of Google's Gmail, Calendar, Drive cloud, Google+, and YouTube videos.
@@ -39,13 +40,13 @@ Why would one want to take the extra effort to extract data from Google when one
 
 Let's take a look at this line chart showing corresponding data series across time.
 
-![alt text](https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png "Logo Title Text 1")
+![Data series from several sources](http://www.merc.tv/img/fig/goo.combined_data_v01.png "Data series")
 
 If you want to add event flags or additional data not in Google servers you might need to have all the data on your own server. Also, since Google automatically purges data on its schedule, Google has been known to cancel services it has provided. So you need a way of keeping your data where you really control.
 
 To extract data from Google's servers:
 
-![alt text](https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png "Logo Title Text 1")
+![Data flow](http://www.merc.tv/img/fig/goo.dataflow_v01.png "Data flow")
 
 As an example in this tutorial, we use Google's URL Shortener service at this scope address because one doesn’t need to stand-up a custom server to work with the URL Shortener service Google provides.
 
@@ -74,12 +75,13 @@ is structured like an app that calls the Google API.
 
 The remainder of this tutorial takes a "deep dive" into the different ways Google's URL Shortener service can be accessed.
 
-1.	[Obtain short URL manually from goo.gl as an anonymous user](#goo.gl)
-2.	Obtain short URL manually as a signed-in Google user
-3.	Obtain short URL manually using Node.js command line
-4.	Obtain short URL from Google's Node.js program 
-5.	Get list of short URLs from Google's API Console for known user
-6.	Obtain short URL manually using Google's API Playground
+1.	[Obtain short URL manually from goo.gl as an anonymous user](#from_goo.gl_anon)
+2.	[Obtain short URL manually as a signed-in Google user](#from_goo.gl_signed_in)
+3.	[Obtain short URL manually using Node.js command line](#from_node_cli)
+4.	[Obtain short URL from Google's Node.js program](#from_google_node_js)
+5.	[Get list of short URLs from Google's API Console for known user](#from_api_console)
+6.	[Obtain short URL manually using Google's API Playground](#from_playground)
+7.	[Obtain short URL manually using Google Code](#from_devtools)
 
 Alternately, you may prefer to make these calls for a list of URLs from a batch program.
 
@@ -93,8 +95,23 @@ k)	Make web service (API) call to Google servers
 l)	Manually retrieve report on short URL resolution history 
 m)	Retrieve report on short URL resolution history using Node.js
 
-## <a name="goo.gl"></a> Obtain short URLs manually from goo.gl as an anonymous user
-As an introduction to how Google’s URL Shortener API service works, let’s first look at the human user interface which web services APIs will replace.
+## <a name="from_goo.gl_anon"></a> Obtain short URLs manually from goo.gl as an anonymous user
+As an introduction to how Google’s URL Shortener API service works, let’s look at the human user interface which web services APIs replace.
+
+1.	Use the Google Chrome browser. If you do not have one installed, install it from http://google.com/chrome.
+2.	Sign out of your Google account.
+3.	Type in the browser omni bar Google's URL Shortener home page at http://goo.gl/.
+4.	Type or paste a URL such as maps.google.com in the box under "Paste your long URL here". 
+(http:// is not needed).
+5.	Click the "I'm not a robot" checkbox. (This scheme activated September 2014 does not require input of random words, as described at http://www.wikiwand.com/en/ReCAPTCHA).
+6.	Click the blue Shorten URL button.
+7.	Press Ctrl or control+C to copy the shortened URL to your computer's clipboard. For comparison later, paste it into another document.
+8.	In the browser's address bar, double-click to highlight the goo.gl and press Command+V to paste the shortened URL.
+9.	Press Enter to resolve the URL.
+In this example, Google provides both the front-end and back-end processing under its own account (not that of a Google user).
+
+## <a name="from_goo.gl_signed_in"></a> Obtain short URLs manually from goo.gl as a signed-in Google user
+Now let's see what happens when the API request occurs by a user signed into Google:
 
 1.	Type in the browser address box Google's URL Shortener home page at http://goo.gl/.
 2.	Click Sign in and provide your Google password.
@@ -104,6 +121,13 @@ Notice that the URL processed recently does not appear on the list of URLs becau
 5.	Press Shorten URL. 
 6.	Paste the long URL and shorten it again.
 7.	Press Ctrl or command+C to save it to your clipboard.
+
+## <a name="from_node_cli"></a> 
+
+## <a name="from_google_node_js"></a> 
+## <a name="from_api_console"></a> 
+## <a name="from_playground"></a> 
+## <a name="from_devtools"></a> 
 
 
 ## Get Your Google API Key
