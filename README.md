@@ -76,7 +76,7 @@ Alternately, you may prefer to make these calls for a list of URLs from a batch 
 
 The remainder of this tutorial takes a "deep dive" into the different ways Google's URL Shortener service can be accessed.
 
-1.	Obtain short URL manually from goo.gl as an anonymous user
+1.	Obtain short URL manually from goo.gl as an anonymous user [goo.gl][]
 2.	Obtain short URL manually as a signed-in Google user
 3.	Obtain short URL manually using Node.js command line
 4.	Obtain short URL from Google's Node.js program 
@@ -93,7 +93,7 @@ k)	Make web service (API) call to Google servers
 l)	Manually retrieve report on short URL resolution history 
 m)	Retrieve report on short URL resolution history using Node.js
 
-## Obtain short URLs manually from goo.gl as an anonymous user
+## Obtain short URLs manually from goo.gl as an anonymous user [goo.gl] ##
 As an introduction to how Google’s URL Shortener API service works, let’s first look at the human user interface which web services APIs will replace.
 
 1.	Type in the browser address box Google's URL Shortener home page at http://goo.gl/.
