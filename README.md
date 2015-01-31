@@ -1,5 +1,5 @@
 # Objectives of this repo : gapi-node
-This repo was created to meet these objectives: 
+This repo was created to provide you: 
 
 1. house code for the [interactive client website](#Interactive_demo_client) developed to demo
   how to call a Google API (using JWT) from within a node.js server to shorten a URL for use in Twitter messages;
@@ -62,9 +62,32 @@ The sample is similar to other web pages created:
 The functionality of these web pages can be implemented as a plug-in within several frameworks:
 * https://wordpress.org/plugins/googl/
 
-The functionality of these web pages can be implemented in various other programming languages:
-* ???
+Sample client code in various other programming languages have been published :
+* https://code.google.com/p/google-api-objectivec-client/
+* https://code.google.com/p/php-url-shortener/
+* https://godoc.org/code.google.com/p/google-api-go-client/urlshortener/v1
 
+
+# <a name="Altertives_to_call"></a> Alternatives to use Google to shorten URLs
+
+This illustration shows how data is input into and output from Google's servers:
+
+![Data flow](http://www.merc.tv/img/fig/goo.dataflow_v01.png "Data flow")
+
+Among the many services Google provides, in this tutorial, we use Google's URL Shortener service  (at this scope address https://www.googleapis.com/auth/urlshortener/v1/) because one doesn’t need to stand-up a custom server in the Google Cloud to work with the URL Shortener service Google provides.
+
+Google’s goo.gl website converts long URLs into short URLs for inclusion within tweets or for quicker typing in keyboards.
+Google also provides an API Explorer, a Playground, and the code.google.com website for exploring calls made on behalf of a 
+Google user signed in. These sites mock how approved sites can use Google's API to generate shortUrls.
+
+Behind the scenes within each of these websites, there needs to be calls to Google’s **authentication service** so Google can enforce limits on how many calls are made.
+
+Because Google maintain statistics on where and when each shortUrl is created and invoked by the public, Google can display statistics on its web pages but also offer statistics to custom web sites through its Reports API.
+But first, a Node.js library such as this (which we'll be talking more about later) is used to authenticate with Google using credentials Google assigns through its Developer Console for a particular project associated with a Google account. 
+
+The authentication token assembled are sent to Google's authentication server to obtain an access token that will be sent along with requests for conversion. When an access token expires, the refresh token provided by Google is used to obtain more access tokens.
+
+<hr />
 # Different ways to access a Google API
 
 The remainder of this tutorial takes a "deep dive" into the different ways Google's URL Shortener service can be accessed. 
@@ -95,26 +118,6 @@ l)	Manually retrieve report on short URL resolution history
 m)	Retrieve report on short URL resolution history using Node.js
 
 <hr />
-
-# <a name="Altertives_to_call"></a> Alternatives to use Google to shorten URLs
-
-This illustration shows how data is input into and output from Google's servers:
-
-![Data flow](http://www.merc.tv/img/fig/goo.dataflow_v01.png "Data flow")
-
-Among the many services Google provides, in this tutorial, we use Google's URL Shortener service  (at this scope address https://www.googleapis.com/auth/urlshortener/v1/) because one doesn’t need to stand-up a custom server in the Google Cloud to work with the URL Shortener service Google provides.
-
-Google’s goo.gl website converts long URLs into short URLs for inclusion within tweets or for quicker typing in keyboards.
-Google also provides an API Explorer, a Playground, and the code.google.com website for exploring calls made on behalf of a 
-Google user signed in. These sites mock how approved sites can use Google's API to generate shortUrls.
-
-Behind the scenes within each of these websites, there needs to be calls to Google’s **authentication service** so Google can enforce limits on how many calls are made.
-
-Because Google maintain statistics on where and when each shortUrl is created and invoked by the public, Google can display statistics on its web pages but also offer statistics to custom web sites through its Reports API.
-But first, a Node.js library such as this (which we'll be talking more about later) is used to authenticate with Google using credentials Google assigns through its Developer Console for a particular project associated with a Google account. 
-
-The authentication token assembled are sent to Google's authentication server to obtain an access token that will be sent along with requests for conversion. When an access token expires, the refresh token provided by Google is used to obtain more access tokens.
-
 
 
 ## <a name="from_goo.gl_anon"></a> Obtain short URLs manually from goo.gl as an anonymous user
