@@ -70,22 +70,22 @@ is structured like an app that calls the Google API.
 4. The URL is added to the list of URLs in the drop-down.
 5. Statistics presented is for the URL selected from the list.
 
-Alternately, you may prefer to make these calls for a list of URLs from a batch program.
-
 # Different ways to access a Google API
 
 The remainder of this tutorial takes a "deep dive" into the different ways Google's URL Shortener service can be accessed.
 
-1.	Obtain short URL manually from goo.gl as an anonymous user [goo.gl][]
+1.	[Obtain short URL manually from goo.gl as an anonymous user}(#goo.gl)
 2.	Obtain short URL manually as a signed-in Google user
 3.	Obtain short URL manually using Node.js command line
 4.	Obtain short URL from Google's Node.js program 
 5.	Get list of short URLs from Google's API Console for known user
 6.	Obtain short URL manually using Google's API Playground
 
+Alternately, you may prefer to make these calls for a list of URLs from a batch program.
+
 Additional considerations:
 
-g)	Public API access
+g)	Public API access<br />
 h)	Use Google's Developer Console to define projects, service accounts, and private keys
 i)	.p12 file and cryptography
 j)	Store and retrieve private keys securely
@@ -93,7 +93,7 @@ k)	Make web service (API) call to Google servers
 l)	Manually retrieve report on short URL resolution history 
 m)	Retrieve report on short URL resolution history using Node.js
 
-## Obtain short URLs manually from goo.gl as an anonymous user [goo.gl] ##
+## <a name="goo.gl"></a> Obtain short URLs manually from goo.gl as an anonymous user
 As an introduction to how Google’s URL Shortener API service works, let’s first look at the human user interface which web services APIs will replace.
 
 1.	Type in the browser address box Google's URL Shortener home page at http://goo.gl/.
@@ -104,7 +104,6 @@ Notice that the URL processed recently does not appear on the list of URLs becau
 5.	Press Shorten URL. 
 6.	Paste the long URL and shorten it again.
 7.	Press Ctrl or command+C to save it to your clipboard.
-
 
 
 ## Get Your Google API Key
