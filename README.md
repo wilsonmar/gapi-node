@@ -27,26 +27,9 @@ This repo was created to provide you:
 - [ ] Objective 3 - Explain JWT
 - [ ] Objective 4 - Reports API calls
 
-# Why?
-The following is the narration to this video ___ on YouTube.com and DailyMotion.com ___.
-Videos dynamically reveal these illustrations with spoken text.
-
-[While viewing scroll of API Explorer from top to bottom]
-![Google API Explorer sample](http://www.merc.tv/img/fig/google.explorer_list_v01.png "Google API Explorer sample")
-
-This tutorial is a guided exploration for developers to quickly learn, in a hands-on way, how to perform server-to-server communication with Google's many web services.
-Google provides a large number of APIs (Application Programming Interfaces) so programs in servers can communicate with other computers directly without human interaction: Information from users of Google's Gmail, Calendar, Drive cloud, Google+, and YouTube videos.
-Why would one want to take the extra effort to extract data from Google when one has Gmail, Google maps, and other websites that Google provides? 
-
-Let's take a look at this line chart showing corresponding data series across time.
-
-![Data series from several sources](http://www.merc.tv/img/fig/goo.combined_data_v01.png "Data series")
-
-If you want to add event flags or additional data series **not** in Google servers you might need to have all the data on your **own** server. Google can automatically purge data on its severs anytime it wants. And Google has cancelled many services it has provided. So you need a way of keeping your data where **you** can really control.
-
 # <a name="Interactive_demo_client"></a> Interactive Demo Client to Shorten Long URLs
 The sample app shown at https://wilsonmar.github.com/gapi-node 
-is structured like an app that calls the Google API.
+makes calls to the Google API URL Shortener [first made available in 2009](http://googleblog.blogspot.com/2009/12/making-urls-shorter-for-google-toolbar.html).
 
 1. Type out a URL you would like to shorten and click "Shorten".
 2. The response is the shortened URL 
@@ -56,17 +39,17 @@ is structured like an app that calls the Google API.
 
 The sample is similar to other web pages created:
 * http://gaigalas.net/lab/googl
-* http://hayageek.com/examples/urlshortener-api/index.php
 * [Chrome web store app](https://chrome.google.com/webstore/detail/googl-url-shortener/iblijlcdoidgdpfknkckljiocdbnlagk)
+* http://hayageek.com/examples/urlshortener-api/index.php
 
 The functionality of these web pages can be implemented as a plug-in within several frameworks:
 * https://wordpress.org/plugins/googl/
 
 Sample client code in various other programming languages have been published :
-* https://code.google.com/p/google-api-objectivec-client/
-* https://code.google.com/p/php-url-shortener/
-* https://godoc.org/code.google.com/p/google-api-go-client/urlshortener/v1
-
+* PHP : https://code.google.com/p/php-url-shortener/
+* Apple Objective-C : https://code.google.com/p/google-api-objectivec-client/
+* Go language : https://godoc.org/code.google.com/p/google-api-go-client/urlshortener/v1
+* .NET : https://developers.google.com/api-client-library/dotnet/apis/urlshortener/v1
 
 # <a name="Altertives_to_call"></a> Alternatives to use Google to shorten URLs
 
@@ -119,14 +102,13 @@ m)	Retrieve report on short URL resolution history using Node.js
 
 <hr />
 
-
 ## <a name="from_goo.gl_anon"></a> Obtain short URLs manually from goo.gl as an anonymous user
 As an introduction to how Google’s URL Shortener API service works, let’s look at the human user interface which web services APIs replace.
 
 1.	Use the Google Chrome browser. If you do not have one installed, install it from http://google.com/chrome.
 2.	Sign out of your Google account.
 3.	Type in the browser omni bar Google's URL Shortener home page at http://goo.gl/.
-4.	Type or paste a URL such as maps.google.com in the box under "Paste your long URL here". 
+4.	Type or paste a URL of your choice (such as maps.google.com) in the box under "Paste your long URL here". 
 (http:// is not needed).
 5.	Click the "I'm not a robot" checkbox. (This scheme activated September 2014 does not require input of random words, as described at http://www.wikiwand.com/en/ReCAPTCHA).
 6.	Click the blue Shorten URL button.
@@ -135,17 +117,35 @@ As an introduction to how Google’s URL Shortener API service works, let’s lo
 9.	Press Enter to resolve the URL.
 In this example, Google provides both the front-end and back-end processing under its own account (not that of a Google user).
 
+
 ## <a name="from_goo.gl_signed_in"></a> Obtain short URLs manually from goo.gl as a signed-in Google user
 Now let's see what happens when the API request occurs by a user signed into Google:
 
 1.	Type in the browser address box Google's URL Shortener home page at http://goo.gl/.
 2.	Click Sign in and provide your Google password.
-Notice that the URL processed recently does not appear on the list of URLs because it was created under Google's account. URLs previously shortened using your Google account should show up on this page. 
-3.	Type or paste URL maps.google.com (or other URL of your choice) in the text box under "Paste your long URL here".  (http:// is not needed). 
+![goo.gl Langing page](http://www.merc.tv/img/fig/goo.gl_landing.png "goo.gl Langing page")
+
+> Notice that the URL you processed anonymously does NOT appear on the list of URLs associated with your Google account because it was created under Google's account. URLs previously shortened using your Google account would show up on this page. 
+
+3.	Type or paste a URL of your choice in the text box under "Paste your long URL here".  (http:// is not needed). 
 4.	Double-click on the long URL and press Ctrl or command+C to save it in your clipboard for use later.
 5.	Press Shorten URL. 
 6.	Paste the long URL and shorten it again.
 7.	Press Ctrl or command+C to save it to your clipboard.
+
+> Notice that the shortened URL created for the same long URL is different than the one created before. Also, different short URLs are created for the same long URL input. Other URL shortener services do not have such behavior. With Google, one can have private shortened URLs (to track links from different marketing channels, etc.). That is why authentication is necessary, for Google to report when and how many clicked on particular short URLs.
+
+8.	Open a new browser window. Perhaps a Firefox browser.
+9.	Paste the URL in the browser address bar and press Enter to retrieve the page.
+10.	Repeat on a different browser or even different operating system.
+11.	Return to the Google url shortener window. 
+12.	Click the Details link associated with the URL you just used.
+
+Details for a [popular link](http://goo.gl/#analytics/goo.gl/l6MS/all_time) looks like this:
+![Short URL usage Statistics](http://www.merc.tv/img/fig/goo-gl-analytics.jpg "Statistics")
+Image credit: [Mashable](http://mashable.com/2010/09/30/goo-gl-url-shortener/)
+
+Notice the 
 
 ## <a name="from_node_cli"></a> 
 
@@ -160,8 +160,25 @@ Notice that the URL processed recently does not appear on the list of URLs becau
 
 ## Convert Your Google API Private Key
 
-## Client libraries
-https://developers.google.com/api-client-library/dotnet/apis/urlshortener/v1
+<hr />
+# Why Capture Data from Google?
+The following is the narration to this video ___ on YouTube.com and DailyMotion.com ___.
+Videos dynamically reveal these illustrations with spoken text.
+
+[While viewing scroll of API Explorer from top to bottom]
+![Google API Explorer sample](http://www.merc.tv/img/fig/google.explorer_list_v01.png "Google API Explorer sample")
+
+This tutorial is a guided exploration for developers to quickly learn, in a hands-on way, how to perform server-to-server communication with Google's many web services.
+Google provides a large number of APIs (Application Programming Interfaces) so programs in servers can communicate with other computers directly without human interaction: Information from users of Google's Gmail, Calendar, Drive cloud, Google+, and YouTube videos.
+Why would one want to take the extra effort to extract data from Google when one has Gmail, Google maps, and other websites that Google provides? 
+
+Let's take a look at this line chart showing corresponding data series across time.
+
+![Data series from several sources](http://www.merc.tv/img/fig/goo.combined_data_v01.png "Data series")
+
+If you want to add event flags or additional data series **not** in Google servers you might need to have all the data on your **own** server. Google can automatically purge data on its severs anytime it wants. And Google has cancelled many services it has provided. So you need a way of keeping your data where **you** can really control.
+
+<hr />
 
 # Server
 In order to not expose credentials in client code, calls to the Google API needs to be made from a server. In our case, from a node.js server. The sample server code is based on use of ???
