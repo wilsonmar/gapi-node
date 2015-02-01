@@ -3,7 +3,7 @@ This repo was created to provide you:
 
 1. house code for the [interactive client website](#Interactive_demo_client) developed to demo
   how to call a Google API (using JWT) from within a node.js server to shorten a URL for use in Twitter messages;
-2. an explanation of [the workflow to use Google APIs](#Altertives_to_call) using [various clients](#Client_API_access)
+2. an explanation of [the workflow to use Google APIs](#Workflow_diagram) using [various clients](#Client_API_access)
 to format API calls;
 3. a description of how to [obtain credentials](#Obtain_credentials) used for making API calls; 
 4. explain [JWT construction internals](#JWT_internals) (base64, signing, etc.) used in the code; and
@@ -360,14 +360,16 @@ BEST PRACTICE IDEA: Specify a version number after each project name you define.
 This page can be reached again by clicking the APIs link within the APIs & auth menu at the left of the screen.
 
 6.	Bookmark the URL in your browser for each specific API project.
-7.	Click the blue Enable an API button for a list of Google services enabled. 
-8.	Scroll down the list to click on the link to URL Shortener API. The response is:
+7.	Click the blue **Enable an API** button for a list of Google services enabled. 
+8.	Scroll down the list to click on the link to **URL Shortener API**. The response is:
 
 ...   ![Console authorize](http://www.merc.tv/img/fig/goo-console.authorize-api.png "Console authorize")
 
 9.	As before, click to the left of the OFF switch to turn it ON.
 
 ...   ![Console authorize](http://www.merc.tv/img/fig/goo-console.accept.png "Console authorize")
+
+The API is moved to the top section of active APIs.
 
 10.	Click the checkbox, then the blue Accept button.
 
@@ -377,9 +379,13 @@ This page can be reached again by clicking the APIs link within the APIs & auth 
 
 > Notice there is a FREE QUOTA of 1,000,000 requests/day. Google needs authentication to determine who specifically are making calls so that such limits can be monitored and enforced.
 
-12.	Click on the Credentials link within the API & auth section at the left menu.
+12.	Click on the **Credentials** link within the API & auth section at the left menu.
 
-13.	There are two options: Public API access and OAuth 2.0. We'll look at both.
+**OAuth** is for accessing data. 
+
+13.	Scroll down to the **Public API** access section.
+
+The API Key is used to track Quota used.
 
 
 ## Get service account email for project
