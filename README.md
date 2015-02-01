@@ -119,6 +119,9 @@ k)	Make web service (API) call to Google servers
 l)	Manually retrieve report on short URL resolution history 
 m)	Retrieve report on short URL resolution history using Node.js
 
+The latest news about Google's URL Shortener is posted to the forum at
+https://groups.google.com/forum/#!forum/google-url-shortener
+
 <hr />
 
 ## <a name="from_goo.gl_anon"></a> Obtain short URLs manually from goo.gl as an anonymous user
