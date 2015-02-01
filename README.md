@@ -3,9 +3,11 @@ This repo was created to provide you:
 
 1. house code for the [interactive client website](#Interactive_demo_client) developed to demo
   how to call a Google API (using JWT) from within a node.js server to shorten a URL for use in Twitter messages;
-2. explore [the workflow to use Google APIs](#Altertives_to_call);
-3. explain [JWT construction internals](#JWT_internals) (base64, signing, etc.) used in the code; and
-4. show additional variations on use of Google APIs, such as the [Reports API](#Reports_API) 
+2. an explanation of [the workflow to use Google APIs](#Altertives_to_call) using [various clients](#Client_API_access)
+to format API calls;
+3. a description of how to [obtain credentials](#Obtain_credentials) used for making API calls; 
+4. explain [JWT construction internals](#JWT_internals) (base64, signing, etc.) used in the code; and
+5. show additional variations on use of Google APIs, such as the [Reports API](#Reports_API) 
   to collect and display analytics data Google collects.
  
 # Tasks To Build This
@@ -72,7 +74,7 @@ But first, a Node.js library such as this (which we'll be talking more about lat
 The authentication token assembled are sent to Google's authentication server to obtain an access token that will be sent along with requests for conversion. When an access token expires, the refresh token provided by Google is used to obtain more access tokens.
 
 <hr />
-# Different ways to access a Google API
+# <a name="Client_API_access"></a> Different ways to access the URL Shortener Google API:
 
 The remainder of this tutorial takes a "deep dive" into the different ways Google's URL Shortener service can be accessed. 
 
@@ -202,7 +204,7 @@ http://developers.google.com/apis-explorer/#p/urlshortener/v1/
 > Notice there are three functions provided by the API (**insert** a new short URL, **get** the long URL, and **list** the URLs).
 Because Google manages shortened URLs with authentication, Google can report the creation time and other analytics when it expands short URLs.
 
-4.	Authorize requests using OAuth 2.0 by clicking the OFF switch to turn it ON.
+4. <a name="Authorize_API"></a> Authorize requests using OAuth 2.0 by clicking/sliding the OFF switch to turn it ON.
 
 ...   ![Google URLS API Auth](http://www.merc.tv/img/fig/goo.oauth2.scopes.png "Google URLS API Auth ")
 
@@ -255,7 +257,7 @@ https://chrome.google.com/webstore/detail/oauth-20-playground/fcjholccjchiplkbib
  
 ...   ![Google API Scope](http://www.merc.tv/img/fig/goo.play.manage.png "Google API Scope")
 
-6.	As the user when owns the list, click **Accept**.
+6. <a name="Accept_API"></a> As the user when owns the list, click **Accept**.
 
 ...   ![Google API Exchange](http://www.merc.tv/img/fig/goo.play.exchange.png "Google API Exchange")
 
@@ -312,17 +314,78 @@ But instead of www.google.com, you would specify the long URL of your choice.
 }
 ```
 
-
-## <a name="from_devtools"></a> 
-
 <hr />
 
-# Make Your Own Program
+# <a name="#Obtain_credentials"></a> Obtain Google API Credentials for automated API calls
 
-## Get Your Google API Key
+The API calls above were obtained by Google manually by [clicking the OFF switch to turn it ON](#Authorize_API)
+or [clicking "Accept" Google managing short URLs](#Accept_API).
 
-## Convert Your Google API Private Key
+But when the user is not present to manually do that, 
+Google would need something to prove that acceptance was agreed ahead of time.
+That acceptance occurs by the user providing a private unique fingerprint key he/she generated
+which the computer uses to "sign" requests made on the user's behalf.
 
+Instead of manually signing in with a Google account (email) and typing in a password, 
+actions are performed by a **service account**
+and electronic keys obtained from the Google API Console for a project at 
+https://console.developers.google.com/.
+
+Programs usually only need call pre-defined library functions that accept a service account and private key as input,
+and the underlying format of calls are done automatically within the library code.
+
+The diagram here illustrates what happens under the covers:
+
+## <a name="Keygen_dataflow"></a> Key Generation Dataflow
+
+...   ![Dataflow](http://www.merc.tv/img/fig/goo.keygen_dataflow.png "Dataflow")
+
+Like most other major internet sites -- Amazon, Twitter, Facebook, LinkedIn, Yelp, etc. -- Google implements some form of the OAuth 2.0 standard formally defined at http://tools.ietf.org/html/rfc6749. This spec provides guidelines for token issuing patterns. It does not dictate how identity is validated. So it is up to each service to deploy patterns appropriate for its own use case. Each web service uses a slightly different approach.
+
+
+## Get service account email for project
+
+1.	Use an internet browser to bring up Google's Developer Console (also called API Console) at  https://console.developers.google.com/project
+
+2.	Define a **project** Google uses project as a container for certificates related to a particular application.
+Click on Create Project. Google suggests a PROJECT NAME such as "My Project 1" and a globally unique Project ID consisting of three sets of random words and numbers, such as "applied-algebra-825".
+
+BEST PRACTICE IDEA: Specify a version number after each project name you define.
+
+3.	Click the blue **Create** button.
+4.	It may take a few seconds for this activity to complete. When the Project Dashboard appears, click the "X" Activities pop-up to dismiss it.
+5.	The URL to reach the Project Dashboard for the project contains the Project ID, such as:
+	https://console.developers.google.com/project/applied-algebra-825
+
+This page can be reached again by clicking the APIs link within the APIs & auth menu at the left of the screen.
+
+6.	Bookmark the URL in your browser for each specific API project.
+7.	Click the blue Enable an API button for a list of Google services enabled. 
+8.	Scroll down the list to click on the link to URL Shortener API. The response is:
+
+...   ![Console authorize](http://www.merc.tv/img/fig/goo-console.authorize-api.png "Console authorize")
+
+9.	As before, click to the left of the OFF switch to turn it ON.
+
+...   ![Console authorize](http://www.merc.tv/img/fig/goo-console.accept.png "Console authorize")
+
+10.	Click the checkbox, then the blue Accept button.
+
+...   ![Console accept form](http://www.merc.tv/img/fig/goo-console.quota.png "Console accept form")
+
+11.	Click on the QUOTA tab.
+
+> Notice there is a FREE QUOTA of 1,000,000 requests/day. Google needs authentication to determine who specifically are making calls so that such limits can be monitored and enforced.
+
+12.	Click on the Credentials link within the API & auth section at the left menu.
+
+13.	There are two options: Public API access and OAuth 2.0. We'll look at both.
+
+
+## Get service account email for project
+
+
+## Covert .p12 file to .pem format
 
 ## <a name="from_google_node_js"></a> Obtain short URL from Google's Node.js program 
 
