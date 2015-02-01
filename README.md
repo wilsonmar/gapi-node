@@ -81,7 +81,6 @@ The remainder of this tutorial takes a "deep dive" into the different ways Googl
 3.	[Obtain short URL manually using Node.js command line](#from_node_cli)
 4.	[Obtain short URL manually using Google's API Playground](#from_playground)
 5.	[Obtain short URL manually using Google Code](#from_devtools)
-
 4.	[Obtain short URL from Google's Node.js program](#from_google_node_js)
 
 Along the way, we consider several technical details:
@@ -141,7 +140,7 @@ Now let's see what happens when the API request occurs by a user signed into Goo
 9.	Paste the URL in the browser address bar and press Enter to retrieve the page.
 10.	Repeat on a different browser or even different operating system.
 11.	Return to the Google url shortener window. 
-12.	Click the *Details* link associated with the URL you just used. An example of such a link is
+12.	Click the **Details** link associated with the URL you just used. An example of such a link is
 http://goo.gl/#analytics/goo.gl/l6MS/all_time.
 
 > Because Google servers resolves short to long URLs, it can track meta information from clients used to view the link. IP addresses of clients can be asociated with the country of origin. The browser, and operating system platform are also provided by client browsers.
@@ -152,7 +151,7 @@ Since the link you just created won't have any hits yet, let's take a look at on
 
 13. In you internet browser's address, type in http://goo.gl/l6MS.info.
 
-> Notice that analytics for a generated code can be obtained by adding *.info* to the code generated.
+> Notice that analytics for a generated code can be obtained by adding **.info** to the code generated.
 
 ![Short URL usage Statistics](http://www.merc.tv/img/fig/goo-gl-analytics.jpg "Statistics")
 Image credit: [Mashable](http://mashable.com/2010/09/30/goo-gl-url-shortener/)
@@ -194,13 +193,13 @@ The short URL output can be captured into logs by node.js modules such as https:
 1.	Sign in to your Google account.
 2.	Go to Google's API Explorer page: http://developers.google.com/apis-explorer/
 
-3.	Scroll down the list of Google's APIs to select *URL Shortener*, currently at version 1:
+3.	Scroll down the list of Google's APIs to select **URL Shortener**, currently at version 1:
 
 http://developers.google.com/apis-explorer/#p/urlshortener/v1/
 
 ![Google URLS API Auth](http://www.merc.tv/img/fig/goo.api.auth.png "Google URLS API Auth")
 
-> Notice there are three functions provided by the API (*insert* a new short URL, *get* the long URL, and *list* the URLs).
+> Notice there are three functions provided by the API (**insert** a new short URL, **get** the long URL, and **list** the URLs).
 Because Google manages shortened URLs with authentication, Google can report the creation time and other analytics when it expands short URLs.
 
 4.	Authorize requests using OAuth 2.0 by clicking the OFF switch to turn it ON.
@@ -245,18 +244,18 @@ https://chrome.google.com/webstore/detail/oauth-20-playground/fcjholccjchiplkbib
 
 ![Google API Playground](http://www.merc.tv/img/fig/goo.play.api_list.png "Google API Playground")
 
-3.	Scroll down in the list and click *URL Shortener API v1*.
+3.	Scroll down in the list and click **URL Shortener API v1**.
 4.	Click to select the scope "https://www.googleapis.com/auth/urlshortener".
  
 ![Google API Scope](http://www.merc.tv/img/fig/goo.play.scope.png "Google API Scope")
 
 > Note that the scope is not used like public URLs, but internally to uniquely identify which Google API is being used.
 
-5.	Click the blue *Authorize API* button to access the scope selected.
+5.	Click the blue **Authorize API** button to access the scope selected.
  
 ![Google API Scope](http://www.merc.tv/img/fig/goo.play.manage.png "Google API Scope")
 
-6.	As the user when owns the list, click *Accept*.
+6.	As the user when owns the list, click **Accept**.
 
 ![Google API Exchange](http://www.merc.tv/img/fig/goo.play.exchange.png "Google API Exchange")
 
@@ -277,11 +276,11 @@ The Access token is added to communications from the client to establish its aut
 > Notice the token_type is "Bearer" (carrier) of the access token as defined in the 
 OAuth2 spec.
 
-8.	Click *List possible operations* for the pop-up, then expand *Insert Url*:
+8.	Click *List possible operations* for the pop-up, then expand **Insert Url**:
  
 ![Google API Send Request](http://www.merc.tv/img/fig/goo.play.list_ops.png "Google API Send Request")
 
-9.	Click on *Insert Url* to auto-populate the Request URI.
+9.	Click on **Insert Url** to auto-populate the Request URI.
 10.	In another browser window, view https://developers.google.com/url-shortener/v1/getting_started?csw=1#actions,
 which defines this json-formatted request:
 
@@ -295,7 +294,7 @@ Also note what a successful response looks like in the sample page.
 
 But instead of www.google.com, you would specify the long URL of your choice.
 
-11. Click *Enter request body* to specify the long URL before pressing Close. For example:
+11. Click **Enter request body** to specify the long URL before pressing Close. For example:
 
 ```	
 {"longUrl": "http://www.wilsonmar.com/"}
@@ -303,7 +302,7 @@ But instead of www.google.com, you would specify the long URL of your choice.
 
 ![Google API Send Request](http://www.merc.tv/img/fig/goo.play.send_req.png "Google API Send Request")
 
-12. Click the blue *Send the request* button to obtain a successful (200 OK) response such as this:
+12. Click the blue **Send the request** button to obtain a successful (200 OK) response such as this:
 
 ```	
 {
