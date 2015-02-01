@@ -51,7 +51,8 @@ Sample client code in various other programming languages have been published :
 * Go language : https://godoc.org/code.google.com/p/google-api-go-client/urlshortener/v1
 * .NET : https://developers.google.com/api-client-library/dotnet/apis/urlshortener/v1
 
-# <a name="Altertives_to_call"></a> Workflow to use Google for shortening URLs
+
+# <a name="Workflow_diagram"></a> Workflow to use Google for shortening URLs
 
 This illustration shows how data is input into and output from Google's servers:
 
@@ -193,7 +194,7 @@ The short URL output can be captured into logs by node.js modules such as https:
 1.	Sign in to your Google account.
 2.	Go to Google's API Explorer page: http://developers.google.com/apis-explorer/
 
-3.	Scroll down to select URL Shortener, currently at version 1:
+3.	Scroll down the list of Google's APIs to select *URL Shortener*, currently at version 1:
 
 http://developers.google.com/apis-explorer/#p/urlshortener/v1/
 
@@ -225,8 +226,7 @@ Because Google manages shortened URLs with authentication, Google can report the
 
 13.	Press Execute for the long URL for a response containing both short and long URL.
 
-> Notice the 3 steps involved above:
-
+> Notice the 3 steps involved above outlined in the [workflow diagram above](#Workflow_diagram):
 1)	Select and Authorize API with a scope of access
 2)	Exchange authorization code for access tokens (which occurs internally)
 3)	Configure request to API
@@ -245,24 +245,25 @@ https://chrome.google.com/webstore/detail/oauth-20-playground/fcjholccjchiplkbib
 
 ![Google API Playground](http://www.merc.tv/img/fig/goo.play.api_list.png "Google API Playground")
 
-3.	Scroll down in the list and click URL Shortener API v1.
-4.	Click to select the scope:
+3.	Scroll down in the list and click *URL Shortener API v1*.
+4.	Click to select the scope "https://www.googleapis.com/auth/urlshortener".
  
 ![Google API Scope](http://www.merc.tv/img/fig/goo.play.scope.png "Google API Scope")
 
-> Notice that the scope is used internally 
+> Note that the scope is not used like public URLs, but internally to uniquely identify which Google API is being used.
 
-5.	Click Authorize API to access the scope selected.
+5.	Click the blue *Authorize API* button to access the scope selected.
  
 ![Google API Scope](http://www.merc.tv/img/fig/goo.play.manage.png "Google API Scope")
 
-6.	As the user when owns the list, click Accept.
+6.	As the user when owns the list, click *Accept*.
 
 ![Google API Exchange](http://www.merc.tv/img/fig/goo.play.exchange.png "Google API Exchange")
 
 How this authorization code is created will be described in the next section.
 
-> Notice the authorization code is exchanged only once for access tokens which are used on an on-going basis. Lukas White at http://www.sitepoint.com/using-json-web-tokens-node-js describes it this way:
+> Notice the authorization code is exchanged only *once* for access tokens which are used on an on-going basis. 
+Lukas White [describes it this way](http://www.sitepoint.com/using-json-web-tokens-node-js):
 Think of the token like a security pass. You identify yourself at the front desk of a restricted building on arrival (supply your username and password), and if you can be successfully identified you’re issued a security pass. As you move around the building (attempt to access resources by making calls to the API) you are required to show your pass, rather than go through the initial identification process all over again.
 
 7.	Click Exchange authorization code for tokens.
@@ -281,6 +282,7 @@ The Access token is added to communications from the client to establish its aut
 
 QUESTION: How does this work???
 Now stepping back a bit, on what basis was the Authorization Code generated?
+
 
 ## <a name="from_devtools"></a> 
 
