@@ -274,14 +274,44 @@ The Access token is added to communications from the client to establish its aut
 
 ![Google API Access Token](http://www.merc.tv/img/fig/goo.play.access_token.png "Google API Access Token")
 
-> Notice the token_type is "Bearer" (carrier) of the access token.
+> Notice the token_type is "Bearer" (carrier) of the access token as defined in the 
+OAuth2 spec.
 
-8.	Click Step 3 Configure request to API.
+8.	Click *List possible operations* for the pop-up, then expand *Insert Url*:
  
+![Google API Send Request](http://www.merc.tv/img/fig/goo.play.list_ops.png "Google API Send Request")
+
+9.	Click on *Insert Url* to auto-populate the Request URI.
+10.	In another browser window, view https://developers.google.com/url-shortener/v1/getting_started?csw=1#actions,
+which defines this json-formatted request:
+
+```	
+POST https://www.googleapis.com/urlshortener/v1/url
+Content-Type: application/json
+{"longUrl": "http://www.google.com/"}
+```
+
+Also note what a successful response looks like in the sample page.
+
+But instead of www.google.com, you would specify the long URL of your choice.
+
+11. Click *Enter request body* to specify the long URL before pressing Close. For example:
+
+```	
+{"longUrl": "http://www.wilsonmar.com/"}
+```
+
 ![Google API Send Request](http://www.merc.tv/img/fig/goo.play.send_req.png "Google API Send Request")
 
-QUESTION: How does this work???
-Now stepping back a bit, on what basis was the Authorization Code generated?
+12. Click the blue *Send the request* button to obtain a successful (200 OK) response such as this:
+
+```	
+{
+  "kind": "urlshortener#url", 
+  "id": "http://goo.gl/p0eVli", 
+  "longUrl": "http://www.wilsonmar.com/"
+}
+```
 
 
 ## <a name="from_devtools"></a> 
