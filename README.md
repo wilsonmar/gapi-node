@@ -143,7 +143,7 @@ Now let's see what happens when the API request occurs by a user signed into Goo
 10.	Repeat on a different browser or even different operating system.
 11.	Return to the Google url shortener window. 
 12.	Click the **Details** link associated with the URL you just used. An example of such a link is
-http://goo.gl/#analytics/goo.gl/l6MS/all_time.
+http://goo.gl/#analytics/goo.gl/l6MS/all_time created December, 2009.
 
 > Because Google servers resolves short to long URLs, it can track meta information from clients used to view the link. IP addresses of clients can be asociated with the country of origin. The browser, and operating system platform are also provided by client browsers.
 
@@ -302,7 +302,7 @@ But instead of www.google.com, you would specify the long URL of your choice.
 {"longUrl": "http://www.wilsonmar.com/"}
 ```
 
-...   ![Google API Send Request](http://www.merc.tv/img/fig/goo.play.send_req.png "Google API Send Request")
+...   ![Google API Send Request](http://www.merc.tv/img/fig/goo.play.send_req_2015_02_01.png "Google API Send Request")
 
 12. Click the blue **Send the request** button to obtain a successful (200 OK) response such as this:
 
