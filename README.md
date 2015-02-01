@@ -164,15 +164,15 @@ The module comes from: https://github.com/kaimallea/node-googl
 
 3.	Obtain a short URL by specifying the goo.gl with a host name (without the http protocol):
 
-...
+```
 goo.gl     maps.google.com
-...
+```
 
 The response would be something like this:
 
-...
+```
 http://maps.google.com -> http://goo.gl/fbsS
-...
+```
 
 > Notice this command can be invoked repeatedly by another program processing a list of URLs. The short URL output can be captured into logs by node.js modules such as https://github.com/bevry/caterpillar.
 
