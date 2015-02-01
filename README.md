@@ -163,10 +163,13 @@ npm install -g goo.gl
 The module comes from: https://github.com/kaimallea/node-googl
 
 3.	Obtain a short URL by specifying the goo.gl with a host name (without the http protocol):
+
 ...
 goo.gl     maps.google.com
 ...
+
 The response would be something like this:
+
 ...
 http://maps.google.com -> http://goo.gl/fbsS
 ...
