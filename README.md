@@ -59,7 +59,7 @@ is still in beta with 90 open issues as of 2015.02.01. We are using it nonethele
 
 > QUESTION: Is the client.js library hosted among others at https://developers.google.com/speed/libraries/?csw=1
 
-The functionality of these web pages can be implemented as a plug-in within several frameworks:
+The functionality of these web pages can be implemented as a plug-in within UI frameworks:
 * https://wordpress.org/plugins/googl/
 
 Sample client code in various other programming languages have been published :
@@ -397,6 +397,11 @@ The API is moved to the top section of active APIs.
 11.	Click on the QUOTA tab.
 
 > Notice there is a FREE QUOTA of 1,000,000 requests/day. Google needs authentication to determine who specifically are making calls so that such limits can be monitored and enforced.
+
+> TECHNICAL NOTE: Batch processing using Windows server PowerShell scripts is covered at:
+http://powershellnotebook.com/2014/10/31/powershell-shorten-urls-with-googles-api/
+
+> Some have noted 403 rateLimitExceed errors after 300 insert requests within an hour.
 
 12.	Click on the **Credentials** link within the API & auth section at the left menu.
 
