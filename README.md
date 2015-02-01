@@ -191,18 +191,26 @@ http://maps.google.com -> http://goo.gl/fbsS
 > Because Google manages shortened URLs with authentication, Google can report the creation time and other analytics when it expands short URLs.
 
 4.	Authorize requests using OAuth 2.0 by clicking the OFF switch to turn it ON.
- 
+
+![Google URLS API Auth](http://www.merc.tv/img/fig/goo.oauth2.scopes.png "Google URLS API Auth ")
+
 5.	Check to select the scope https://www.googleapis.com/auth/urlshortener.
 6.	Click Authorize.
- 
+
+![Google URLS API Auth On](http://www.merc.tv/img/fig/goo.api.auth.on.png "Google URLS API Auth On")
+
 7.	Now that OAuth is ON, click on urlshortener.url.list (without inputting any parameters).
 8.	Click Execute.
 9.	Scroll down the see Responses containing shortened URLs, such as:
  
+![Google URLS API Auth Json](http://www.merc.tv/img/fig/goo.api.auth.json.png "Google URLS API Auth Json")
+
 10.	Click on URL Shortener API v1 > to return to the list of functions.
 11.	Double-click on urlshortener.url.get.
 12.	Paste the URL (such as http://goo.gl/maps/QO5Lp).
  
+![Google URLS API Auth Execute](http://www.merc.tv/img/fig/goo.api.auth.execute.png "Google URLS API Auth Execute")
+
 13.	Press Execute for the long URL for a response containing both short and long URL.
 
 > Notice the 3 steps involved above:
@@ -212,8 +220,50 @@ http://maps.google.com -> http://goo.gl/fbsS
 3)	Configure request to API
 
 
-## <a name="from_playground"></a> 
-goo.api.auth.png
+## <a name="from_playground"></a> Obtain short URL using Google OAuth 2.0 Playground
+Google's OAuth 2.0 Playground works only with active (default) versions of services, and includes some services not listed within the API Explorer.
+
+1.	Sign in to your Google account.
+2.	Go to Google's OAuth 2.0 Playground (aka API Console) at: https://developers.google.com/oauthplayground/
+
+Alternately, you can instead launch the Google Chrome plug-in:
+https://chrome.google.com/webstore/detail/oauth-20-playground/fcjholccjchiplkbibepfimlaapdaiih
+
+3.	Scroll down in the list and click URL Shortener API v1.
+4.	Click to select the scope:
+ 
+![Google API Scope](http://www.merc.tv/img/fig/goo.play.scope.png "Google API Scope")
+
+5.	Click Authorize API to access the scope selected.
+ 
+![Google API Scope](http://www.merc.tv/img/fig/goo.play.manage.png "Google API Scope")
+
+6.	As the user when owns the list, click Accept.
+
+![Google API Exchange](http://www.merc.tv/img/fig/goo.play.exchange.png "Google API Exchange")
+
+How this authorization code is created will be described in the next section.
+
+> Notice the authorization code is exchanged only once for access tokens which are used on an on-going basis. Lukas White at http://www.sitepoint.com/using-json-web-tokens-node-js describes it this way:
+Think of the token like a security pass. You identify yourself at the front desk of a restricted building on arrival (supply your username and password), and if you can be successfully identified you’re issued a security pass. As you move around the building (attempt to access resources by making calls to the API) you are required to show your pass, rather than go through the initial identification process all over again.
+
+7.	Click Exchange authorization code for tokens.
+ 
+![Google API Exchange](http://www.merc.tv/img/fig/goo.play.refresh.png "Google API Exchange")
+
+The Access token is added to communications from the client to establish its authenticity with Google servers. The 3578 seconds shown in this example is considered "short-lived", the time period when the access token remains usable. After that time, the Refresh token needs to be sent to obtain a fresh access token. The format of the packet containing this information is this:
+
+![Google API Access Token](http://www.merc.tv/img/fig/goo.play.access_token.png "Google API Access Token")
+
+> Notice the token_type is "Bearer" (carrier) of the access token.
+
+8.	Click Step 3 Configure request to API.
+ 
+![Google API Send Request](http://www.merc.tv/img/fig/goo.play.send_req.png "Google API Send Request")
+
+QUESTION: How does this work???
+Now stepping back a bit, on what basis was the Authorization Code generated?
+
 
 ## <a name="from_devtools"></a> 
 
