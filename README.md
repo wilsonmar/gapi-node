@@ -75,7 +75,7 @@ This illustration shows how data is input into and output from Google's servers:
 
 ![Data flow](http://www.merc.tv/img/fig/goo.dataflow_v02.png "Data flow")
 
-Among the many services Google provides, in this tutorial, we use Google's URL Shortener service  (at this scope address https://www.googleapis.com/auth/urlshortener/v1/) because one doesn’t need to stand-up a custom server in the Google Cloud to work with the URL Shortener service Google provides.
+Among the many services Google provides, in this tutorial, we use Google's URL Shortener service because one doesn’t need to stand-up a custom server in the Google Cloud to work with the URL Shortener service Google provides.
 
 Google’s goo.gl website converts long URLs into short URLs for inclusion within tweets or for quicker typing in keyboards.
 Google also provides an API Explorer, a Playground, and the code.google.com website for exploring calls made on behalf of a 
