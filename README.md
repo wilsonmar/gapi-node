@@ -12,13 +12,15 @@ to format API calls;
  
 # Tasks To Build This
 - [ ] Objective 2 - Explore libraries (done first to not waste time on objective 1)
+	Decision to use https://github.com/google/google-api-javascript-client with documentation at
+	https://cloud.google.com/compute/docs/tutorials/javascript-guide#authorization
 
 - [ ] Objective 1 - Call Google API
   - [x] Create github repo (Wilson)
   - [ ] Create github.io/gapi-node (wilson)
-  - [ ] Provide API key (Wilson)
-  - [ ] Code client form URL with no formatting, no retrieval of QR code (Abdul)
-  - [ ] local node.js skeleton (Wilson with Abdul)
+  - [x] Provide API key (Wilson)
+  - [ ] Code running skeleton client form and node.js express with no formatting, no retrieval of QR code (Abdul)
+  - [ ] Describe skeleton (Wilson with Abdul)
   - [ ] Add library to call Google API (Abdul)
   - [ ] Add calling code in node server code (Abdul)
   - [ ] Code client QR code retrieval and display client side (Abdul)
@@ -43,6 +45,12 @@ The sample is similar to other web pages created:
 * http://gaigalas.net/lab/googl
 * [Chrome web store app](https://chrome.google.com/webstore/detail/googl-url-shortener/iblijlcdoidgdpfknkckljiocdbnlagk)
 * http://hayageek.com/examples/urlshortener-api/index.php
+
+> Notice here the client-side JavaScript library https://apis.google.com/js/client.js used is documented at https://developers.google.com/api-client-library/javascript/start/start-js.
+The advantage to using this is as more websites use it, the visitors will have it cached on their browser already.
+The library supports [many Google APIs](https://developers.google.com/apis-explorer/#p/) (Calendar, etc.).
+But the library, https://github.com/google/google-api-javascript-client, 
+is still in beta with 90 open issues as of 2015.02.01. We are using it nonetheless.
 
 The functionality of these web pages can be implemented as a plug-in within several frameworks:
 * https://wordpress.org/plugins/googl/
