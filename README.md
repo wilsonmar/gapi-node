@@ -164,6 +164,8 @@ Now let's see what happens when the API request occurs by a user signed into Goo
 12.	Click the **Details** link associated with the URL you just used. An example of such a link is
 http://goo.gl/#analytics/goo.gl/l6MS/all_time created December, 2009.
 
+> Hits are included in the "Not Provided" or "Unknown" category when https (secure URLs) are used.
+
 > Because Google servers resolves short to long URLs, it can track meta information from clients used to view the link. IP addresses of clients can be asociated with the country of origin. The browser, and operating system platform are also provided by client browsers.
 
 Since the link you just created won't have any hits yet, let's take a look at one that has lots of hits over time.
