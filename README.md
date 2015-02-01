@@ -1,11 +1,11 @@
 # Objectives of this repo : gapi-node
-This repo was created to provide you: 
+This repo was created to: 
 
-1. house code for the [interactive client website](#Interactive_demo_client) developed to demo
+1. provide sample code (with tests) for the [interactive client website](#Interactive_demo_client) developed to demo
   how to call a Google API (using JWT) from within a node.js server to shorten a URL for use in Twitter messages;
-2. an explanation of [the workflow to use Google APIs](#Workflow_diagram) using [various clients](#Client_API_access)
+2. explain [the workflow to use Google APIs](#Workflow_diagram) using [various clients](#Client_API_access)
 to format API calls;
-3. a description of how to [obtain credentials](#Obtain_credentials) used for making API calls; 
+3. describe how to [obtain credentials](#Obtain_credentials) used for making API calls; 
 4. explain [JWT construction internals](#JWT_internals) (base64, signing, etc.) used in the code; and
 5. show additional variations on use of Google APIs, such as the [Reports API](#Reports_API) 
   to collect and display analytics data Google collects.
@@ -21,6 +21,8 @@ to format API calls;
   - [x] Provide API key (Wilson)
   - [ ] Code running skeleton client form and node.js express with no formatting, no retrieval of QR code (Abdul)
   - [ ] Describe skeleton (Wilson with Abdul)
+  - [ ] Add test code (Wilson)
+
   - [ ] Add library to call Google API (Abdul)
   - [ ] Add calling code in node server code (Abdul)
   - [ ] Code client QR code retrieval and display client side (Abdul)
@@ -65,6 +67,9 @@ Sample client code in various other programming languages have been published :
 * Java
 
 # <a name="Workflow_diagram"></a> Workflow to use Google for shortening URLs
+
+The following is the narration to this video ___ on YouTube.com and DailyMotion.com ___.
+Videos dynamically reveal these illustrations with spoken text.
 
 This illustration shows how data is input into and output from Google's servers:
 
@@ -434,8 +439,6 @@ console.log(urlshortener.url);
 
 <hr />
 # Why Capture Data from Google?
-The following is the narration to this video ___ on YouTube.com and DailyMotion.com ___.
-Videos dynamically reveal these illustrations with spoken text.
 
 [While viewing scroll of API Explorer from top to bottom]
 ...![Google API Explorer sample](http://www.merc.tv/img/fig/google.explorer_list_v01.png "Google API Explorer sample")
