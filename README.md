@@ -139,18 +139,27 @@ Now let's see what happens when the API request occurs by a user signed into Goo
 9.	Paste the URL in the browser address bar and press Enter to retrieve the page.
 10.	Repeat on a different browser or even different operating system.
 11.	Return to the Google url shortener window. 
-12.	Click the Details link associated with the URL you just used.
+12.	Click the *Details* link associated with the URL you just used. An example of such a link is
+http://goo.gl/#analytics/goo.gl/l6MS/all_time.
 
-Details for a [popular link](http://goo.gl/#analytics/goo.gl/l6MS/all_time) looks like this:
+> Because Google servers resolves short to long URLs, it can track meta information from clients used to view the link. IP addresses of clients can be asociated with the country of origin. The browser, and operating system platform are also provided by client browsers.
+
+Since the link you just created won't have any hits yet, let's take a look at one that has lots of hits over time.
+
+> Notice that codes are case-sensitive.
+
+13. In you internet browser's address, type in http://goo.gl/l6MS.info.
+
+> Notice that analytics for a generated code can be obtained by adding *.info* to the code generated.
 
 ![Short URL usage Statistics](http://www.merc.tv/img/fig/goo-gl-analytics.jpg "Statistics")
 Image credit: [Mashable](http://mashable.com/2010/09/30/goo-gl-url-shortener/)
 
-> Notice Google has generated a QR code for mobile smartphone readers to obtain the URL.
+> Notice at the upper right corner the QR (Quick Response) code for mobile smartphone readers to obtain the URL.
 
-13.	Scroll down. 
-	
-> Notice Google tracks referrers, from which country the request was made, and what browser, and operating system platform was used to view the link.
+14.	To obtain the QR code, change the address by adding *.qr* after the generated code (l6MS) to
+http://goo.gl/l6MS.qr
+
 
 ## <a name="from_node_cli"></a> Obtain short URL from a Node.js command line
 A custom program (not Google) can also provide a way to shorten URLs under its account.
@@ -175,7 +184,8 @@ The response would be something like this:
 http://maps.google.com -> http://goo.gl/fbsS
 ```
 
-> Notice this command can be invoked repeatedly by another program processing a list of URLs. The short URL output can be captured into logs by node.js modules such as https://github.com/bevry/caterpillar.
+This command can be invoked repeatedly by a calling program processing a list of long URLs. 
+The short URL output can be captured into logs by node.js modules such as https://github.com/bevry/caterpillar.
 
 
 ## <a name="from_api_console"></a> Get list of short URLs generated from Google API Explorer for known user
@@ -184,11 +194,10 @@ http://maps.google.com -> http://goo.gl/fbsS
 
 3.	Scroll down to select URL Shortener, currently at version 1: http://developers.google.com/apis-explorer/#p/urlshortener/v1/
 
-> Notice there are three functions presented (insert a new URL, get the long URL, and list).
-
 ![Google URLS API Auth](http://www.merc.tv/img/fig/goo.api.auth.png "Google URLS API Auth")
 
-> Because Google manages shortened URLs with authentication, Google can report the creation time and other analytics when it expands short URLs.
+> Notice there are three functions provided by the API (insert a new short URL, get the long URL, and list the URLs).
+Because Google manages shortened URLs with authentication, Google can report the creation time and other analytics when it expands short URLs.
 
 4.	Authorize requests using OAuth 2.0 by clicking the OFF switch to turn it ON.
 
@@ -264,8 +273,15 @@ The Access token is added to communications from the client to establish its aut
 QUESTION: How does this work???
 Now stepping back a bit, on what basis was the Authorization Code generated?
 
-
 ## <a name="from_devtools"></a> 
+
+<hr />
+
+# Make Your Own Program
+
+## Get Your Google API Key
+
+## Convert Your Google API Private Key
 
 
 ## <a name="from_google_node_js"></a> Obtain short URL from Google's Node.js program 
@@ -296,10 +312,6 @@ console.log(urlshortener.url);
 	{ get: [Function], insert: [Function], list: [Function] }
 
 <hr />
-
-## Get Your Google API Key
-
-## Convert Your Google API Private Key
 
 <hr />
 # Why Capture Data from Google?
