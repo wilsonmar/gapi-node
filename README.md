@@ -3,7 +3,7 @@ This repo was created to provide you:
 
 1. house code for the [interactive client website](#Interactive_demo_client) developed to demo
   how to call a Google API (using JWT) from within a node.js server to shorten a URL for use in Twitter messages;
-2. explore [alternatives from Google and others to make those calls](#Altertives_to_call);
+2. explore [the workflow to use Google APIs](#Altertives_to_call);
 3. explain [JWT construction internals](#JWT_internals) (base64, signing, etc.) used in the code; and
 4. show additional variations on use of Google APIs, such as the [Reports API](#Reports_API) 
   to collect and display analytics data Google collects.
@@ -51,7 +51,7 @@ Sample client code in various other programming languages have been published :
 * Go language : https://godoc.org/code.google.com/p/google-api-go-client/urlshortener/v1
 * .NET : https://developers.google.com/api-client-library/dotnet/apis/urlshortener/v1
 
-# <a name="Altertives_to_call"></a> Alternatives to use Google to shorten URLs
+# <a name="Altertives_to_call"></a> Workflow to use Google for shortening URLs
 
 This illustration shows how data is input into and output from Google's servers:
 
@@ -142,12 +142,38 @@ Now let's see what happens when the API request occurs by a user signed into Goo
 12.	Click the Details link associated with the URL you just used.
 
 Details for a [popular link](http://goo.gl/#analytics/goo.gl/l6MS/all_time) looks like this:
+
 ![Short URL usage Statistics](http://www.merc.tv/img/fig/goo-gl-analytics.jpg "Statistics")
 Image credit: [Mashable](http://mashable.com/2010/09/30/goo-gl-url-shortener/)
 
-Notice the 
+> Notice Google has generated a QR code for mobile smartphone readers to obtain the URL.
 
-## <a name="from_node_cli"></a> 
+13.	Scroll down. 
+	
+> Notice Google tracks referrers, from which country the request was made, and what browser, and operating system platform was used to view the link.
+
+## <a name="from_node_cli"></a> Obtain short URL from a Node.js command line
+A custom program (not Google) can also provide a way to shorten URLs under its account.
+
+1.	Install node.js with npm on your Windows, Mac OS, or Linux machine.
+2.	Install module node-googl into your node.js server:
+...
+npm install -g goo.gl
+...
+The module comes from: https://github.com/kaimallea/node-googl
+
+3.	Obtain a short URL by specifying the goo.gl with a host name (without the http protocol):
+...
+goo.gl     maps.google.com
+...
+The response would be something like this:
+...
+http://maps.google.com -> http://goo.gl/fbsS
+...
+
+> Notice this command can be invoked repeatedly by another program processing a list of URLs. The short URL output can be captured into logs by node.js modules such as https://github.com/bevry/caterpillar.
+
+
 
 ## <a name="from_google_node_js"></a> 
 ## <a name="from_api_console"></a> 
