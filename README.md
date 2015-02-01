@@ -52,6 +52,8 @@ The library supports [many Google APIs](https://developers.google.com/apis-explo
 But the library, https://github.com/google/google-api-javascript-client, 
 is still in beta with 90 open issues as of 2015.02.01. We are using it nonetheless.
 
+> QUESTION: Is the client.js library hosted among others at https://developers.google.com/speed/libraries/?csw=1
+
 The functionality of these web pages can be implemented as a plug-in within several frameworks:
 * https://wordpress.org/plugins/googl/
 
@@ -60,13 +62,13 @@ Sample client code in various other programming languages have been published :
 * Apple Objective-C : https://code.google.com/p/google-api-objectivec-client/
 * Go language : https://godoc.org/code.google.com/p/google-api-go-client/urlshortener/v1
 * .NET : https://developers.google.com/api-client-library/dotnet/apis/urlshortener/v1
-
+* Java
 
 # <a name="Workflow_diagram"></a> Workflow to use Google for shortening URLs
 
 This illustration shows how data is input into and output from Google's servers:
 
-![Data flow](http://www.merc.tv/img/fig/goo.dataflow_v01.png "Data flow")
+![Data flow](http://www.merc.tv/img/fig/goo.dataflow_v02.png "Data flow")
 
 Among the many services Google provides, in this tutorial, we use Google's URL Shortener service  (at this scope address https://www.googleapis.com/auth/urlshortener/v1/) because one doesn’t need to stand-up a custom server in the Google Cloud to work with the URL Shortener service Google provides.
 
