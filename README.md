@@ -76,7 +76,7 @@ The authentication token assembled are sent to Google's authentication server to
 The remainder of this tutorial takes a "deep dive" into the different ways Google's URL Shortener service can be accessed. 
 
 1.	[Obtain short URL manually from goo.gl as an anonymous user](#from_goo.gl_anon)
-2.	[Obtain short URL manually as a signed-in Google user](#from_goo.gl_signed_in)
+2.	[Obtain short URL manually from goo.gl as a signed-in Google user](#from_goo.gl_signed_in)
 3.	[Obtain short URL manually using Node.js command line](#from_node_cli)
 4.	[Obtain short URL from Google's Node.js program](#from_google_node_js)
 5.	[Obtain short URL manually using Google's API Playground](#from_playground)
@@ -185,8 +185,11 @@ http://maps.google.com -> http://goo.gl/fbsS
 3.	Scroll down to select URL Shortener, currently at version 1: http://developers.google.com/apis-explorer/#p/urlshortener/v1/
 
 > Notice there are three functions presented (insert a new URL, get the long URL, and list).
- 
-Because Google manages shortened URLs with authentication, Google can report the creation time and other analytics when it expands short URLs.
+
+![Google URLS API Auth](http://www.merc.tv/img/fig/goo.api.auth.png "Google URLS API Auth")
+
+> Because Google manages shortened URLs with authentication, Google can report the creation time and other analytics when it expands short URLs.
+
 4.	Authorize requests using OAuth 2.0 by clicking the OFF switch to turn it ON.
  
 5.	Check to select the scope https://www.googleapis.com/auth/urlshortener.
@@ -210,6 +213,7 @@ Because Google manages shortened URLs with authentication, Google can report the
 
 
 ## <a name="from_playground"></a> 
+goo.api.auth.png
 
 ## <a name="from_devtools"></a> 
 
