@@ -124,7 +124,7 @@ Now let's see what happens when the API request occurs by a user signed into Goo
 
 1.	Type in the browser address box Google's URL Shortener home page at http://goo.gl/.
 2.	Click Sign in and provide your Google password.
-![goo.gl Langing page](http://www.merc.tv/img/fig/goo.gl_landing.png "goo.gl Langing page")
+...![goo.gl Langing page](http://www.merc.tv/img/fig/goo.gl_landing.png "goo.gl Langing page")
 
 > Notice that the URL you processed anonymously does NOT appear on the list of URLs associated with your Google account because it was created under Google's account. URLs previously shortened using your Google account would show up on this page. 
 
@@ -197,31 +197,31 @@ The short URL output can be captured into logs by node.js modules such as https:
 
 http://developers.google.com/apis-explorer/#p/urlshortener/v1/
 
-![Google URLS API Auth](http://www.merc.tv/img/fig/goo.api.auth.png "Google URLS API Auth")
+...![Google URLS API Auth](http://www.merc.tv/img/fig/goo.api.auth.png "Google URLS API Auth")
 
 > Notice there are three functions provided by the API (**insert** a new short URL, **get** the long URL, and **list** the URLs).
 Because Google manages shortened URLs with authentication, Google can report the creation time and other analytics when it expands short URLs.
 
 4.	Authorize requests using OAuth 2.0 by clicking the OFF switch to turn it ON.
 
-![Google URLS API Auth](http://www.merc.tv/img/fig/goo.oauth2.scopes.png "Google URLS API Auth ")
+...![Google URLS API Auth](http://www.merc.tv/img/fig/goo.oauth2.scopes.png "Google URLS API Auth ")
 
 5.	Check to select the scope https://www.googleapis.com/auth/urlshortener.
 6.	Click Authorize.
 
-![Google URLS API Auth On](http://www.merc.tv/img/fig/goo.api.auth.on.png "Google URLS API Auth On")
+...![Google URLS API Auth On](http://www.merc.tv/img/fig/goo.api.auth.on.png "Google URLS API Auth On")
 
 7.	Now that OAuth is ON, click on urlshortener.url.list (without inputting any parameters).
 8.	Click Execute.
 9.	Scroll down the see Responses containing shortened URLs, such as:
  
-![Google URLS API Auth Json](http://www.merc.tv/img/fig/goo.api.auth.json.png "Google URLS API Auth Json")
+...![Google URLS API Auth Json](http://www.merc.tv/img/fig/goo.api.auth.json.png "Google URLS API Auth Json")
 
 10.	Click on URL Shortener API v1 > to return to the list of functions.
 11.	Double-click on urlshortener.url.get.
 12.	Paste the URL (such as http://goo.gl/maps/QO5Lp).
  
-![Google URLS API Auth Execute](http://www.merc.tv/img/fig/goo.api.auth.execute.png "Google URLS API Auth Execute")
+...![Google URLS API Auth Execute](http://www.merc.tv/img/fig/goo.api.auth.execute.png "Google URLS API Auth Execute")
 
 13.	Press Execute for the long URL for a response containing both short and long URL.
 
@@ -242,22 +242,22 @@ https://developers.google.com/oauthplayground/
 Alternately, you can instead launch the Google Chrome plug-in:
 https://chrome.google.com/webstore/detail/oauth-20-playground/fcjholccjchiplkbibepfimlaapdaiih
 
-![Google API Playground](http://www.merc.tv/img/fig/goo.play.api_list.png "Google API Playground")
+...![Google API Playground](http://www.merc.tv/img/fig/goo.play.api_list.png "Google API Playground")
 
 3.	Scroll down in the list and click **URL Shortener API v1**.
 4.	Click to select the scope "https://www.googleapis.com/auth/urlshortener".
  
-![Google API Scope](http://www.merc.tv/img/fig/goo.play.scope.png "Google API Scope")
+...![Google API Scope](http://www.merc.tv/img/fig/goo.play.scope.png "Google API Scope")
 
 > Note that the scope is not used like public URLs, but internally to uniquely identify which Google API is being used.
 
 5.	Click the blue **Authorize API** button to access the scope selected.
  
-![Google API Scope](http://www.merc.tv/img/fig/goo.play.manage.png "Google API Scope")
+...![Google API Scope](http://www.merc.tv/img/fig/goo.play.manage.png "Google API Scope")
 
 6.	As the user when owns the list, click **Accept**.
 
-![Google API Exchange](http://www.merc.tv/img/fig/goo.play.exchange.png "Google API Exchange")
+...![Google API Exchange](http://www.merc.tv/img/fig/goo.play.exchange.png "Google API Exchange")
 
 How this authorization code is created will be described in the next section.
 
@@ -267,18 +267,18 @@ Think of the token like a security pass. You identify yourself at the front desk
 
 7.	Click Exchange authorization code for tokens.
  
-![Google API Exchange](http://www.merc.tv/img/fig/goo.play.refresh.png "Google API Exchange")
+...![Google API Exchange](http://www.merc.tv/img/fig/goo.play.refresh.png "Google API Exchange")
 
 The Access token is added to communications from the client to establish its authenticity with Google servers. The 3578 seconds shown in this example is considered "short-lived", the time period when the access token remains usable. After that time, the Refresh token needs to be sent to obtain a fresh access token. The format of the packet containing this information is this:
 
-![Google API Access Token](http://www.merc.tv/img/fig/goo.play.access_token.png "Google API Access Token")
+...![Google API Access Token](http://www.merc.tv/img/fig/goo.play.access_token.png "Google API Access Token")
 
 > Notice the token_type is "Bearer" (carrier) of the access token as defined in the 
 OAuth2 spec.
 
 8.	Click *List possible operations* for the pop-up, then expand **Insert Url**:
  
-![Google API Send Request](http://www.merc.tv/img/fig/goo.play.list_ops.png "Google API Send Request")
+...![Google API Send Request](http://www.merc.tv/img/fig/goo.play.list_ops.png "Google API Send Request")
 
 9.	Click on **Insert Url** to auto-populate the Request URI.
 10.	In another browser window, view https://developers.google.com/url-shortener/v1/getting_started?csw=1#actions,
@@ -300,7 +300,7 @@ But instead of www.google.com, you would specify the long URL of your choice.
 {"longUrl": "http://www.wilsonmar.com/"}
 ```
 
-![Google API Send Request](http://www.merc.tv/img/fig/goo.play.send_req.png "Google API Send Request")
+...![Google API Send Request](http://www.merc.tv/img/fig/goo.play.send_req.png "Google API Send Request")
 
 12. Click the blue **Send the request** button to obtain a successful (200 OK) response such as this:
 
@@ -359,7 +359,7 @@ The following is the narration to this video ___ on YouTube.com and DailyMotion.
 Videos dynamically reveal these illustrations with spoken text.
 
 [While viewing scroll of API Explorer from top to bottom]
-![Google API Explorer sample](http://www.merc.tv/img/fig/google.explorer_list_v01.png "Google API Explorer sample")
+...![Google API Explorer sample](http://www.merc.tv/img/fig/google.explorer_list_v01.png "Google API Explorer sample")
 
 This tutorial is a guided exploration for developers to quickly learn, in a hands-on way, how to perform server-to-server communication with Google's many web services.
 Google provides a large number of APIs (Application Programming Interfaces) so programs in servers can communicate with other computers directly without human interaction: Information from users of Google's Gmail, Calendar, Drive cloud, Google+, and YouTube videos.
@@ -367,7 +367,7 @@ Why would one want to take the extra effort to extract data from Google when one
 
 Let's take a look at this line chart showing corresponding data series across time.
 
-![Data series from several sources](http://www.merc.tv/img/fig/goo.combined_data_v01.png "Data series")
+...![Data series from several sources](http://www.merc.tv/img/fig/goo.combined_data_v01.png "Data series")
 
 If you want to add event flags or additional data series **not** in Google servers you might need to have all the data on your **own** server. Google can automatically purge data on its severs anytime it wants. And Google has cancelled many services it has provided. So you need a way of keeping your data where **you** can really control.
 
