@@ -157,12 +157,13 @@ A custom program (not Google) can also provide a way to shorten URLs under its a
 
 1.	Install node.js with npm on your Windows, Mac OS, or Linux machine.
 2.	Install module node-googl into your node.js server:
-...
+
+```
 npm install -g goo.gl
-...
+```
 The module comes from: https://github.com/kaimallea/node-googl
 
-3.	Obtain a short URL by specifying the goo.gl with a host name (without the http protocol):
+3. At the terminal command line, obtain a short URL by specifying the goo.gl with a host name (without the http protocol):
 
 ```
 goo.gl     maps.google.com
@@ -177,13 +178,70 @@ http://maps.google.com -> http://goo.gl/fbsS
 > Notice this command can be invoked repeatedly by another program processing a list of URLs. The short URL output can be captured into logs by node.js modules such as https://github.com/bevry/caterpillar.
 
 
+## <a name="from_api_console"></a> Get list of short URLs generated from Google API Explorer for known user
+1.	Sign in to your Google account.
+2.	Go to Google's API Explorer page: http://developers.google.com/apis-explorer/
 
-## <a name="from_google_node_js"></a> 
-## <a name="from_api_console"></a> 
+3.	Scroll down to select URL Shortener, currently at version 1: http://developers.google.com/apis-explorer/#p/urlshortener/v1/
+
+> Notice there are three functions presented (insert a new URL, get the long URL, and list).
+ 
+Because Google manages shortened URLs with authentication, Google can report the creation time and other analytics when it expands short URLs.
+4.	Authorize requests using OAuth 2.0 by clicking the OFF switch to turn it ON.
+ 
+5.	Check to select the scope https://www.googleapis.com/auth/urlshortener.
+6.	Click Authorize.
+ 
+7.	Now that OAuth is ON, click on urlshortener.url.list (without inputting any parameters).
+8.	Click Execute.
+9.	Scroll down the see Responses containing shortened URLs, such as:
+ 
+10.	Click on URL Shortener API v1 > to return to the list of functions.
+11.	Double-click on urlshortener.url.get.
+12.	Paste the URL (such as http://goo.gl/maps/QO5Lp).
+ 
+13.	Press Execute for the long URL for a response containing both short and long URL.
+
+> Notice the 3 steps involved above:
+
+1)	Select and Authorize API with a scope of access
+2)	Exchange authorization code for access tokens (which occurs internally)
+3)	Configure request to API
+
 
 ## <a name="from_playground"></a> 
+
 ## <a name="from_devtools"></a> 
 
+
+## <a name="from_google_node_js"></a> Obtain short URL from Google's Node.js program 
+
+https://github.com/google/google-api-nodejs-client
+
+```
+npm install googleapis --save
+```
+
+The response:
+
+```
+googleapis@1.1.0 ../../../../../node_modules/googleapis
+├── async@0.9.0
+├── string-template@0.2.0 (js-string-escape@1.0.0)
+└── gapitoken@0.1.3 (jws@0.0.2)
+```
+
+Create folder 
+
+gapi_client_node.js
+
+console.log(urlshortener);
+	lists all google apis
+	
+console.log(urlshortener.url);
+	{ get: [Function], insert: [Function], list: [Function] }
+
+<hr />
 
 ## Get Your Google API Key
 
