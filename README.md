@@ -64,10 +64,14 @@ The functionality of these web pages can be implemented as a plug-in within UI f
 
 Sample client code in various other programming languages have been published :
 * PHP : https://code.google.com/p/php-url-shortener/
+* PHP : http://davidwalsh.name/google-url
 * Apple Objective-C : https://code.google.com/p/google-api-objectivec-client/
 * Go language : https://godoc.org/code.google.com/p/google-api-go-client/urlshortener/v1
 * .NET : https://developers.google.com/api-client-library/dotnet/apis/urlshortener/v1
+* .NET C# : http://www.jphellemons.nl/post/Shorten-your-URL-with-Googl-or-Bitly-in-AspNet-C
 * Java
+* Python: https://github.com/parthrbhatt/pyShortUrl supports several shortener services (and provides a comparison)
+
 
 # <a name="Workflow_diagram"></a> Workflow to use Google for shortening URLs
 
@@ -403,7 +407,10 @@ The API is moved to the top section of active APIs.
 > TECHNICAL NOTE: Batch processing using Windows server PowerShell scripts is covered at:
 http://powershellnotebook.com/2014/10/31/powershell-shorten-urls-with-googles-api/
 
-> Some have noted 403 rateLimitExceed errors after 300 insert requests within an hour.
+> Some have notice "403 rateLimitExceed" errors after 300 insert requests within an hour.
+So this may be a show-stopper for you using this Google service.
+Competing services include bit.ly, awe.sm, and others.
+Twitter now has its own t.co service automatically applied to URLs in tweets.
 
 12.	Click on the **Credentials** link within the API & auth section at the left menu.
 
