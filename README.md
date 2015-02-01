@@ -153,7 +153,7 @@ Since the link you just created won't have any hits yet, let's take a look at on
 
 > Notice that analytics for a generated code can be obtained by adding **.info** to the code generated.
 
-![Short URL usage Statistics](http://www.merc.tv/img/fig/goo-gl-analytics.jpg "Statistics")
+...![Short URL usage Statistics](http://www.merc.tv/img/fig/goo-gl-analytics.jpg "Statistics")
 Image credit: [Mashable](http://mashable.com/2010/09/30/goo-gl-url-shortener/)
 
 > Notice at the upper right corner the QR (Quick Response) graphic image for mobile smartphone readers to obtain the URL.	
