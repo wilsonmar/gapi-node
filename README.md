@@ -9,6 +9,9 @@ to format API calls;
 4. explain [JWT construction internals](#JWT_internals) (base64, signing, etc.) used in the code; and
 5. show additional variations on use of Google APIs, such as the [Reports API](#Reports_API) 
   to collect and display analytics data Google collects.
+
+This tutorial is a guided exploration for developers to quickly learn, in a hands-on way, how to perform server-to-server communication with Google's many web services.
+Google provides a large number of APIs (Application Programming Interfaces) so programs in servers can communicate with other computers directly without human interaction: Information from users of Google's Gmail, Calendar, Drive cloud, Google+, and YouTube videos.
  
 # Tasks To Build This
 - [ ] Objective 2 - Explore libraries (done first to not waste time on objective 1)
@@ -73,7 +76,7 @@ Videos dynamically reveal these illustrations with spoken text.
 
 This illustration shows how data is input into and output from Google's servers:
 
-![Data flow](http://www.merc.tv/img/fig/goo.dataflow_v02.png "Data flow")
+![Data flow](http://www.merc.tv/img/fig/goo.dataflow_2015.02.01.png "Data flow")
 
 Among the many services Google provides, in this tutorial, we use Google's **URL Shortener** service because one doesn’t need to stand-up a custom server in the Google Cloud to work with the URL Shortener service Google provides.
 
@@ -441,8 +444,6 @@ console.log(urlshortener.url);
 [While viewing scroll of API Explorer from top to bottom]
 ...![Google API Explorer sample](http://www.merc.tv/img/fig/google.explorer_list_v01.png "Google API Explorer sample")
 
-This tutorial is a guided exploration for developers to quickly learn, in a hands-on way, how to perform server-to-server communication with Google's many web services.
-Google provides a large number of APIs (Application Programming Interfaces) so programs in servers can communicate with other computers directly without human interaction: Information from users of Google's Gmail, Calendar, Drive cloud, Google+, and YouTube videos.
 Why would one want to take the extra effort to extract data from Google when one has Gmail, Google maps, and other websites that Google provides? 
 
 Let's take a look at this line chart showing corresponding data series across time.
