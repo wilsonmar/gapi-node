@@ -78,9 +78,10 @@ The remainder of this tutorial takes a "deep dive" into the different ways Googl
 1.	[Obtain short URL manually from goo.gl as an anonymous user](#from_goo.gl_anon)
 2.	[Obtain short URL manually from goo.gl as a signed-in Google user](#from_goo.gl_signed_in)
 3.	[Obtain short URL manually using Node.js command line](#from_node_cli)
+4.	[Obtain short URL manually using Google's API Playground](#from_playground)
+5.	[Obtain short URL manually using Google Code](#from_devtools)
+
 4.	[Obtain short URL from Google's Node.js program](#from_google_node_js)
-5.	[Obtain short URL manually using Google's API Playground](#from_playground)
-6.	[Obtain short URL manually using Google Code](#from_devtools)
 
 Along the way, we consider several technical details:
 
@@ -155,13 +156,13 @@ Since the link you just created won't have any hits yet, let's take a look at on
 ![Short URL usage Statistics](http://www.merc.tv/img/fig/goo-gl-analytics.jpg "Statistics")
 Image credit: [Mashable](http://mashable.com/2010/09/30/goo-gl-url-shortener/)
 
-> Notice at the upper right corner the QR (Quick Response) code for mobile smartphone readers to obtain the URL.
+> Notice at the upper right corner the QR (Quick Response) graphic image for mobile smartphone readers to obtain the URL.	
 
 14.	To obtain the QR code, change the address by adding *.qr* after the generated code (l6MS) to
 http://goo.gl/l6MS.qr
 
 
-## <a name="from_node_cli"></a> Obtain short URL from a Node.js command line
+## <a name="from_node_cli"></a> Obtain short URL manually from a Node.js command line
 A custom program (not Google) can also provide a way to shorten URLs under its account.
 
 1.	Install node.js with npm on your Windows, Mac OS, or Linux machine.
@@ -192,11 +193,13 @@ The short URL output can be captured into logs by node.js modules such as https:
 1.	Sign in to your Google account.
 2.	Go to Google's API Explorer page: http://developers.google.com/apis-explorer/
 
-3.	Scroll down to select URL Shortener, currently at version 1: http://developers.google.com/apis-explorer/#p/urlshortener/v1/
+3.	Scroll down to select URL Shortener, currently at version 1:
+
+http://developers.google.com/apis-explorer/#p/urlshortener/v1/
 
 ![Google URLS API Auth](http://www.merc.tv/img/fig/goo.api.auth.png "Google URLS API Auth")
 
-> Notice there are three functions provided by the API (insert a new short URL, get the long URL, and list the URLs).
+> Notice there are three functions provided by the API (*insert* a new short URL, *get* the long URL, and *list* the URLs).
 Because Google manages shortened URLs with authentication, Google can report the creation time and other analytics when it expands short URLs.
 
 4.	Authorize requests using OAuth 2.0 by clicking the OFF switch to turn it ON.
@@ -233,15 +236,21 @@ Because Google manages shortened URLs with authentication, Google can report the
 Google's OAuth 2.0 Playground works only with active (default) versions of services, and includes some services not listed within the API Explorer.
 
 1.	Sign in to your Google account.
-2.	Go to Google's OAuth 2.0 Playground (aka API Console) at: https://developers.google.com/oauthplayground/
+2.	Go to Google's OAuth 2.0 Playground (aka API Console) at: 
+
+https://developers.google.com/oauthplayground/
 
 Alternately, you can instead launch the Google Chrome plug-in:
 https://chrome.google.com/webstore/detail/oauth-20-playground/fcjholccjchiplkbibepfimlaapdaiih
+
+![Google API Playground](http://www.merc.tv/img/fig/goo.play.api_list.png "Google API Playground")
 
 3.	Scroll down in the list and click URL Shortener API v1.
 4.	Click to select the scope:
  
 ![Google API Scope](http://www.merc.tv/img/fig/goo.play.scope.png "Google API Scope")
+
+> Notice that the scope is used internally 
 
 5.	Click Authorize API to access the scope selected.
  
