@@ -355,10 +355,10 @@ which the computer uses to "sign" requests made on the user's behalf.
 
 # <a name="#Obtain_credentials"></a> Obtain Google API Credentials for automated API calls
 
-Instead of manually signing in with a Google account (email) and typing in a password, 
-actions are performed by a **service account** (that looks like an email address)
-and electronic keys obtained from the *Google API Console* at 
-https://console.developers.google.com/ for a specific project.
+Instead of manually typing in a password associated with a Google account (email),
+permissions for API actions are performed based on a **service account** (that looks like an email address)
+and electronic keys obtained from the *Google API Console* (at 
+https://console.developers.google.com/) for a specific project.
 
 Programs usually only need call pre-defined library functions that accept a service account and private key as input,
 and the underlying format of calls are done automatically within the library code.
