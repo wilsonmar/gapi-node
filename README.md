@@ -5,14 +5,24 @@ and [server](#server_libraries)
 code libraries to access the many APIs they run in their cloud.
 (I think since Google constantly adds and removes web services, they will likely remain in alpha or beta forever.)
 
-Libraries hide the mathematics of [calculating Base64 and signatures](Keygen_dataflow) 
+Libraries hide the mathematics of [calculating Base64 and signatures](#Keygen_dataflow) 
 Google rightly requires to authenticate computers obtaining information Google holds on behalf of its users.
 
 Google's service around [short URLs](#short_url_services) is used as an example that does not require more server setup. 
 
-JavaaScript large number of APIs (Application Programming Interfaces) so programs in servers can communicate with other computers directly without human interaction: Information from users of Google's Gmail, Calendar, Drive cloud, Google+, and YouTube videos.
+Define a project within Google's Developer Console. 
+At the bottom of the Credentials page, obtain a Public API Key so Google can track usage.
+It is called public because it is included in client JavaScript, so it can be stolen and used by others.
+
+For more secure processing:
+1. spin up a node.js server (locally or on Heroku or nodejitsu, etc.) 
+2. download the .p12 file for the user who will own short URL data generated 
+3. convert the .p12 file to a .pem file using the generic "notasecret" password.
+4. receive requests from a client
+5. along with request data, provide the service account and .pem file to Google libraries.
+6. forward responses from Google API servers to the client.
  
- 
+
 # Objectives of This Repo
 This repo provides a guided exploration for developers to quickly learn, in a hands-on way, 
 an example of how to perform server-to-server communication with Google's many web services on behalf of specific Google users.
