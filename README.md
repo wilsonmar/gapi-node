@@ -141,7 +141,8 @@ As an introduction to how Google’s URL Shortener API service works, let’s lo
 7.	Press Ctrl or control+C to copy the shortened URL to your computer's clipboard. For comparison later, paste it into another document.
 8.	In the browser's address bar, double-click to highlight the goo.gl and press Command+V to paste the shortened URL.
 9.	Press Enter to resolve the URL.
-In this example, Google provides both the front-end and back-end processing under its own account (not that of a Google user).
+
+> Notice in this example, Google provides both the front-end and back-end processing under its own account (not that of a Google user).
 
 
 ## <a name="from_goo.gl_signed_in"></a> Obtain short URLs manually from goo.gl as a signed-in Google user
@@ -257,6 +258,8 @@ Because Google manages shortened URLs with authentication, Google can report the
 2)	Exchange authorization code for access tokens (which occurs internally)
 3)	Configure request to API
 
+> TECHNICAL NOTE: Code behind Google's API Explorer is at https://code.google.com/p/google-apis-explorer/
+
 
 ## <a name="from_playground"></a> Obtain short URL using Google OAuth 2.0 Playground
 Google's OAuth 2.0 Playground works only with active (default) versions of services, and includes some services not listed within the API Explorer.
@@ -341,15 +344,15 @@ But instead of www.google.com, you would specify the long URL of your choice.
 
 <hr />
 
-# <a name="#Obtain_credentials"></a> Obtain Google API Credentials for automated API calls
-
-The API calls above were obtained by Google manually by [clicking the OFF switch to turn it ON](#Authorize_API)
+> Notice authorization to API calls above were obtained from Google manually by [clicking the OFF switch to turn it ON](#Authorize_API)
 or [clicking "Accept" Google managing short URLs](#Accept_API).
 
 But when the user is not present to manually do that, 
-Google would need something to prove that acceptance was agreed ahead of time.
+Google would need something to prove that acceptance was unreputably agreed to ahead of time.
 That acceptance occurs by the user providing a private unique fingerprint key he/she generated
 which the computer uses to "sign" requests made on the user's behalf.
+
+# <a name="#Obtain_credentials"></a> Obtain Google API Credentials for automated API calls
 
 Instead of manually signing in with a Google account (email) and typing in a password, 
 actions are performed by a **service account**
@@ -368,7 +371,7 @@ The diagram here illustrates what happens under the covers:
 Like most other major internet sites -- Amazon, Twitter, Facebook, LinkedIn, Yelp, etc. -- Google implements some form of the OAuth 2.0 standard formally defined at http://tools.ietf.org/html/rfc6749. This spec provides guidelines for token issuing patterns. It does not dictate how identity is validated. So it is up to each service to deploy patterns appropriate for its own use case. Each web service uses a slightly different approach.
 
 
-## Get service account email for project
+## <a name="Get_service_account"></a> Get service account email for project
 
 1.	Use an internet browser to bring up Google's Developer Console (also called API Console) at  https://console.developers.google.com/project
 
@@ -456,7 +459,8 @@ console.log(urlshortener.url);
 <hr />
 
 <hr />
-# Why Capture Data from Google?
+
+# <a name="Why_capture_data"></a> Why Capture Data from Google?
 
 [While viewing scroll of API Explorer from top to bottom]
 ...![Google API Explorer sample](http://www.merc.tv/img/fig/google.explorer_list_v01.png "Google API Explorer sample")
@@ -476,14 +480,14 @@ In order to not expose credentials in client code, calls to the Google API needs
 
 # JWT vs. JWS vs. JWE
 
-## JWT
+## <a name="JWT_definition"></a> JWT
 JWS is an example of JWT defined in the IETF draft at https://tools.ietf.org/html/draft-ietf-oauth-json-web-token-32.
 JSON Web Token (JWT) is a compact, URL-safe means of representing claims to be transferred between two parties.  The claims in a JWT are encoded as a JavaScript Object Notation (JSON) object that is used as the payload of a JSON Web Signature (JWS) structure or as the plaintext of a JSON Web Encryption (JWE) structure, enabling the claims to be digitally signed or MACed and/or encrypted.
 
-## JWS
+## <a name="JWS_definition"></a> JWS
 (https://github.com/brianloveswords/node-jws)
 implements the creation of a
 JSON Web Signature (JWS) as defined in http://self-issued.info/docs/draft-ietf-jose-json-web-signature.html
 JSON Web Signature (JWS) represents content secured with digital signatures or Message Authentication Codes (MACs) using JavaScript Object Notation (JSON) based data structures. Cryptographic algorithms and identifiers for use with this specification are described in the separate JSON Web Algorithms (JWA) specification and an IANA registry defined by that specification. Related encryption capabilities are described in the separate JSON Web Encryption (JWE) specification.
 
-## JWE
+## <a name="JWE_definition"></a> JWE
