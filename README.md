@@ -2,7 +2,7 @@
 
 Google provides a set of [client](#client_libraries) 
 and [server](#server_libraries) 
-code libraries to access all the many APIs they run in their cloud.
+code libraries of many languages to access all the many APIs they run in their cloud.
 (I think since Google constantly adds and removes web services to the libraries, 
 they will likely remain in alpha or beta forever.)
 
@@ -240,27 +240,27 @@ Now let's see what happens when the API request occurs by a user signed into Goo
 9.	Paste the URL in the browser address bar and press Enter to retrieve the page.
 10.	Repeat on a different browser or even different operating system.
 11.	Return to the Google url shortener window. 
-12.	Click the **Details** link associated with the URL you just used. An example of such a link is
-http://goo.gl/#analytics/goo.gl/l6MS/all_time created December, 2009.
+
+Since the link you just created won't have any hits yet, let's take a look at one that has lots of hits over time.
+
+12.	Click the **Details** link associated with the URL you just used. 
+An example of such a link is http://goo.gl/#analytics/goo.gl/l6MS/all_time created December, 2009.
+	An alternate form of it is to type in your internet browser's address bar 
+http://goo.gl/l6MS.info constructued by adding **.info** to the code generated.
+
+> Notice that codes generated are case-sensitive.
 
 > Hits are included in the "Not Provided" or "Unknown" category when https (secure URLs) are used.
 
 > Because Google servers resolves short to long URLs, it can track meta information from clients used to view the link. IP addresses of clients can be asociated with the country of origin. The browser, and operating system platform are also provided by client browsers.
 
-Since the link you just created won't have any hits yet, let's take a look at one that has lots of hits over time.
-
-> Notice that codes are case-sensitive.
-
-13. In you internet browser's address, type in http://goo.gl/l6MS.info.
-
-> Notice that analytics for a generated code can be obtained by adding **.info** to the code generated.
+An older version of details does not have the circle graph and the world map.
 
 ...   ![Short URL usage Statistics](http://www.merc.tv/img/fig/goo-gl-analytics.jpg "Statistics")
 Image credit: [Mashable](http://mashable.com/2010/09/30/goo-gl-url-shortener/)
 
 > Notice at the upper right corner the QR (Quick Response) graphic image for mobile smartphone readers to obtain the URL.	
-
-14.	To obtain the QR code, change the address by adding *.qr* after the generated code (l6MS) to
+13.	To obtain the QR code, change the address by adding *.qr* after the generated code (l6MS) to
 http://goo.gl/l6MS.qr
 
 
