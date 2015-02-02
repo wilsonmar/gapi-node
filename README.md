@@ -360,14 +360,14 @@ permissions for API actions are performed based on a **service account** (that l
 and electronic keys obtained from the *Google API Console* (at 
 https://console.developers.google.com/) for a specific project.
 
-Programs usually only need call pre-defined library functions that accept a service account and private key as input,
-and the underlying format of calls are done automatically within the library code.
-
 The diagram here illustrates what happens under the covers:
 
 ## <a name="Keygen_dataflow"></a> Key Generation Dataflow
 
 ...   ![Dataflow](http://www.merc.tv/img/fig/goo.keygen_dataflow.png "Dataflow")
+
+Programs usually only need call pre-defined library functions that accept a service account and private key as input,
+and the underlying format of calls are done automatically within the library code.
 
 Like most other major internet sites -- Amazon, Twitter, Facebook, LinkedIn, Yelp, etc. -- Google implements some form of the OAuth 2.0 standard formally defined at http://tools.ietf.org/html/rfc6749. This spec provides guidelines for token issuing patterns. It does not dictate how identity is validated. So it is up to each service to deploy patterns appropriate for its own use case. Each web service uses a slightly different approach.
 
