@@ -1,19 +1,25 @@
 # Objectives of this repo : gapi-node
 This repo provides a guided exploration for developers to quickly learn, in a hands-on way, 
-how to perform server-to-server communication with Google's many web services on behalf of specific Google users.
+an example of how to perform server-to-server communication with Google's many web services on behalf of specific Google users.
 
-This repo was created to: 
-
-1. provide sample [interactive client webpage](#Interactive_demo_client) code
+Sample [interactive client webpage](#Interactive_demo_client) code
   (with [tests](#Client-side_test_code)) to 
   [back-end node.js server code](#Nodejs_code)
   (also with [test code](#Server-side_test_code))
-  to demo how to shorten a URL using Google APIs (using API Key and OAuth2 with JWT) 
-2. explain [the workflow to use Google APIs](#Workflow_diagram) using [various clients](#Client_API_access)
-to format API calls;
-3. describe how to [obtain credentials](#Obtain_credentials) used for making API calls; 
-4. explain [JWT construction internals](#JWT_internals) (base64, signing, etc.) used in the code; and
-5. show additional variations on use of Google APIs, such as the [Reports API](#Reports_API) 
+  is provided to demo how to use Google APIs (using API Key and OAuth2 with JWT).
+	The example is the various activites around shortened URLs.
+
+The demo code is used to explain [the workflow to use Google APIs](#Workflow_diagram) 
+	using [various clients](#Client_API_access) to format API calls;
+
+This tutorial explains how you can make your own code, which first requires you to 
+[obtain your own credentials](#Obtain_credentials) used for making API calls.
+
+This tutorial also explors [OAuth2 JWT construction internals](#JWT_internals) (base64, signing, etc.) 
+used in the library.
+
+In the future, we will show additional variations on use of Google APIs, 
+  such as the [Reports API](#Reports_API) 
   to collect and display analytics data Google collects.
 
 TECHNICAL NOTES: 
