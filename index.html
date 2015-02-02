@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<!--
+  Copyright (c) 2011 Google Inc.
+
+  Licensed under the Apache License, Version 2.0 (the "License"); you may not
+  use this file except in compliance with the License. You may obtain a copy of
+  the License at
+
+  http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+  WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+  License for the specific language governing permissions and limitations under
+  the License.
+
+  To run this sample, replace YOUR API KEY with your application's API key.
+  It can be found at https://code.google.com/apis/console/?api=plus under API Access.
+-->
+<html>
+<head>
+  <title>API Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+</head>
+<script type="text/javascript">
+function makeShort() 
+{
+   var longUrl=document.getElementById("longurl").value;
+    var request = gapi.client.urlshortener.url.insert({
+      'resource': {
+      'longUrl': longUrl
+    }
+    });
+    request.execute(function(response) 
+    {
+        if(response.id != null)
+        {
+            str ="<b>Long URL:</b>"+longUrl+"<br>";
+            str +="<b>Short URL:</b> <a href='"+response.id+"'>"+response.id+"</a><br>";
+            document.getElementById("output").innerHTML = str;
+        }
+        else
+        {
+            alert("error: creating short url n"+ response.error);
+        }
+ 
+    });
+ }
+ 
+function callShort() 
+{ // Abdul: call customer node.js server:
+    
+}
+
+ function getShortInfo()
+{
+var shortUrl=document.getElementById("shorturl").value;
+ 
+    var request = gapi.client.urlshortener.url.get({
+      'shortUrl': shortUrl,
+    'projection':'FULL'
+    });
+    request.execute(function(response) 
+    {
+ 
+        if(response.longUrl!= null)
+        {
+            str ="<b>Long URL:</b>"+response.longUrl+"<br>";
+            str +="<b>Create On:</b>"+response.created+"<br>";
+            str +="<b>Short URL Clicks:</b>"+response.analytics.allTime.shortUrlClicks+"<br>";
+            str +="<b>Long URL Clicks:</b>"+response.analytics.allTime.longUrlClicks+"<br>";
+ 
+            document.getElementById("output").innerHTML = str;
+        }
+        else
+        {
+            alert("error: "+response.error);
+        }
+ 
+    });
+ 
+}
+function load()
+{
+    //Get your own Browser API Key from  https://code.google.com/apis/console/
+    gapi.client.setApiKey('AIzaSyCV1OW_OWlNCHjAtnMhJcCufzKwIti1KJ0');
+    gapi.client.load('urlshortener', 'v1',function(){document.getElementById("output").innerHTML="";});
+ 
+}
+window.onload = load;
+ 
+</script>
+<script src="https://apis.google.com/js/client.js"> </script>
+ 
+<body>
+ 
+<p>NOTE: This needs to be run from within a http-server as http://, not from file://.
+</p>
+
+<div class="container-fluid">
+<div id="output"></div>
+  <div class="row">
+    <div class="col-sm-3" style="background-color:lavender;">
+        Long URL: <input type="text" id="longurl" name="url" 
+            value="http://www.hayageek.com" />
+        </div>
+    <div class="col-sm-3" style="background-color:lavender;">
+        <input type="button" value="Create Short URL using Public API" 
+            onclick="makeShort();" />
+        </div>
+    <div class="col-sm-3" style="background-color:lavender;">
+        <input type="button" value="Create Short URL via custom server OAuth2/JWT" 
+            onclick="callShort();" />
+        </div>
+    </div>
+  <div class="row">
+    <div class="col-sm-3" style="background-color:lavender;">
+        Short URL: <input type="text" id="shorturl" name="url" value="http://goo.gl/NHj1c" />
+        </div>
+    <div class="col-sm-3" style="background-color:lavender;">
+        <input type="button" value="Get Short URL Info" onclick="getShortInfo();" />
+        </div>
+    </div>
+  <div class="row">
+    <div class="col-sm-3" style="background-color:lavender;">
+        Short URL: <input type="text" id="shorturl" name="url" value="http://goo.gl/NHj1c.qr" />
+        </div>
+    <div class="col-sm-3" style="background-color:lavender;">
+        <input type="button" value="Get QR code" onclick="getShortInfo();" />
+        </div>
+    </div>
+  <div class="row">
+    <div class="col-sm-3" style="background-color:lavender;">
+        Short URL: <input type="text" id="shorturl" name="url" value="http://goo.gl/NHj1c.info" />
+        </div>
+    <div class="col-sm-3" style="background-color:lavender;">
+        <input type="button" value="Get Info (on new window)" onclick="getShortInfo();" />
+        </div>
+    </div>
+</div><!-- container -->
+ 
+<p>TODO: Update short URL text box when long is 
+</p>
+
+</body>
+</html>
