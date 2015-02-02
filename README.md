@@ -1,9 +1,10 @@
 # TL;DR (Too Long; Do Not Read. Here's the Summary Gist)
 
-Google provides a single set of [client](#client_libraries) 
+Google provides a set of [client](#client_libraries) 
 and [server](#server_libraries) 
-code libraries to access the many APIs they run in their cloud.
-(I think since Google constantly adds and removes web services, they will likely remain in alpha or beta forever.)
+code libraries to access all the many APIs they run in their cloud.
+(I think since Google constantly adds and removes web services to the libraries, 
+they will likely remain in alpha or beta forever.)
 
 Google's libraries hide the mathematics of [calculating Base64 and signatures](#Keygen_dataflow) 
 Google rightly requires to authenticate computers obtaining information Google holds on behalf of its users.
@@ -11,18 +12,19 @@ Google rightly requires to authenticate computers obtaining information Google h
 Google's service around [short URLs](#short_url_services) is used as an example that does not require more server setup. 
 
 Credentials for access are obtained for a particular project created within Google's Developer Console. 
-Obtain from the Credentials pagea Public API Key so Google can track usage.
+Obtain from the Credentials page a Public API Key so Google can track usage.
+Some requests can be made with just the public key alone, and without need to go through a server.
 It is called public because it is included in client JavaScript, so it can be stolen and used by others.
 
 For more secure processing:
 
-1. spin up a node.js server (locally or on Heroku or nodejitsu, etc.) 
-2. download the .p12 file for the user who will own short URL data generated 
-3. convert the .p12 file to a .pem file using the generic "notasecret" password
-4. upload the service account and .pem file to your custom server
-5. code node.js to receive requests from a client (such as the demo client)
-6. make requests to Google servers by calling Google library functions with the service account address and .pem file.
-7. forward responses back from the Google API servers to the client.
+1. Spin up a node.js server (locally or on Heroku or nodejitsu, etc.).
+2. From the Google Developer Console download the .p12 file for the user who will own short URL data generated 
+3. Within a developer terminal, convert the .p12 file to a .pem file using the generic "notasecret" password
+4. Upload the service account and .pem file to your custom server
+5. Code node.js to receive requests from a client (such as the demo client)
+6. Make requests to Google servers by calling Google library functions with the service account address and .pem file.
+7. Forward responses back from the Google API servers to the client.
 
 Additionally, custom servers may want to (reduntantly) obtain data from Google 
 in order to have more flexiblity of presentation (with other data Google does not have)
