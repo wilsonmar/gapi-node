@@ -259,7 +259,8 @@ An older version of details does not have the circle graph and the world map.
 ...   ![Short URL usage Statistics](http://www.merc.tv/img/fig/goo-gl-analytics.jpg "Statistics")
 Image credit: [Mashable](http://mashable.com/2010/09/30/goo-gl-url-shortener/)
 
-> Notice at the upper right corner the QR (Quick Response) graphic image for mobile smartphone readers to obtain the URL.	
+> Notice at the upper right corner the QR (Quick Response) graphic image for mobile smartphone readers to obtain the URL.
+
 13.	To obtain the QR code, change the address by adding *.qr* after the generated code (l6MS) to
 http://goo.gl/l6MS.qr
 
