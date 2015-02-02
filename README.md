@@ -1,3 +1,12 @@
+# TL;DR (Summary Gist)
+
+Google provides a single set of [client](#client_libraries) 
+and [server](#server_libraries) 
+code libraries to access the many APIs they run in their cloud.
+(I think since Google constantly adds and removes web services, they will likely remain in beta forever.)
+
+JavaaScript large number of APIs (Application Programming Interfaces) so programs in servers can communicate with other computers directly without human interaction: Information from users of Google's Gmail, Calendar, Drive cloud, Google+, and YouTube videos.
+ 
 # Objectives of this repo : gapi-node
 This repo provides a guided exploration for developers to quickly learn, in a hands-on way, 
 an example of how to perform server-to-server communication with Google's many web services on behalf of specific Google users.
@@ -7,7 +16,7 @@ Sample [interactive client webpage](#Interactive_demo_client) code
   [back-end node.js server code](#Nodejs_code)
   (also with [test code](#Server-side_test_code))
   is provided to demo how to use Google APIs (using API Key and OAuth2 with JWT).
-	The example is the various activites around shortened URLs.
+	The example is the [various user activites](#user_activities) around [short URLs](#short_urls).
 
 The demo code is used to explain [the workflow to use Google APIs](#Workflow_diagram) 
 	using [various clients](#Client_API_access) to format API calls;
@@ -15,7 +24,7 @@ The demo code is used to explain [the workflow to use Google APIs](#Workflow_dia
 This tutorial explains how you can make your own code, which first requires you to 
 [obtain your own credentials](#Obtain_credentials) used for making API calls.
 
-This tutorial also explors [OAuth2 JWT construction internals](#JWT_internals) (base64, signing, etc.) 
+This tutorial also explores [OAuth2 JWT construction internals](#JWT_internals) (base64, signing, etc.) 
 used in the library.
 
 In the future, we will show additional variations on use of Google APIs, 
@@ -36,15 +45,7 @@ Client-side coding makes use of
 jQuery 
 and Bootstrap responsive theme library.
 
-# TL;DR (Summary Gist)
 
-Google provides a single set of [client](#client_libraries) 
-and [server](#server_libraries) 
-code libraries to access the many APIs they run in their cloud.
-(I think since Google constantly adds and removes web services, they will likely remain in beta forever.)
-
-JavaaScript large number of APIs (Application Programming Interfaces) so programs in servers can communicate with other computers directly without human interaction: Information from users of Google's Gmail, Calendar, Drive cloud, Google+, and YouTube videos.
- 
 # Tasks To Build This
 - [ ] Objective 2 - Explore libraries (done first to not waste time on objective 1)
 	Decision to use https://github.com/google/google-api-javascript-client with documentation at
@@ -67,6 +68,25 @@ JavaaScript large number of APIs (Application Programming Interfaces) so program
 
 - [ ] Objective 3 - Explain JWT
 - [ ] Objective 4 - Reports API calls
+
+# <a name="short_urls"></a> Short URLs as a sample
+Up until recently, short URLs were needed to not waste any of the 140 characters allowed in a single tweet on 
+[Twitter](http://www.twitter.com/). Long URLs would be first be shortened using a utility website and then pasted into Twitter.
+
+But since Twitter now automatically shortens long URLs to their own http://t.co host name, 
+another utility website is really not needed.
+
+PROTIP:
+Nevetheless, I personally use the Google service so I can include the QR code image created as a by-product of the
+shortening. Visitors can scan the QR image on their smartphone to read the page on their mobile device without needing 
+to type in the URL.
+
+Google is not alone in its offering. The most well-known URL shortening websites are listed in 
+[this comparison](http://royal.pingdom.com/2010/10/29/is-goo-gl-really-the-fastest-url-shortener-chart/)
+of how quickly URLs are shortend:
+
+...   ![Speed test](http://www.merc.tv/img/fig/goo.speed_tests.png "Speed test")
+
 
 # <a name="Interactive_demo_client"></a> Interactive Demo Client to Shorten Long URLs
 The sample app shown at https://wilsonmar.github.com/gapi-node 
@@ -138,10 +158,6 @@ The remainder of this tutorial takes a "deep dive" into the different ways Googl
 4.	[Obtain short URL from Google's Node.js program](#from_google_node_js)
 
 Along the way, we consider several technical details:
-
-1.  [Speed test of goo.gl vs. competing URL shortener services](#Speedtest_results)
-http://royal.pingdom.com/2010/10/29/is-goo-gl-really-the-fastest-url-shortener-chart/
-img/fig/goo.speed_tests.png
 
 2.  [Copy shortened URL to clipboard](#copy_to_clipboard)
 http://googleblog.blogspot.com/2011/04/beefing-up-googl-with-new-features.html
