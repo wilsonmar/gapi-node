@@ -355,16 +355,19 @@ which the computer uses to "sign" requests made on the user's behalf.
 
 # <a name="#Obtain_credentials"></a> Obtain Google API Credentials for automated API calls
 
-Instead of manually typing in a password associated with a Google account (email),
-permissions for API actions are performed based on a **service account** (that looks like an email address)
-and electronic keys obtained from the *Google API Console* (at 
-https://console.developers.google.com/) for a specific project.
-
-The diagram here illustrates what happens under the covers:
-
 ## <a name="Keygen_dataflow"></a> Key Generation Dataflow
 
 ...   ![Dataflow](http://www.merc.tv/img/fig/goo.keygen_dataflow.png "Dataflow")
+
+Instead of manually typing in a password associated with a Google (Gmail) account,
+the basis for crafting credentials associated with API actions 
+are performed based on a **service account** (that looks like an email address)
+obtained from the *Google API Console* (at https://console.developers.google.com/) 
+for a specific project.
+
+The diagram here illustrates what happens under the covers:
+
+and electronic keys
 
 Programs usually only need call pre-defined library functions that accept a service account and private key as input,
 and the underlying format of calls are done automatically within the library code.
@@ -425,8 +428,9 @@ Twitter now has its own t.co service automatically applied to URLs in tweets.
 The API Key is used to track Quota used.
 
 
-## Get service account email for project
+## <a hre="Public_API_Access"></a> Public API Access 
 
+The Public API access option generates an API Key used to perform anonymous URL shortener lookups because it is "not used for authentication". This is because the API Key is sent to Google in plain text, so it can be intercepted for reuse by another.
 
 ## Covert .p12 file to .pem format
 
