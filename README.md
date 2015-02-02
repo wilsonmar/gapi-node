@@ -161,6 +161,8 @@ Along the way, we consider several technical details.
 That is the reason why steps covered in other documentation are repeated here.
 
 1.	[Obtain short URL manually from goo.gl as an anonymous user](#from_goo.gl_anon) was presented earlier.
+	* [Detailed Statistics](#Details_stats)
+
 2.	[Obtain short URL manually from goo.gl as a signed-in Google user](#from_goo.gl_signed_in) 
 3.	[Obtain short URL manually from custom client as an anonymous user](#Interactive_demo_client)
 4.	[Obtain short URL manually using Node.js command line](#from_node_cli)
@@ -197,6 +199,8 @@ Now let's see what happens when the API request occurs by a user signed into Goo
 11.	Return to the Google url shortener window. 
 
 Since the link you just created won't have any hits yet, let's take a look at one that has lots of hits over time.
+
+### <a name="Details_stats"></a> Detailed Statistics
 
 12.	Click the **Details** link associated with the URL you just used. 
 An example of such a link is http://goo.gl/#analytics/goo.gl/l6MS/all_time created December, 2009.
