@@ -94,6 +94,23 @@ and Bootstrap responsive theme library.
 - [ ] Objective 4 - Reports API calls
 
 
+# <a name="from_goo.gl_anon"></a> Obtain short URLs manually from goo.gl as an anonymous user
+As an introduction to how Google’s URL Shortener API service works, let’s look at the human user interface which web services APIs replace.
+
+1.	Use the Google Chrome browser. If you do not have one installed, install it from http://google.com/chrome.
+2.	Sign out of your Google account.
+3.	Type in the browser omni bar Google's URL Shortener home page at http://goo.gl/.
+4.	Type or paste a URL of your choice (such as maps.google.com) in the box under "Paste your long URL here". 
+(http:// is not needed).
+5.	Click the "I'm not a robot" checkbox. (This scheme activated September 2014 does not require input of random words, as described at http://www.wikiwand.com/en/ReCAPTCHA).
+6.	Click the blue Shorten URL button.
+7.	Press Ctrl or control+C to copy the shortened URL to your computer's clipboard. For comparison later, paste it into another document.
+8.	In the browser's address bar, double-click to highlight the goo.gl and press Command+V to paste the shortened URL.
+9.	Press Enter to resolve the URL.
+
+> Notice in this example, Google provides both the front-end and back-end processing under its own account (not that of a Google user).
+
+
 # <a name="short_url_services"></a> Short URL Services
 Up until recently, short URLs were needed to not waste any of the 140 characters allowed in a single tweet on 
 [Twitter](http://www.twitter.com/). Long URLs would be first be shortened using a utility website and then pasted into Twitter.
@@ -143,12 +160,13 @@ The remainder of this tutorial takes a "deep dive" into the different ways Googl
 Along the way, we consider several technical details. 
 That is the reason why steps covered in other documentation are repeated here.
 
-1.	[Obtain short URL manually from goo.gl as an anonymous user](#from_goo.gl_anon)
-2.	[Obtain short URL manually from goo.gl as a signed-in Google user](#from_goo.gl_signed_in)
-3.	[Obtain short URL manually using Node.js command line](#from_node_cli)
-4.	[Obtain short URL manually using Google's API Playground](#from_playground)
-5.	[Obtain short URL manually using Google Code](#from_devtools)
-4.	[Obtain short URL from Google's Node.js program](#from_google_node_js)
+1.	[Obtain short URL manually from goo.gl as an anonymous user](#from_goo.gl_anon) was presented earlier.
+2.	[Obtain short URL manually from goo.gl as a signed-in Google user](#from_goo.gl_signed_in) 
+3.	[Obtain short URL manually from custom client as an anonymous user](#Interactive_demo_client)
+4.	[Obtain short URL manually using Node.js command line](#from_node_cli)
+5.	[Obtain short URL manually using Google's API Playground](#from_playground)
+6.	[Obtain short URL manually using Google Code](#from_devtools)
+7.	[Obtain short URL from Google's Node.js program](#from_google_node_js)
 
 The latest news about Google's URL Shortener is posted to the **forum** at
 https://groups.google.com/forum/#!forum/google-url-shortener.
@@ -192,21 +210,6 @@ Sample client code in various other programming languages have been published :
 * Python: https://github.com/parthrbhatt/pyShortUrl supports several shortener services (and provides a comparison)
 
 
-## <a name="from_goo.gl_anon"></a> Obtain short URLs manually from goo.gl as an anonymous user
-As an introduction to how Google’s URL Shortener API service works, let’s look at the human user interface which web services APIs replace.
-
-1.	Use the Google Chrome browser. If you do not have one installed, install it from http://google.com/chrome.
-2.	Sign out of your Google account.
-3.	Type in the browser omni bar Google's URL Shortener home page at http://goo.gl/.
-4.	Type or paste a URL of your choice (such as maps.google.com) in the box under "Paste your long URL here". 
-(http:// is not needed).
-5.	Click the "I'm not a robot" checkbox. (This scheme activated September 2014 does not require input of random words, as described at http://www.wikiwand.com/en/ReCAPTCHA).
-6.	Click the blue Shorten URL button.
-7.	Press Ctrl or control+C to copy the shortened URL to your computer's clipboard. For comparison later, paste it into another document.
-8.	In the browser's address bar, double-click to highlight the goo.gl and press Command+V to paste the shortened URL.
-9.	Press Enter to resolve the URL.
-
-> Notice in this example, Google provides both the front-end and back-end processing under its own account (not that of a Google user).
 
 ## <a name="from_goo.gl_signed_in"></a> Obtain short URLs manually from goo.gl as a signed-in Google user
 Now let's see what happens when the API request occurs by a user signed into Google:
