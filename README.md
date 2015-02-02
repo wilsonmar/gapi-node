@@ -1,4 +1,7 @@
 # Objectives of this repo : gapi-node
+This repo provides a guided exploration for developers to quickly learn, in a hands-on way, 
+how to perform server-to-server communication with Google's many web services on behalf of specific Google users.
+
 This repo was created to: 
 
 1. provide sample [interactive client webpage](#Interactive_demo_client) code
@@ -13,9 +16,15 @@ to format API calls;
 5. show additional variations on use of Google APIs, such as the [Reports API](#Reports_API) 
   to collect and display analytics data Google collects.
 
+TECHNICAL NOTE: JavaScript are coded based on [Douglas Crokford's conventions](http://javascript.crockford.com/code.html), 
+run through [JSLint](http://infohound.net/tidy/), 
+and passes W3C checks.
+
+TECHNICAL NOTE: Client-side coding makes use of 
+jQuery 
+and Bootstrap responsive theme library.
+
 # README.md
-This tutorial is a guided exploration for developers to quickly learn, in a hands-on way, 
-how to perform server-to-server communication with Google's many web services.
 
 Google provides a large number of APIs (Application Programming Interfaces) so programs in servers can communicate with other computers directly without human interaction: Information from users of Google's Gmail, Calendar, Drive cloud, Google+, and YouTube videos.
  
