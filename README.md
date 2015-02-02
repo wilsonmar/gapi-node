@@ -1,9 +1,11 @@
 # Objectives of this repo : gapi-node
 This repo was created to: 
 
-1. provide sample code (with [tests](#Client-side_test_code)) for the [interactive client website](#Interactive_demo_client) 
-    developed to demo how to to shorten a URL using a Google API (using JWT) from within a node.js server 
-    (also with [test code](#Server-side_test_code))
+1. provide sample [interactive client webpage](#Interactive_demo_client) code
+  (with [tests](#Client-side_test_code)) to 
+  [back-end node.js server code](#Nodejs_code)
+  (also with [test code](#Server-side_test_code))
+  to demo how to shorten a URL using Google APIs (using API Key and OAuth2 with JWT) 
 2. explain [the workflow to use Google APIs](#Workflow_diagram) using [various clients](#Client_API_access)
 to format API calls;
 3. describe how to [obtain credentials](#Obtain_credentials) used for making API calls; 
@@ -24,7 +26,7 @@ Google provides a large number of APIs (Application Programming Interfaces) so p
 
 - [ ] Objective 1 - Call Google API
   - [x] Create github repo (Wilson)
-  - [ ] Create github.io/gapi-node (wilson)
+  - [x] Create github.io/gapi-node (wilson)
   - [x] Provide API key (Wilson)
   - [ ] Code running skeleton client form and node.js express with no formatting, no retrieval of QR code (Abdul)
   - [ ] Describe skeleton (Wilson with Abdul)
@@ -80,13 +82,13 @@ Sample client code in various other programming languages have been published :
 # <a name="Workflow_diagram"></a> Workflow to use Google for shortening URLs
 
 NOTE: The following is the narration to this video ___ on YouTube.com and DailyMotion.com ___.
-Videos dynamically reveal these illustrations with spoken text.
+Videos dynamically reveal these illustrations with spoken text and captioning.
 
 This illustration shows how data is input into and output from Google's servers:
 
 ![Data flow](http://www.merc.tv/img/fig/goo.dataflow_2015.02.01.png "Data flow")
 
-Among the many services Google provides, in this tutorial, we use Google's **URL Shortener** service because one doesn’t need to stand-up a custom server in the Google Cloud to work with the URL Shortener service Google provides.
+Among the many services Google provides, in this tutorial, we use Google's **URL Shortener** service because one doesn’t need to stand-up a custom server to perform the URL Shortener calculations which Google performs on its server.
 
 Google’s [goo.gl](http://goo.gl/) website converts **long** URLs into **short** URLs for inclusion within 140 character tweets or for quicker typing in mobile keyboards.
 Google also provides an [API Explorer](http://developers.google.com/apis-explorer/?hl=en_US#p/urlshortener/v1/) and a [Playground](https://developers.google.com/oauthplayground/) for exploring calls made on behalf of a Google user signed in. These sites mock how **custom** sites can use [Google's API to generate shortUrls]().
