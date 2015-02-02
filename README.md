@@ -140,7 +140,8 @@ The authentication token assembled are sent to Google's authentication server to
 # <a name="Client_API_access"></a> Using the Google URL Shortener API server:
 
 The remainder of this tutorial takes a "deep dive" into the different ways Google's URL Shortener service can be accessed. 
-Along the way, we consider several technical details:
+Along the way, we consider several technical details. 
+That is the reason why steps covered in other documentation are repeated here.
 
 1.	[Obtain short URL manually from goo.gl as an anonymous user](#from_goo.gl_anon)
 2.	[Obtain short URL manually from goo.gl as a signed-in Google user](#from_goo.gl_signed_in)
