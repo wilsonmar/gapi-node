@@ -203,18 +203,24 @@ An example of such a link is http://goo.gl/#analytics/goo.gl/l6MS/all_time creat
 	An alternate form of it is to type in your internet browser's address bar 
 http://goo.gl/l6MS.info constructued by adding **.info** to the code generated.
 
-> Notice that codes generated are case-sensitive.
+> Notice that codes generated are case-sensitive. More characters are needed as needed.
 
-> Hits are included in the "Not Provided" or "Unknown" category when https (secure URLs) are used.
+...   ![Referrers](http://www.merc.tv/img/fig/goo.gl.l6MS.referrers.2015.02.02.png "Referrers")
+
+> Hits are included in the "Not Provided" or "Unknown" category when https (secure URLs) are used for client requests.
 
 > Because Google servers resolves short to long URLs, it can track meta information from clients used to view the link. IP addresses of clients can be asociated with the country of origin. The browser, and operating system platform are also provided by client browsers.
 
-An older version of details does not have the circle graph and the world map.
-
-...   ![Short URL usage Statistics](http://www.merc.tv/img/fig/goo-gl-analytics.jpg "Statistics")
-Image credit: [Mashable](http://mashable.com/2010/09/30/goo-gl-url-shortener/)
-
 > Notice at the upper right corner the QR (Quick Response) graphic image for mobile smartphone readers to obtain the URL.
+
+Older version of details, such as [this one captured by Mashable](http://mashable.com/2010/09/30/goo-gl-url-shortener/) 
+do not have the circle graph and the world map.
+
+...   ![Countries](http://www.merc.tv/img/fig/goo.gl.l6MS.countries.2015.02.02.png "Countries")
+
+...   ![Platforms](http://www.merc.tv/img/fig/goo.gl.l6MS.platforms.2015.02.02.png "Platforms")
+
+...   ![Browsers](http://www.merc.tv/img/fig/goo.gl.l6MS.browsers.2015.02.02.png "Browsers")
 
 13.	To obtain the QR code, change the address by adding *.qr* after the generated code (l6MS) to
 http://goo.gl/l6MS.qr
