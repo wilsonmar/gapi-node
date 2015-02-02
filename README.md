@@ -38,8 +38,10 @@ and Bootstrap responsive theme library.
 
 # TL;DR (Summary Gist)
 
-Google provides a single code library to access the many APIs they run in their cloud.
-Since Google constantly adds and removes web services, it will likely remain in beta forever.
+Google provides a single set of [client](#client_libraries) 
+and [server](#server_libraries) 
+code libraries to access the many APIs they run in their cloud.
+(I think since Google constantly adds and removes web services, they will likely remain in beta forever.)
 
 JavaaScript large number of APIs (Application Programming Interfaces) so programs in servers can communicate with other computers directly without human interaction: Information from users of Google's Gmail, Calendar, Drive cloud, Google+, and YouTube videos.
  
