@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='utf-8' />
+    <title>Google API mock-up</title>
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+    <link href="http://netdna.bootstrapcdn.com/bootstrap/3.0.1/css/bootstrap.min.css" rel="stylesheet" />
+  </head>
+<!-- Moved to below DOCTYPE to avoid forcing quarks mode.
+  Copyright (c) 2011 Google Inc.
+
+  Licensed under the Apache License, Version 2.0 (the "License"); you may not
+  use this file except in compliance with the License. You may obtain a copy of
+  the License at
+
+  http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+  WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+  License for the specific language governing permissions and limitations under
+  the License.
+
+  To run this sample, replace YOUR API KEY with your application's API key.
+  It can be found at https://code.google.com/apis/console/?api=plus under API Access.
+  Activate the Google+ service at https://code.google.com/apis/console/ under Services
+-->
+
+  <body>
+    <div class="container"><!-- For Bootstrap 3 to add side borders -->
+  <header>
+    <p>&nbsp;</p>
+  <p><a href="http://wilsonmar.com/JetBloom/Console/gapi.html">This form</a> 
+    is used to store OAuth 2.0 credentials obtained from the 
+    <a target="_blank" href="https://console.developers.google.com/project">
+    Google's API Console</a>.</p>
+    <p>
+    The project Name, ID, etc. are stored in an encrypted database.</p>
+    <p>
+    Drag the .p12 file in any beige space and it will be automatically thru openssl pkcs12 to 
+    create the .pem file, then stored in the encrypted database on the web server.</p>
+  </header>
+
+    <table border="0" cellpadding="4" cellspacing="0"><tr valign="top"><td>
+     <form role="form">
+    <strong>Your Gmail:</strong> : <a target="_blank" href="
+    https://console.developers.google.com/project/467693042906/apiui/apiview/urlshortener?tabId=overview">
+    Your Enabled APIs</a> at the
+    <a target="_blank" href="https://developers.google.com/console/help/new/#generatingoauth2">
+    Google Developer Console</a>
+    <input type="email" class="form-control" id="admin_email" value="wilsonmar@gmail.com">
+
+    <h4>Project Name :</h4>
+    <input type="text" class="form-control" id="project_name" value="API Project">
+
+    <h4>Project ID :</h4> 
+    <input type="text" class="form-control" id="project_id" value="467693042906">
+
+  </td></tr><tr valign="top"><td>
+    <a target="_blank" href="https://console.developers.google.com/project/467693042906/apiui/credential"> Credentials</a>
+    
+    <h4>Service Account CLIENT ID :</h4>
+    <input type="text" class="form-control" id="client_id" value="837050751313">
+
+    <h4>Service Account EMAIL ADDRESS :</h4>
+    <input type="email" class="form-control" id="service_email" value="wilsonmar@gmail.com">
+
+    <h4>CERTIFICATE FINGERPRINTS / API KEY :</h4>
+    <input type="text" class="form-control" id="api_key" 
+        value="AIzaSyAdjHPT5Pb7Nu56WJ_nlrMGOAgUAtKjiPM">
+
+    <h4>Scopes :</h4>
+    <a target="_blank" href="https://developers.google.com/apis-explorer/#p/">
+    Google's API Explorer</a> and
+    <a target="_blank" href="https://developers.google.com/oauthplayground/">
+    OAuth 2.0 Playground API list</a>
+    <input type="text" class="form-control" id="scopes" 
+        value="https://www.googleapis.com/auth/urlshortener">
+      TODO: List from .json file.
+    <br />
+      URL Shortener
+      <a target="_blank" href="https://developers.google.com/apis-explorer/#p/urlshortener/v1/">
+        API Explorer</a> and
+        <a target="_blank" href="https://developers.google.com/url-shortener/v1/getting_started">
+        Getting Started</a>
+
+    <h4>For each shortened URL :</h4>
+      <a target="_blank" href="http://goo.gl/#analytics/goo.gl/bNCI0m/all_time">
+      Analytics &amp; QR code image for a particular link (goo.gl/bNC10m)
+  </p>
+
+    <p>&nbsp;</p>
+    <!--Add a button for the user to click to initiate auth sequence -->
+    <button id="authorize-button">Save to database</button>
+    <!-- style="visibility: hidden" in original sample code removed -->
+    </form>
+  </td><td>
+      <img align="right" src="dist/img/Google_API_Svc_Account_Keys.png" width="400" />
+    </td></tr></table>
+
+
+    <div class="content">Messages here.</div><!-- Error messages here under Authorize button -->
+
+<p>
+  <a target="_blank" href="https://developers.google.com/admin-sdk/reports/v1/guides/migrate">
+    Reporting API</a>
+<p>
+      <img src="dist/img/Google_All_APIs_over_time.png" width="400" />
+  
+    <footer>
+    <p>&nbsp;</p>
+    <p>This form, from 
+      <a target="_blank" href="https://code.google.com/p/google-api-javascript-client/source/browse/samples/authSample.html">
+      Google's code sample</a> (containing hard-coded key values),
+      was adapted by 
+      <a target="_blank" href="http://about.me/wilsonmar">Wilson Mar</a>
+      and 
+      <a target="_blank" href="http://about.me/abdulaleem313">Abdul Hussain</a>.</p>
+      <p><a target="_blank" href="http://validator.w3.org/nu/?showsource=yes&amp;showoutline=yes&amp;showimagereport=yes&amp;doc=http%3A%2F%2Fwilsonmar.com%2Fapis%2Fgapi.html">
+         HTML5 valid</a></p>
+    </footer>
+  </div><!-- Bootstrap 3 container -->
+  
+
+    <script type="text/javascript">
+      // Enter a client ID for a web application from the Google Developer Console.
+      // The provided clientId will only work if the sample is run directly from
+      // https://google-api-javascript-client.googlecode.com/hg/samples/authSample.html
+      // In your Developer Console project, add a JavaScript origin that corresponds to the domain
+      // where you will be running the script.
+      var clientId = '837050751313';
+
+      // Enter the API key from the Google Develoepr Console - to handle any unauthenticated
+      // requests in the code.
+      // The provided key works for this sample only when run from
+      // https://google-api-javascript-client.googlecode.com/hg/samples/authSample.html
+      // To use in your own application, replace this API key with your own.
+      var apiKey = 'AIzaSyAdjHPT5Pb7Nu56WJ_nlrMGOAgUAtKjiPM';
+
+      // To enter one or more authentication scopes, refer to the documentation for the API.
+      var scopes = 'https://www.googleapis.com/auth/plus.me';
+
+      // Use a button to handle authentication the first time.
+      function handleClientLoad() {
+        gapi.client.setApiKey(apiKey);
+        window.setTimeout(checkAuth,1);
+      }
+
+      function checkAuth() {
+        gapi.auth.authorize({client_id: clientId, scope: scopes, immediate: true}, handleAuthResult);
+      }
+
+
+      function handleAuthResult(authResult) {
+        var authorizeButton = document.getElementById('authorize-button');
+        if (authResult && !authResult.error) {
+          authorizeButton.style.visibility = 'hidden';
+          makeApiCall();
+        } else {
+          authorizeButton.style.visibility = '';
+          authorizeButton.onclick = handleAuthClick;
+        }
+      }
+
+      function handleAuthClick(event) {
+        gapi.auth.authorize({client_id: clientId, scope: scopes, immediate: false}, handleAuthResult);
+        return false;
+      }
+
+      // Load the API and make an API call.  Display the results on the screen.
+      function makeApiCall() {
+        gapi.client.load('plus', 'v1', function() {
+          var request = gapi.client.plus.people.get({
+            'userId': 'me'
+          });
+          request.execute(function(resp) {
+            var heading = document.createElement('h4');
+            var image = document.createElement('img');
+            image.src = resp.image.url;
+            heading.appendChild(image);
+            heading.appendChild(document.createTextNode(resp.displayName));
+
+            document.getElementById('content').appendChild(heading);
+          });
+        });
+      }
+    </script>
+    <script src="https://apis.google.com/js/client.js?onload=handleClientLoad"></script>
+
+<!-- Sequence of loading is important here: -->
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+    <script type="text/javascript">
+    if (typeof $.tooltip === 'undefined') { // fallback if tooltip feature not defined:
+        document.write('<script src="dist/js/vendor/jquery.min.js">\x3C/script>');
+    }
+    </script>
+  </body>
+</html>

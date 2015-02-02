@@ -1,8 +1,9 @@
 # Objectives of this repo : gapi-node
 This repo was created to: 
 
-1. provide sample code (with tests) for the [interactive client website](#Interactive_demo_client) developed to demo
-  how to call a Google API (using JWT) from within a node.js server to shorten a URL for use in Twitter messages;
+1. provide sample code (with [tests](#Client-side_test_code)) for the [interactive client website](#Interactive_demo_client) 
+    developed to demo how to to shorten a URL using a Google API (using JWT) from within a node.js server 
+    (also with [test code](#Server-side_test_code))
 2. explain [the workflow to use Google APIs](#Workflow_diagram) using [various clients](#Client_API_access)
 to format API calls;
 3. describe how to [obtain credentials](#Obtain_credentials) used for making API calls; 
@@ -10,7 +11,10 @@ to format API calls;
 5. show additional variations on use of Google APIs, such as the [Reports API](#Reports_API) 
   to collect and display analytics data Google collects.
 
-This tutorial is a guided exploration for developers to quickly learn, in a hands-on way, how to perform server-to-server communication with Google's many web services.
+# README.md
+This tutorial is a guided exploration for developers to quickly learn, in a hands-on way, 
+how to perform server-to-server communication with Google's many web services.
+
 Google provides a large number of APIs (Application Programming Interfaces) so programs in servers can communicate with other computers directly without human interaction: Information from users of Google's Gmail, Calendar, Drive cloud, Google+, and YouTube videos.
  
 # Tasks To Build This
@@ -144,7 +148,6 @@ As an introduction to how Google’s URL Shortener API service works, let’s lo
 
 > Notice in this example, Google provides both the front-end and back-end processing under its own account (not that of a Google user).
 
-
 ## <a name="from_goo.gl_signed_in"></a> Obtain short URLs manually from goo.gl as a signed-in Google user
 Now let's see what happens when the API request occurs by a user signed into Google:
 
@@ -190,6 +193,12 @@ Image credit: [Mashable](http://mashable.com/2010/09/30/goo-gl-url-shortener/)
 http://goo.gl/l6MS.qr
 
 
+## <a name="Client-side_test_code"></a> Client-side Test Code
+TODO
+
+## <a name="Server-side_test_code"></a> Server-side Test Code
+TODO
+
 ## <a name="from_node_cli"></a> Obtain short URL manually from a Node.js command line
 A custom program (not Google) can also provide a way to shorten URLs under its account.
 
@@ -199,6 +208,7 @@ A custom program (not Google) can also provide a way to shorten URLs under its a
 ```
 npm install -g goo.gl
 ```
+
 The module comes from: https://github.com/kaimallea/node-googl
 
 3. At the terminal command line, obtain a short URL by specifying the goo.gl with a host name (without the http protocol):
