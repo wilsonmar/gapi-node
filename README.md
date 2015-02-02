@@ -14,7 +14,7 @@ Google's service around [short URLs](#short_url_services) is used as an example 
 Credentials for access are obtained for a particular project created within Google's Developer Console. 
 Obtain from the Credentials page a Public API Key so Google can track usage.
 Some requests can be made with just the public key alone, and without need to go through a server.
-It is called public because it is included in client JavaScript, so it can be stolen and used by others.
+They API Key is called public because it is included in client JavaScript, so it can be stolen and used by others.
 
 For more secure processing:
 
