@@ -19,19 +19,23 @@ to format API calls;
 TECHNICAL NOTES: 
 JavaScript are coded following [Douglas Crockford's conventions](http://javascript.crockford.com/code.html), 
 run through [JSLint](http://infohound.net/tidy/).
-HTML are run through [HTMLTidy](http://infohound.net/tidy/) and passes W3C checks.
-CSS are run through [CSSLint](http://csslint.net/) and passes W3C checks.
+HTML are run through [HTMLTidy](http://infohound.net/tidy/).
+CSS are run through [CSSLint](http://csslint.net/).
 
-HTML, CSS, and JavaScript presented publicly on websites have been minified.
+HTML, CSS, and JavaScript presented publicly on websites have been minified
+and pass the [W3C Validator](http://validator.w3.org/).
 So this repository is the place to review code.
 
 Client-side coding makes use of 
 jQuery 
 and Bootstrap responsive theme library.
 
-# README.md
+# TL;DR (Summary Gist)
 
-Google provides a large number of APIs (Application Programming Interfaces) so programs in servers can communicate with other computers directly without human interaction: Information from users of Google's Gmail, Calendar, Drive cloud, Google+, and YouTube videos.
+Google provides a single code library to access the many APIs they run in their cloud.
+Since Google constantly adds and removes web services, it will likely remain in beta forever.
+
+JavaaScript large number of APIs (Application Programming Interfaces) so programs in servers can communicate with other computers directly without human interaction: Information from users of Google's Gmail, Calendar, Drive cloud, Google+, and YouTube videos.
  
 # Tasks To Build This
 - [ ] Objective 2 - Explore libraries (done first to not waste time on objective 1)
