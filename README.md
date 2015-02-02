@@ -137,9 +137,10 @@ The authentication token assembled are sent to Google's authentication server to
 
 <hr />
 
-# <a name="Client_API_access"></a> Different ways to access the URL Shortener Google API:
+# <a name="Client_API_access"></a> Using the Google URL Shortener API server:
 
 The remainder of this tutorial takes a "deep dive" into the different ways Google's URL Shortener service can be accessed. 
+Along the way, we consider several technical details:
 
 1.	[Obtain short URL manually from goo.gl as an anonymous user](#from_goo.gl_anon)
 2.	[Obtain short URL manually from goo.gl as a signed-in Google user](#from_goo.gl_signed_in)
@@ -148,22 +149,8 @@ The remainder of this tutorial takes a "deep dive" into the different ways Googl
 5.	[Obtain short URL manually using Google Code](#from_devtools)
 4.	[Obtain short URL from Google's Node.js program](#from_google_node_js)
 
-Along the way, we consider several technical details:
-
-2.  [Copy shortened URL to clipboard](#copy_to_clipboard)
-http://googleblog.blogspot.com/2011/04/beefing-up-googl-with-new-features.html
-
-3.	[Get list of short URLs from Google's API Console for known user](#from_api_console)
-g)	Public API access<br />
-h)	Use Google's Developer Console to define projects, service accounts, and private keys
-i)	.p12 file and cryptography
-j)	Store and retrieve private keys securely
-k)	Make web service (API) call to Google servers
-l)	Manually retrieve report on short URL resolution history 
-m)	Retrieve report on short URL resolution history using Node.js
-
-The latest news about Google's URL Shortener is posted to the forum at
-https://groups.google.com/forum/#!forum/google-url-shortener
+The latest news about Google's URL Shortener is posted to the **forum** at
+https://groups.google.com/forum/#!forum/google-url-shortener.
 
 <hr />
 
