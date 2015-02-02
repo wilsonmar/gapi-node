@@ -5,9 +5,15 @@ and [server](#server_libraries)
 code libraries to access the many APIs they run in their cloud.
 (I think since Google constantly adds and removes web services, they will likely remain in beta forever.)
 
+The libraries hides the complexities of calculating Base64 and signatures Google rightly requires to 
+authenticate computers obtaining information Google holds on behalf of its users.
+
+Google's service around [short URLs](#short_url_services) is used as an example that does not require more server setup. 
+
 JavaaScript large number of APIs (Application Programming Interfaces) so programs in servers can communicate with other computers directly without human interaction: Information from users of Google's Gmail, Calendar, Drive cloud, Google+, and YouTube videos.
  
-# Objectives of this repo : gapi-node
+ 
+# Objectives of This Repo
 This repo provides a guided exploration for developers to quickly learn, in a hands-on way, 
 an example of how to perform server-to-server communication with Google's many web services on behalf of specific Google users.
 
@@ -16,7 +22,7 @@ Sample [interactive client webpage](#Interactive_demo_client) code
   [back-end node.js server code](#Nodejs_code)
   (also with [test code](#Server-side_test_code))
   is provided to demo how to use Google APIs (using API Key and OAuth2 with JWT).
-	The example is the [various user activites](#user_activities) around [short URLs](#short_urls).
+	The example is the [various user activites](#user_activities) around [short URLs](#short_url_services).
 
 The demo code is used to explain [the workflow to use Google APIs](#Workflow_diagram) 
 	using [various clients](#Client_API_access) to format API calls;
@@ -69,7 +75,8 @@ and Bootstrap responsive theme library.
 - [ ] Objective 3 - Explain JWT
 - [ ] Objective 4 - Reports API calls
 
-# <a name="short_urls"></a> Short URLs as a sample
+
+# <a name="short_urls"></a> Short URL Services
 Up until recently, short URLs were needed to not waste any of the 140 characters allowed in a single tweet on 
 [Twitter](http://www.twitter.com/). Long URLs would be first be shortened using a utility website and then pasted into Twitter.
 
