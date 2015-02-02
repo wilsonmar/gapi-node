@@ -125,6 +125,9 @@ to type in the URL.
 
 ...   ![QR code for this page](http://www.merc.tv/img/fig/goo-node.readme.qrcode.png "QR code for this page")
 
+Google began public use of its API URL Shortener 
+[in 2009](http://googleblog.blogspot.com/2009/12/making-urls-shorter-for-google-toolbar.html).
+
 Google is not alone in its offering. The most well-known URL shortening websites are listed in 
 [this comparison](http://royal.pingdom.com/2010/10/29/is-goo-gl-really-the-fastest-url-shortener-chart/)
 of how quickly URLs are shortend:
@@ -161,6 +164,7 @@ Along the way, we consider several technical details.
 That is the reason why steps covered in other documentation are repeated here.
 
 1.	[Obtain short URL manually from goo.gl as an anonymous user](#from_goo.gl_anon) was presented earlier.
+	* [QR code](#QR_code)
 	* [Detailed Statistics](#Details_stats)
 
 2.	[Obtain short URL manually from goo.gl as a signed-in Google user](#from_goo.gl_signed_in) 
@@ -197,12 +201,12 @@ Now let's see what happens when the API request occurs by a user signed into Goo
 9.	Paste the URL in the browser address bar and press Enter to retrieve the page.
 10.	Repeat on a different browser or even different operating system.
 11.	Return to the Google url shortener window. 
+12.	Click the **Details** link associated with the URL you just used. 
 
 Since the link you just created won't have any hits yet, let's take a look at one that has lots of hits over time.
 
 ### <a name="Details_stats"></a> Detailed Statistics
 
-12.	Click the **Details** link associated with the URL you just used. 
 An example of such a link is http://goo.gl/#analytics/goo.gl/l6MS/all_time created December, 2009.
 	An alternate form of it is to type in your internet browser's address bar 
 http://goo.gl/l6MS.info constructued by adding **.info** to the code generated.
@@ -226,13 +230,15 @@ do not have the circle graph and the world map.
 
 ...   ![Browsers](http://www.merc.tv/img/fig/goo.gl.l6MS.browsers.2015.02.02.png "Browsers")
 
+### <a name="QR_code"></a> QR Code Image
+
 13.	To obtain the QR code, change the address by adding *.qr* after the generated code (l6MS) to
-http://goo.gl/l6MS.qr
+http://goo.gl/l6MS.qr.
 
 
 ## <a name="Interactive_demo_client"></a> Interactive Demo Client to Shorten Long URLs
 The sample app shown at https://wilsonmar.github.com/gapi-node 
-makes calls to the Google API URL Shortener [first made available in 2009](http://googleblog.blogspot.com/2009/12/making-urls-shorter-for-google-toolbar.html).
+makes calls to the Google API URL Shortener.
 
 1. Type out a URL you would like to shorten and click "Shorten".
 2. The response is the shortened URL 
