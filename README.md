@@ -3,10 +3,10 @@
 Google provides a single set of [client](#client_libraries) 
 and [server](#server_libraries) 
 code libraries to access the many APIs they run in their cloud.
-(I think since Google constantly adds and removes web services, they will likely remain in beta forever.)
+(I think since Google constantly adds and removes web services, they will likely remain in alpha or beta forever.)
 
-The libraries hides the complexities of calculating Base64 and signatures Google rightly requires to 
-authenticate computers obtaining information Google holds on behalf of its users.
+Libraries hide the mathematics of [calculating Base64 and signatures](Keygen_dataflow) 
+Google rightly requires to authenticate computers obtaining information Google holds on behalf of its users.
 
 Google's service around [short URLs](#short_url_services) is used as an example that does not require more server setup. 
 
@@ -76,17 +76,19 @@ and Bootstrap responsive theme library.
 - [ ] Objective 4 - Reports API calls
 
 
-# <a name="short_urls"></a> Short URL Services
+# <a name="short_url_services"></a> Short URL Services
 Up until recently, short URLs were needed to not waste any of the 140 characters allowed in a single tweet on 
 [Twitter](http://www.twitter.com/). Long URLs would be first be shortened using a utility website and then pasted into Twitter.
 
 But since Twitter now automatically shortens long URLs to their own http://t.co host name, 
-another utility website is really not needed.
+another utility website is really not required. However, Twitter does add
 
 PROTIP:
 Nevetheless, I personally use the Google service so I can include the QR code image created as a by-product of the
 shortening. Visitors can scan the QR image on their smartphone to read the page on their mobile device without needing 
 to type in the URL.
+
+...   ![QR code for this page](http://www.merc.tv/img/fig/goo-node.readme.qrcode.png "QR code for this page")
 
 Google is not alone in its offering. The most well-known URL shortening websites are listed in 
 [this comparison](http://royal.pingdom.com/2010/10/29/is-goo-gl-really-the-fastest-url-shortener-chart/)
@@ -409,7 +411,7 @@ But instead of www.google.com, you would specify the long URL of your choice.
 or [clicking "Accept" Google managing short URLs](#Accept_API).
 
 But when the user is not present to manually do that, 
-Google would need something to prove that acceptance was unreputably agreed to ahead of time.
+Google would need something to prove that user acceptance was unreputably agreed to ahead of time.
 That acceptance occurs by the user providing a private unique fingerprint key he/she generated
 which the computer uses to "sign" requests made on the user's behalf.
 
@@ -423,7 +425,7 @@ which the computer uses to "sign" requests made on the user's behalf.
 Instead of manually typing in a password associated with a Google (Gmail) account,
 the basis for crafting credentials associated with API actions 
 are performed based on a **service account** (that looks like an email address)
-obtained from the *Google API Console* (at https://console.developers.google.com/) 
+[obtained from the *Google API Console*](#Get_service_account) 
 for a specific project.
 
 The diagram here illustrates what happens under the covers:
