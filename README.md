@@ -10,11 +10,12 @@ Google rightly requires to authenticate computers obtaining information Google h
 
 Google's service around [short URLs](#short_url_services) is used as an example that does not require more server setup. 
 
-Define a project within Google's Developer Console. 
+Credentials for access are obtained for a particular project created within Google's Developer Console. 
 At the bottom of the Credentials page, obtain a Public API Key so Google can track usage.
 It is called public because it is included in client JavaScript, so it can be stolen and used by others.
 
 For more secure processing:
+
 1. spin up a node.js server (locally or on Heroku or nodejitsu, etc.) 
 2. download the .p12 file for the user who will own short URL data generated 
 3. convert the .p12 file to a .pem file using the generic "notasecret" password.
