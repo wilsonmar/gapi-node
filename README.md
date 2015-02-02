@@ -16,12 +16,16 @@ to format API calls;
 5. show additional variations on use of Google APIs, such as the [Reports API](#Reports_API) 
   to collect and display analytics data Google collects.
 
-TECHNICAL NOTE: JavaScript are coded following [Douglas Crockford's conventions](http://javascript.crockford.com/code.html), 
+TECHNICAL NOTES: 
+JavaScript are coded following [Douglas Crockford's conventions](http://javascript.crockford.com/code.html), 
 run through [JSLint](http://infohound.net/tidy/).
 HTML are run through [HTMLTidy](http://infohound.net/tidy/) and passes W3C checks.
 CSS are run through [CSSLint](http://csslint.net/) and passes W3C checks.
 
-TECHNICAL NOTE: Client-side coding makes use of 
+HTML, CSS, and JavaScript presented publicly on websites have been minified.
+So this repository is the place to review code.
+
+Client-side coding makes use of 
 jQuery 
 and Bootstrap responsive theme library.
 
