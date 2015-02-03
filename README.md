@@ -447,24 +447,54 @@ which the computer uses to "sign" requests made on the user's behalf.
 
 # <a name="#Obtain_credentials"></a> Obtain Google API Credentials for automated API calls
 
-## <a name="Keygen_dataflow"></a> Key Generation Dataflow
 
-...   ![Dataflow](http://www.merc.tv/img/fig/goo.keygen_dataflow.png "Dataflow")
+## <a name="Keygen_dataflow"></a> Token Generation Dataflow
 
-Instead of manually typing in a password associated with a Google (Gmail) account,
-the basis for crafting credentials associated with API actions 
+...   ![Dataflow](http://www.merc.tv/img/fig/goo_dataflow_2015.02.02.png "Dataflow")
+
+To recap, when we use goo.gl to generate short URLs, we are using Google's account.
+
+If we want to generate and manage our own short URLs, we would need to login under our own Google account,
+get in Google's Developer Console, define a specific project, and generate an API key that we 
+paste into the client-side code.
+
+When a visitor to the API client web page enters a longURL, the request contains the API Key 
+and a specification of the scope specifying which API is being invoked.
+
+The Google API server responds with a short URL.
+The API Key used visible to anyone who looks at the client-side source code.
+
+In place of a user name and password, 
+the **secure client** and Google servers are allowed to make changes to the data of a user when they
+present a **service account** and its keys associated with a project.
+
+So the Developer Console generates and downloads to your machine a **.p12** file for the user signed in.
+The name p12 comes from the "PKCS" public standard number 12 on which the format of the file is based.
+Being a public spec means people can write programs such as **Openssl** to manage secrets in a way that doesn't require password secrets to be sent over the internet and thus be exposed to interception.
+
+The .p12 file contains both a public key and a private key.
+The OpenSSL program generates a .pem file containing the private key.
+
+The service account is 
+
 are performed based on a **service account** (that looks like an email address)
 [obtained from the *Google API Console*](#Get_service_account) 
 for a specific project.
 
 The diagram here illustrates what happens under the covers:
-
-and electronic keys
+The service account is combined with the Current Time and Expire Time of the token to get the JWT Body,
+which is encoded Base64 to make all characters unambious to send over the internet.
+The private key is "signed" by passing the private key through RSA SHA256 algorithm.
+Running through an unescape function yields the JWT Assertion sent to the authorization folder.
+If all is well, the server returns an Assess Token with a refresh token.
+When the access token expires, the refresh token will not be ...
 
 Programs usually only need call pre-defined library functions that accept a service account and private key as input,
 and the underlying format of calls are done automatically within the library code.
 
 Like most other major internet sites -- Amazon, Twitter, Facebook, LinkedIn, Yelp, etc. -- Google implements some form of the OAuth 2.0 standard formally defined at http://tools.ietf.org/html/rfc6749. This spec provides guidelines for token issuing patterns. It does not dictate how identity is validated. So it is up to each service to deploy patterns appropriate for its own use case. Each web service uses a slightly different approach.
+
+Now let's look at an implementation of the above.
 
 
 ## <a name="Get_service_account"></a> Get service account email for project
