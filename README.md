@@ -179,7 +179,7 @@ That is the reason why steps covered in other documentation are repeated here.
 
 	* [API Methods](#Methods)
 	* [Google Discovery API](#Discovery_API)
-	* [Manual Authentication within API Explorer](Manual_Auth)
+	* [Manual Authentication within API Explorer](#Manual_Auth)
 
 6.	[Obtain short URL manually using Google's API Playground](#from_playground)
 7.	[Obtain short URL manually using Google Code](#from_devtools)
@@ -341,12 +341,12 @@ http://developers.google.com/apis-explorer/#p/urlshortener/v1/
 
 	* **insert** a new short URL, 
 	* **get** the long URL, and 
-	* **list** the URLs
+	* **list** the URLs generated and resolved by the public
 
 
 ### <a name="Discovery_API"></a> Google Discovery API
 
-The most up-to-date (cononical) definition of API end points is by 
+The most up-to-date (canonical) definition of API end points is by 
 [Google's Discovery API](https://developers.google.com/discovery/)
 which maintains a JSON file of all its public APIs at 
 https://www.googleapis.com/discovery/v1/apis.
@@ -645,7 +645,7 @@ The API is moved to the top section of active APIs.
 11.	Click on the QUOTA tab.
 
 > Notice there is a FREE QUOTA of 1,000,000 requests/day. Google needs authentication to determine who specifically are making calls so that such limits can be monitored and enforced.
-Purchase additional capacity from https://cloud.google.com/appengine/pricing.
+Purchase additional capacity as Python API from https://cloud.google.com/appengine/pricing.
 
 > TECHNICAL NOTE: Batch processing of Google APIs using Windows server PowerShell scripts is covered at:
 http://powershellnotebook.com/2014/10/31/powershell-shorten-urls-with-googles-api/
