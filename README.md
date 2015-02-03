@@ -175,6 +175,9 @@ That is the reason why steps covered in other documentation are repeated here.
 2.	[Obtain short URL manually from goo.gl as a signed-in Google user](#from_goo.gl_signed_in) 
 3.	[Obtain short URL manually from custom client as an anonymous user](#Interactive_demo_client)
 4.	[Obtain short URL manually using Node.js command line library](#from_node_cli)
+
+	* [Repeated requests in batch](#Repeated_batch_requests)
+
 5.	[Get list of short URLs generated from Google API Explorer for known user](#from_api_console)
 
 	* [API Methods](#Methods)
@@ -323,6 +326,8 @@ The response would be something like this:
 ```
 http://maps.google.com -> http://goo.gl/fbsS
 ```
+
+### <a name="Repeated_batch_requests"></a> Repeated requests in batch
 
 This command can be invoked repeatedly by a calling program processing a list of long URLs. 
 The short URL output can be captured into logs by node.js modules such as https://github.com/bevry/caterpillar.
