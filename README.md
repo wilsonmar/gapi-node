@@ -179,7 +179,7 @@ That is the reason why steps covered in other documentation are repeated here.
 
 	* [API Methods](#Methods)
 	* [Google Discovery API](#Discovery_API)
-	* [Manual Authentication](Manual_Auth)
+	* [Manual Authentication within API Explorer](Manual_Auth)
 
 6.	[Obtain short URL manually using Google's API Playground](#from_playground)
 7.	[Obtain short URL manually using Google Code](#from_devtools)
@@ -337,20 +337,18 @@ http://developers.google.com/apis-explorer/#p/urlshortener/v1/
 
 ### <a name="Methods"></a> API Resource Methods
 
-> Notice there are three methods provided by the API:
+> Notice there are three resource methods provided by the API:
 
 	* **insert** a new short URL, 
 	* **get** the long URL, and 
 	* **list** the URLs
 
-Because Google manages shortened URLs with authentication, Google can report the creation time and other analytics when it expands short URLs.
 
 ### <a name="Discovery_API"></a> Google Discovery API
 
-The cononical definition of API end points is Google's Discovery API described at 
-https://developers.google.com/discovery/
-
-Google maintains a JSON file of all its public APIs at 
+The most up-to-date (cononical) definition of API end points is by 
+[Google's Discovery API](https://developers.google.com/discovery/)
+which maintains a JSON file of all its public APIs at 
 https://www.googleapis.com/discovery/v1/apis.
 TOOL: You can search with a formatted display of this JSON file at
 https://www.jsoneditoronline.org/?url=https://www.googleapis.com/discovery/v1/apis
@@ -379,18 +377,20 @@ used as an example the [URL Shortener service](https://developers.google.com/url
   },
 ```
 
-TOOL: You can view the JSON file
-[discoveryRestUrl](https://www.googleapis.com/discovery/v1/apis/urlshortener/v1/rest)
-contains a schemas which follows spesc at http://json-schema.org.
+The file's schema follows specs at http://json-schema.org.
+
+TOOL: The discoveryRestUrl in the JSON file at https://www.googleapis.com/discovery/v1/apis/urlshortener/v1/rest
+can be viewed at 
 https://www.jsoneditoronline.org/?url=https://www.googleapis.com/discovery/v1/apis/urlshortener/v1/rest
-which contains sections about icons, parameters, auth, schemas, and resources for the object.
+which structures sections about icons, parameters, auth, schemas, and resources for the object.
 
-The scope URI used to request authentication is specified under <tt>auth > oauth2 > scope</tt>, which contains
-https://www.googleapis.com/auth/urlshortener
+The scope URI used to request authentication, 
+https://www.googleapis.com/auth/urlshortener,
+is specified under <tt>auth > oauth2 > scope</tt>.
 
 
 
-### <a name="Manual_Auth"></a> Manual Authentication
+### <a name="Manual_Auth"></a> Manual Authentication within API Explorer
 
 4. <a name="Authorize_API"></a> Authorize requests using OAuth 2.0 by clicking/sliding the OFF switch to turn it ON.
 
