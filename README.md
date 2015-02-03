@@ -41,7 +41,7 @@ Sample [interactive client webpage](#Interactive_demo_client) code
   is provided to demo how to use Google APIs (using API Key and OAuth2 with JWT).
 	The example is the [various user activites](#user_activities) around [short URLs](#short_url_services).
 
-The demo code is used to explain [the workflow to use Google APIs](#Workflow_diagram) 
+The demo code is used to explain [the workflow to shorten URLs using Google APIs](#Workflow_diagram) 
 	using [various clients](#Client_API_access) to format API calls;
 
 This tutorial explains how you can make your own code, which first requires you to 
@@ -141,14 +141,14 @@ of how quickly URLs are shortend:
 
 
 
-# <a name="Workflow_diagram"></a> Workflow to use Google for shortening URLs
+# <a name="Workflow_diagram"></a> Workflow to shorten URLs using Google APIs
 
 NOTE: The following is the narration to this video ___ on YouTube.com and DailyMotion.com ___.
 Videos dynamically reveal these illustrations with spoken text and captioning.
 
 This illustration shows how data is input into and output from Google's servers:
 
-![Data flow](http://www.merc.tv/img/fig/goo.workflow_2015.02.02.png "Data flow")
+![Data flow](http://www.merc.tv/img/fig/goo.workflow_2015.02.03.png "Data flow")
 
 Among the many services Google provides, in this tutorial, we use Google's **URL Shortener** service because one doesn’t need to stand-up a custom server to perform the URL Shortener calculations which Google performs on its server.
 
@@ -173,9 +173,10 @@ That is the reason why steps covered in other documentation are repeated here.
 	* [Detailed Statistics](#Details_stats)
 
 2.	[Obtain short URL manually from goo.gl as a signed-in Google user](#from_goo.gl_signed_in) 
-	* [Functions](#Functions)
 
 3.	[Obtain short URL manually from custom client as an anonymous user](#Interactive_demo_client)
+
+	* [Functions](#Functions)
 
 4.	[Obtain short URL manually using Node.js command line library](#from_node_cli)
 5.	[Get list of short URLs generated from Google API Explorer for known user](#from_api_console)
@@ -340,6 +341,7 @@ http://developers.google.com/apis-explorer/#p/urlshortener/v1/
 > Notice there are three functions provided by the API (**insert** a new short URL, **get** the long URL, and **list** the URLs).
 Because Google manages shortened URLs with authentication, Google can report the creation time and other analytics when it expands short URLs.
 
+
 4. <a name="Authorize_API"></a> Authorize requests using OAuth 2.0 by clicking/sliding the OFF switch to turn it ON.
 
 ...   ![Google URLS API Auth](http://www.merc.tv/img/fig/goo.oauth2.scopes.png "Google URLS API Auth ")
@@ -490,9 +492,9 @@ https://github.com/ryanseys/google-p12-pem
 designed to be a command-line such as: gp12-pem myfile.p12 > output.pem
 
 
-# 
 
-The statistics that Google provides by defautl displays data for only one line at a time.
+
+The statistics that Google provides by default displays data for only one line at a time.
 
 What if we want to see the trend of hits for several URLs combined/overlaid on one graph?
 
@@ -521,7 +523,7 @@ JSON Web Signature (JWS) represents content secured with digital signatures or M
 
 ## <a name="Keygen_dataflow"></a> Token Generation Dataflow
 
-...   ![Dataflow](http://www.merc.tv/img/fig/goo_dataflow_2015.02.02.png "Dataflow")
+...   ![Token Generation Dataflow](http://www.merc.tv/img/fig/goo_dataflow_2015.02.03.png "Token Generation Dataflow")
 
 To recap, when we use goo.gl to generate short URLs, we are using Google's account.
 
