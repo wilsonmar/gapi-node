@@ -127,6 +127,9 @@ to type in the URL.
 Google began public use of its API URL Shortener 
 [in 2009](http://googleblog.blogspot.com/2009/12/making-urls-shorter-for-google-toolbar.html).
 
+The latest news about Google's URL Shortener is posted to the **forum** at
+https://groups.google.com/forum/#!forum/google-url-shortener.
+
 
 ### <a name="Shorteners_perf"></a> Competitors and API Response Time
 
@@ -173,13 +176,16 @@ That is the reason why steps covered in other documentation are repeated here.
 	* [Functions](#Functions)
 
 3.	[Obtain short URL manually from custom client as an anonymous user](#Interactive_demo_client)
-4.	[Obtain short URL manually using Node.js command line](#from_node_cli)
-5.	[Obtain short URL manually using Google's API Playground](#from_playground)
-6.	[Obtain short URL manually using Google Code](#from_devtools)
-7.	[Obtain short URL from Google's Node.js program](#from_google_node_js)
 
-The latest news about Google's URL Shortener is posted to the **forum** at
-https://groups.google.com/forum/#!forum/google-url-shortener.
+4.	[Obtain short URL manually using Node.js command line library](#from_node_cli)
+5.	[Get list of short URLs generated from Google API Explorer for known user](#from_api_console)
+
+	* [Google Discovery API](#Discovery_API)
+
+6.	[Obtain short URL manually using Google's API Playground](#from_playground)
+7.	[Obtain short URL manually using Google Code](#from_devtools)
+8.	[Obtain short URL from Google's Node.js program](#from_google_node_js)
+
 
 <hr />
 
@@ -291,7 +297,7 @@ TODO
 ## <a name="Server-side_test_code"></a> Server-side Test Code
 TODO
 
-## <a name="from_node_cli"></a> Obtain short URL manually from a Node.js command line
+## <a name="from_node_cli"></a> Obtain short URL manually from a Node.js command line library
 A custom program (not Google) can also provide a way to shorten URLs under its account.
 
 1.	Install node.js with npm on your Windows, Mac OS, or Linux machine.
@@ -364,6 +370,10 @@ Because Google manages shortened URLs with authentication, Google can report the
 3)	Configure request to API
 
 > TECHNICAL NOTE: Code behind Google's API Explorer is at https://code.google.com/p/google-apis-explorer/
+
+### <a name="Discovery_API"></a> Google Discovery API
+
+
 
 
 ## <a name="from_playground"></a> Obtain short URL using Google OAuth 2.0 Playground
