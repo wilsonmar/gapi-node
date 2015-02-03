@@ -4,9 +4,8 @@ Google provides a set of [client](#client_libraries)
 and [server](#server_libraries) 
 code libraries of many languages to access all the many APIs they run in their cloud.
 (still in alpha or beta)
-
 Google's libraries hide the mathematics of [calculating Base64 and signatures](#Keygen_dataflow) 
-Google rightly requires to authenticate computers obtaining information Google holds on behalf of its users.
+to authenticate computers obtaining information Google holds on behalf of its users.
 
 Google's service around [short URLs](#short_url_services) is used as an example that does not require more server setup. 
 
@@ -127,6 +126,9 @@ to type in the URL.
 
 Google began public use of its API URL Shortener 
 [in 2009](http://googleblog.blogspot.com/2009/12/making-urls-shorter-for-google-toolbar.html).
+
+
+### <a name="Shorteners_perf"></a> Competitors and API Response Time
 
 Google is not alone in its offering. The most well-known URL shortening websites are listed in 
 [this comparison](http://royal.pingdom.com/2010/10/29/is-goo-gl-really-the-fastest-url-shortener-chart/)
