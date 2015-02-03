@@ -173,15 +173,13 @@ That is the reason why steps covered in other documentation are repeated here.
 	* [Detailed Statistics](#Details_stats)
 
 2.	[Obtain short URL manually from goo.gl as a signed-in Google user](#from_goo.gl_signed_in) 
-
 3.	[Obtain short URL manually from custom client as an anonymous user](#Interactive_demo_client)
-
-	* [Functions](#Functions)
-
 4.	[Obtain short URL manually using Node.js command line library](#from_node_cli)
 5.	[Get list of short URLs generated from Google API Explorer for known user](#from_api_console)
 
+	* [API Methods](#Methods)
 	* [Google Discovery API](#Discovery_API)
+	* [Manual Authentication](Manual_Auth)
 
 6.	[Obtain short URL manually using Google's API Playground](#from_playground)
 7.	[Obtain short URL manually using Google Code](#from_devtools)
@@ -336,42 +334,16 @@ http://developers.google.com/apis-explorer/#p/urlshortener/v1/
 
 ...   ![Google URLS API Auth](http://www.merc.tv/img/fig/goo.api.auth.png "Google URLS API Auth")
 
-### <a name="Functions"></a> Functions
 
-> Notice there are three functions provided by the API (**insert** a new short URL, **get** the long URL, and **list** the URLs).
+### <a name="Methods"></a> API Resource Methods
+
+> Notice there are three methods provided by the API:
+
+	* **insert** a new short URL, 
+	* **get** the long URL, and 
+	* **list** the URLs
+
 Because Google manages shortened URLs with authentication, Google can report the creation time and other analytics when it expands short URLs.
-
-
-4. <a name="Authorize_API"></a> Authorize requests using OAuth 2.0 by clicking/sliding the OFF switch to turn it ON.
-
-...   ![Google URLS API Auth](http://www.merc.tv/img/fig/goo.oauth2.scopes.png "Google URLS API Auth ")
-
-5.	Check to select the scope https://www.googleapis.com/auth/urlshortener.
-6.	Click Authorize.
-
-...   ![Google URLS API Auth On](http://www.merc.tv/img/fig/goo.api.auth.on.png "Google URLS API Auth On")
-
-7.	Now that OAuth is ON, click on urlshortener.url.list (without inputting any parameters).
-8.	Click Execute.
-9.	Scroll down the see Responses containing shortened URLs, such as:
- 
-...![Google URLS API Auth Json](http://www.merc.tv/img/fig/goo.api.auth.json.png "Google URLS API Auth Json")
-
-10.	Click on URL Shortener API v1 > to return to the list of functions.
-11.	Double-click on urlshortener.url.get.
-12.	Paste the URL (such as http://goo.gl/maps/QO5Lp).
- 
-...   ![Google URLS API Auth Execute](http://www.merc.tv/img/fig/goo.api.auth.execute.png "Google URLS API Auth Execute")
-
-13.	Press Execute for the long URL for a response containing both short and long URL.
-
-
-> Notice the 3 steps involved above outlined in the [workflow diagram above](#Workflow_diagram):
-1)	Select and Authorize API with a scope of access
-2)	Exchange authorization code for access tokens (which occurs internally)
-3)	Configure request to API
-
-> TECHNICAL NOTE: Code behind Google's API Explorer is at https://code.google.com/p/google-apis-explorer/
 
 ### <a name="Discovery_API"></a> Google Discovery API
 
@@ -416,6 +388,40 @@ which contains sections about icons, parameters, auth, schemas, and resources fo
 The scope URI used to request authentication is specified under <tt>auth > oauth2 > scope</tt>, which contains
 https://www.googleapis.com/auth/urlshortener
 
+
+
+### <a name="Manual_Auth"></a> Manual Authentication
+
+4. <a name="Authorize_API"></a> Authorize requests using OAuth 2.0 by clicking/sliding the OFF switch to turn it ON.
+
+...   ![Google URLS API Auth](http://www.merc.tv/img/fig/goo.oauth2.scopes.png "Google URLS API Auth ")
+
+5.	Check to select the scope https://www.googleapis.com/auth/urlshortener.
+6.	Click Authorize.
+
+...   ![Google URLS API Auth On](http://www.merc.tv/img/fig/goo.api.auth.on.png "Google URLS API Auth On")
+
+7.	Now that OAuth is ON, click on urlshortener.url.list (without inputting any parameters).
+8.	Click Execute.
+9.	Scroll down the see Responses containing shortened URLs, such as:
+ 
+...![Google URLS API Auth Json](http://www.merc.tv/img/fig/goo.api.auth.json.png "Google URLS API Auth Json")
+
+10.	Click on URL Shortener API v1 > to return to the list of functions.
+11.	Double-click on urlshortener.url.get.
+12.	Paste the URL (such as http://goo.gl/maps/QO5Lp).
+ 
+...   ![Google URLS API Auth Execute](http://www.merc.tv/img/fig/goo.api.auth.execute.png "Google URLS API Auth Execute")
+
+13.	Press Execute for the long URL for a response containing both short and long URL.
+
+
+> Notice the 3 steps involved above outlined in the [workflow diagram above](#Workflow_diagram):
+1)	Select and Authorize API with a scope of access
+2)	Exchange authorization code for access tokens (which occurs internally)
+3)	Configure request to API
+
+> TECHNICAL NOTE: Code behind Google's API Explorer is at https://code.google.com/p/google-apis-explorer/
 
 ## <a name="from_playground"></a> Obtain short URL using Google OAuth 2.0 Playground
 Google's OAuth 2.0 Playground works only with active (default) versions of services, and includes some services not listed within the API Explorer.
