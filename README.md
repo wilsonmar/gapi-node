@@ -168,6 +168,8 @@ That is the reason why steps covered in other documentation are repeated here.
 	* [Detailed Statistics](#Details_stats)
 
 2.	[Obtain short URL manually from goo.gl as a signed-in Google user](#from_goo.gl_signed_in) 
+	* [Functions](#Functions)
+
 3.	[Obtain short URL manually from custom client as an anonymous user](#Interactive_demo_client)
 4.	[Obtain short URL manually using Node.js command line](#from_node_cli)
 5.	[Obtain short URL manually using Google's API Playground](#from_playground)
@@ -319,6 +321,8 @@ http://developers.google.com/apis-explorer/#p/urlshortener/v1/
 
 ...   ![Google URLS API Auth](http://www.merc.tv/img/fig/goo.api.auth.png "Google URLS API Auth")
 
+### <a name="Functions"></a> Functions
+
 > Notice there are three functions provided by the API (**insert** a new short URL, **get** the long URL, and **list** the URLs).
 Because Google manages shortened URLs with authentication, Google can report the creation time and other analytics when it expands short URLs.
 
@@ -344,6 +348,7 @@ Because Google manages shortened URLs with authentication, Google can report the
 ...   ![Google URLS API Auth Execute](http://www.merc.tv/img/fig/goo.api.auth.execute.png "Google URLS API Auth Execute")
 
 13.	Press Execute for the long URL for a response containing both short and long URL.
+
 
 > Notice the 3 steps involved above outlined in the [workflow diagram above](#Workflow_diagram):
 1)	Select and Authorize API with a scope of access
