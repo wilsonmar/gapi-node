@@ -111,6 +111,7 @@ As an introduction to how Google’s URL Shortener API service works, let’s lo
 
 
 # <a name="short_url_services"></a> Short URL Services
+
 Up until recently, short URLs were needed to not waste any of the 140 characters allowed in a single tweet on 
 [Twitter](http://www.twitter.com/). Long URLs would be first be shortened using a utility website and then pasted into Twitter.
 
@@ -178,7 +179,7 @@ That is the reason why steps covered in other documentation are repeated here.
 
 	* [Repeated requests in batch](#Repeated_batch_requests)
 
-5.	[Get list of short URLs generated from Google API Explorer for known user](#from_api_console)
+5.	[Obtain short URLs from Google API Explorer for known user](#from_api_console)
 
 	* [API Methods](#Methods)
 	* [Google Discovery API](#Discovery_API)
@@ -297,11 +298,6 @@ https://play.google.com/store/apps/details?id=com.mattiamaestrini.urlshortener&h
 * Apple iOS 
 https://itunes.apple.com/us/app/url-shortener-for-googles/id622377001?mt=8
 
-## <a name="Client-side_test_code"></a> Client-side Test Code
-TODO
-
-## <a name="Server-side_test_code"></a> Server-side Test Code
-TODO
 
 ## <a name="from_node_cli"></a> Obtain short URL manually from a Node.js command line library
 A custom program (not Google) can also provide a way to shorten URLs under its account.
@@ -332,8 +328,14 @@ http://maps.google.com -> http://goo.gl/fbsS
 This command can be invoked repeatedly by a calling program processing a list of long URLs. 
 The short URL output can be captured into logs by node.js modules such as https://github.com/bevry/caterpillar.
 
+### <a name="Client-side_test_code"></a> Client-side Test Code
+TODO
 
-## <a name="from_api_console"></a> Get list of short URLs generated from Google API Explorer for known user
+### <a name="Server-side_test_code"></a> Server-side Test Code
+TODO
+
+
+## <a name="from_api_console"></a> Obtain short URLs from Google API Explorer for known user
 1.	Sign in to your Google account.
 2.	Go to Google's API Explorer page: http://developers.google.com/apis-explorer/
 
@@ -348,9 +350,9 @@ http://developers.google.com/apis-explorer/#p/urlshortener/v1/
 
 > Notice there are three resource methods provided by the API:
 
-	* **insert** a new short URL, 
-	* **get** the long URL, and 
-	* **list** the URLs generated and resolved by the public
+	* [insert](https://developers.google.com/url-shortener/v1/url/insert) a new short URL, 
+	* [get](https://developers.google.com/url-shortener/v1/url/get) the long URL from the short URL, and 
+	* [list](https://developers.google.com/url-shortener/v1/url/list) the URLs generated and resolved by the public
 
 
 ### <a name="Discovery_API"></a> Google Discovery API
