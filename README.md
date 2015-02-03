@@ -645,8 +645,9 @@ The API is moved to the top section of active APIs.
 11.	Click on the QUOTA tab.
 
 > Notice there is a FREE QUOTA of 1,000,000 requests/day. Google needs authentication to determine who specifically are making calls so that such limits can be monitored and enforced.
+Purchase additional capacity from https://cloud.google.com/appengine/pricing.
 
-> TECHNICAL NOTE: Batch processing using Windows server PowerShell scripts is covered at:
+> TECHNICAL NOTE: Batch processing of Google APIs using Windows server PowerShell scripts is covered at:
 http://powershellnotebook.com/2014/10/31/powershell-shorten-urls-with-googles-api/
 
 > Some have notice "403 rateLimitExceed" errors after 300 insert requests within an hour.
