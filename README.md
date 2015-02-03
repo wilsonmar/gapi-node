@@ -375,7 +375,46 @@ Because Google manages shortened URLs with authentication, Google can report the
 
 ### <a name="Discovery_API"></a> Google Discovery API
 
+The cononical definition of API end points is Google's Discovery API described at 
+https://developers.google.com/discovery/
 
+Google maintains a JSON file of all its public APIs at 
+https://www.googleapis.com/discovery/v1/apis.
+TOOL: You can search with a formatted display of this JSON file at
+https://www.jsoneditoronline.org/?url=https://www.googleapis.com/discovery/v1/apis
+The Discovery service requires https but not an API key.
+
+The [video presenting this at Google I/O 2011](https://www.youtube.com/watch?v=lQbT1NrxpUo)
+used as an example the [URL Shortener service](https://developers.google.com/url-shortener/?csw=1)
+[10:12 into the video](https://www.youtube.com/watch?v=lQbT1NrxpUo&t=10m12s):
+
+```
+{
+   "kind": "discovery#directoryItem",
+   "id": "urlshortener:v1",
+   "name": "urlshortener",
+   "version": "v1",
+   "title": "URL Shortener API",
+   "description": "Lets you create, inspect, and manage goo.gl short URLs",
+   "discoveryRestUrl": "https://www.googleapis.com/discovery/v1/apis/urlshortener/v1/rest",
+   "discoveryLink": "./apis/urlshortener/v1/rest",
+   "icons": {
+    "x16": "http://www.google.com/images/icons/product/search-16.gif",
+    "x32": "http://www.google.com/images/icons/product/search-32.gif"
+   },
+   "documentationLink": "https://developers.google.com/url-shortener/v1/getting_started",
+   "preferred": true
+  },
+```
+
+TOOL: You can view the JSON file
+[discoveryRestUrl](https://www.googleapis.com/discovery/v1/apis/urlshortener/v1/rest)
+contains a schemas which follows spesc at http://json-schema.org.
+https://www.jsoneditoronline.org/?url=https://www.googleapis.com/discovery/v1/apis/urlshortener/v1/rest
+which contains sections about icons, parameters, auth, schemas, and resources for the object.
+
+The scope URI used to request authentication is specified under <tt>auth > oauth2 > scope</tt>, which contains
+https://www.googleapis.com/auth/urlshortener
 
 
 ## <a name="from_playground"></a> Obtain short URL using Google OAuth 2.0 Playground
