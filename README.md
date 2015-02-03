@@ -287,8 +287,12 @@ and used by others:
 * Java
 * Python: https://github.com/parthrbhatt/pyShortUrl supports several shortener services (and provides a comparison)
 
+Making data available as a REST API means any platform can have an app for that: 
 
-
+* Android:
+https://play.google.com/store/apps/details?id=com.mattiamaestrini.urlshortener&hl=en
+* Apple iOS 
+https://itunes.apple.com/us/app/url-shortener-for-googles/id622377001?mt=8
 
 ## <a name="Client-side_test_code"></a> Client-side Test Code
 TODO
