@@ -323,13 +323,21 @@ The response would be something like this:
 http://maps.google.com -> http://goo.gl/fbsS
 ```
 
+### <a name="Client-side_test_code"></a> Client-side Test Code
+TODO
+
+
+
 ### <a name="Repeated_batch_requests"></a> Repeated requests in batch
 
 This command can be invoked repeatedly by a calling program processing a list of long URLs. 
 The short URL output can be captured into logs by node.js modules such as https://github.com/bevry/caterpillar.
 
-### <a name="Client-side_test_code"></a> Client-side Test Code
-TODO
+> TECHNICAL NOTE: Batch processing of Google APIs using Windows server PowerShell scripts is covered at:
+http://powershellnotebook.com/2014/10/31/powershell-shorten-urls-with-googles-api/
+
+> FEATURE: A list of URLs can be processed by the front-end client?
+
 
 ### <a name="Server-side_test_code"></a> Server-side Test Code
 TODO
@@ -530,58 +538,10 @@ which the computer uses to "sign" requests made on the user's behalf.
 
 # <a name="#Obtain_credentials"></a> Obtain Google API Credentials for automated API calls
 
-method for sending small amounts of information over unsecure lines
-signing not encryption
-
-The technical standard is at 
-https://tools.ietf.org/html/draft-ietf-oauth-json-web-token-32
-http://self-issued.info/docs/draft-ietf-oauth-json-web-token.html
-http://openid.net/specs/draft-jones-json-web-token-07.html
-
-A JSON Web Token is three separated by a dot. Thus the recommended pronouciation of "jot".
-Debugger http://jwt.io/#
-
-
-To address the issue at https://github.com/google/google-api-nodejs-client/issues/326
-Conversion of .p12 keys to .pem keys is done by adopting the library at 
-https://github.com/ryanseys/google-p12-pem
-designed to be a command-line such as: gp12-pem myfile.p12 > output.pem
-
-
-
-
-The statistics that Google provides by default displays data for only one line at a time.
-
-What if we want to see the trend of hits for several URLs combined/overlaid on one graph?
-
-Start by reading Google's [Tutorial: Hello Aanlytics API](https://developers.google.com/analytics/solutions/articles/hello-analytics-api)
-
-[Google's Analytics Core Reporting API](https://developers.google.com/analytics/devguides/reporting/core/v3/)
-https://github.com/rayshan/ga-extractor
-
-
-## JWT vs. JWS vs. JWE
-
-### <a name="JWT_definition"></a> JWT
-JWS is an example of JWT defined in the IETF draft at https://tools.ietf.org/html/draft-ietf-oauth-json-web-token-32.
-
-JSON Web Token (JWT) is a compact, URL-safe means of representing claims to be transferred between two parties.  The claims in a JWT are encoded as a JavaScript Object Notation (JSON) object that is used as the payload of a JSON Web Signature (JWS) structure or as the plaintext of a JSON Web Encryption (JWE) structure, enabling the claims to be digitally signed or MACed and/or encrypted.
-
-### <a name="JWS_definition"></a> JWS
-(https://github.com/brianloveswords/node-jws)
-implements the creation of a
-JSON Web Signature (JWS) as defined in http://self-issued.info/docs/draft-ietf-jose-json-web-signature.html
-JSON Web Signature (JWS) represents content secured with digital signatures or Message Authentication Codes (MACs) using JavaScript Object Notation (JSON) based data structures. Cryptographic algorithms and identifiers for use with this specification are described in the separate JSON Web Algorithms (JWA) specification and an IANA registry defined by that specification. Related encryption capabilities are described in the separate JSON Web Encryption (JWE) specification.
-
-### <a name="JWE_definition"></a> JWE
-???
-
 
 ## <a name="Keygen_dataflow"></a> Token Generation Dataflow
 
 ...   ![Token Generation Dataflow](http://www.merc.tv/img/fig/goo_dataflow_2015.02.03.png "Token Generation Dataflow")
-
-To recap, when we use goo.gl to generate short URLs, we are using Google's account.
 
 If we want to generate and manage our own short URLs, we would need to login under our own Google account,
 get in Google's Developer Console 
@@ -647,6 +607,8 @@ This page can be reached again by clicking the APIs link within the APIs & auth 
 
 ...   ![Console authorize](http://www.merc.tv/img/fig/goo-console.accept.png "Console authorize")
 
+> Notice there are additional [Terms and Conditions]() for this action is special not shown for other actions.
+
 The API is moved to the top section of active APIs.
 
 10.	Click the checkbox, then the blue Accept button.
@@ -657,9 +619,6 @@ The API is moved to the top section of active APIs.
 
 > Notice there is a FREE QUOTA of 1,000,000 requests/day. Google needs authentication to determine who specifically are making calls so that such limits can be monitored and enforced.
 Purchase additional capacity as Python API from https://cloud.google.com/appengine/pricing.
-
-> TECHNICAL NOTE: Batch processing of Google APIs using Windows server PowerShell scripts is covered at:
-http://powershellnotebook.com/2014/10/31/powershell-shorten-urls-with-googles-api/
 
 > Some have notice "403 rateLimitExceed" errors after 300 insert requests within an hour.
 So this may be a show-stopper for you using this Google service.
@@ -680,6 +639,52 @@ The API Key is used to track Quota used.
 The Public API access option generates an API Key used to perform anonymous URL shortener lookups because it is "not used for authentication". This is because the API Key is sent to Google in plain text, so it can be intercepted for reuse by another.
 
 ## Covert .p12 file to .pem format
+
+method for sending small amounts of information over unsecure lines
+signing not encryption
+
+The technical standard is at 
+https://tools.ietf.org/html/draft-ietf-oauth-json-web-token-32
+http://self-issued.info/docs/draft-ietf-oauth-json-web-token.html
+http://openid.net/specs/draft-jones-json-web-token-07.html
+
+A JSON Web Token is three separated by a dot. Thus the recommended pronouciation of "jot".
+Debugger http://jwt.io/#
+
+
+To address the issue at https://github.com/google/google-api-nodejs-client/issues/326
+Conversion of .p12 keys to .pem keys is done by adopting the library at 
+https://github.com/ryanseys/google-p12-pem
+designed to be a command-line such as: gp12-pem myfile.p12 > output.pem
+
+
+
+
+The statistics that Google provides by default displays data for only one line at a time.
+
+What if we want to see the trend of hits for several URLs combined/overlaid on one graph?
+
+Start by reading Google's [Tutorial: Hello Aanlytics API](https://developers.google.com/analytics/solutions/articles/hello-analytics-api)
+
+[Google's Analytics Core Reporting API](https://developers.google.com/analytics/devguides/reporting/core/v3/)
+https://github.com/rayshan/ga-extractor
+
+
+## JWT vs. JWS vs. JWE
+
+### <a name="JWT_definition"></a> JWT
+JWS is an example of JWT defined in the IETF draft at https://tools.ietf.org/html/draft-ietf-oauth-json-web-token-32.
+
+JSON Web Token (JWT) is a compact, URL-safe means of representing claims to be transferred between two parties.  The claims in a JWT are encoded as a JavaScript Object Notation (JSON) object that is used as the payload of a JSON Web Signature (JWS) structure or as the plaintext of a JSON Web Encryption (JWE) structure, enabling the claims to be digitally signed or MACed and/or encrypted.
+
+### <a name="JWS_definition"></a> JWS
+(https://github.com/brianloveswords/node-jws)
+implements the creation of a
+JSON Web Signature (JWS) as defined in http://self-issued.info/docs/draft-ietf-jose-json-web-signature.html
+JSON Web Signature (JWS) represents content secured with digital signatures or Message Authentication Codes (MACs) using JavaScript Object Notation (JSON) based data structures. Cryptographic algorithms and identifiers for use with this specification are described in the separate JSON Web Algorithms (JWA) specification and an IANA registry defined by that specification. Related encryption capabilities are described in the separate JSON Web Encryption (JWE) specification.
+
+### <a name="JWE_definition"></a> JWE
+???
 
 ## <a name="from_google_node_js"></a> Obtain short URL from Google's Node.js program 
 
