@@ -382,7 +382,9 @@ https://chrome.google.com/webstore/detail/oauth-20-playground/fcjholccjchiplkbib
  
 ...   ![Google API Scope](http://www.merc.tv/img/fig/goo.play.manage.png "Google API Scope")
 
-6. <a name="Accept_API"></a> As the user when owns the list, click **Accept**.
+### <a name="Accept_API"></a> Authentication Token
+
+6. As the user who owns the list, click **Accept**.
 
 ...   ![Google API Exchange](http://www.merc.tv/img/fig/goo.play.exchange.png "Google API Exchange")
 
