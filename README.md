@@ -158,23 +158,23 @@ because we don’t need to stand-up a custom server to use it.
 
 Google provides a public [goo.gl](http://goo.gl/) website to generate short URLs and QR codes using its own
 **API Key** used to track and limit usage.
-But **Custom** websites can also make use of Google's infrastructure on behalf of a signed-in Google user
+**Custom** websites can get their own API Key from Google's **Developer Console**.
 
-**service accounts** that stand-in for real users for a particular project, and the key that secure them,
-are obtained through Google's **Developer Console**.
+When a shortened URL is requested, the browser used provides data about itself and thus
+**where and when** each Urls were used. This information Google saves and makes available
+through its [Reports analytics API](https://developers.google.com/admin-sdk/reports/).
 
-Google's [API Explorer](http://developers.google.com/apis-explorer/?hl=en_US#p/urlshortener/v1/) and 
+**Custom web servers** powered by Node.js or other language can get to that data only if it has 
+**service accounts** which stand-in for real Google users constantly at a computer.
+Google generates a key pair used to create electronic signatures, and
+provide a [API Explorer](http://developers.google.com/apis-explorer/?hl=en_US#p/urlshortener/v1/) and 
 the more involved [Playground](https://developers.google.com/oauthplayground/) 
-provide a way to try out calls **custom server-side programs** make to retrieve statistics around
-**where and when** each Urls were invoked by the public.
+for trying out the credentials and calls to retrieve statistics.
 
-Google can display statistics over time on its web pages and on custom web sites through its [Reports analytics API](https://developers.google.com/admin-sdk/reports/).
-
-**Server code** powered by Node.js or other language is used to authenticate with Google using credentials Google assigns through its **Developer Console** for a particular project associated with service accounts that stand-in for real users. 
-
-Behind the scenes, access to stats Google accumulates for each user make it necessary to obtain permissions from Google’s **authentication service**.
-
-Google makes use of the OAuth2 standard, so an authentication token assembled according to the "jot" standard is sent to Google's authentication server to obtain **access tokens** that are sent along with each server request. When an access token **expires**, the **refresh token** is used to obtain more access tokens.
+Google makes use of the OAuth2 standard, so 
+an **authentication token** assembled according to the "jot" standard 
+is sent to Google's authentication server to obtain **access tokens** that are sent along with each server request. 
+When an access token **expires**, the **refresh token** is used to obtain more access tokens.
 
 <hr />
 
