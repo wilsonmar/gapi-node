@@ -17,15 +17,15 @@ They API Key is called public because it is included in client JavaScript, so it
 For more secure processing:
 
 1. Spin up a node.js server (locally or on Heroku or nodejitsu, etc.).
-2. Sign into the Google Developer Console and define, then activate a project
-3. From the Google Developer Console download the .p12 file for the user who will own short URL data generated 
-4. Within a developer terminal, convert the .p12 file to a .pem file using the generic "notasecret" password
-5. Upload the service account and .pem file to your custom server
-6. Code node.js to receive requests from a client (such as the demo client)
+2. Sign into the [Google Developer Console](#Get_service_account) to define, then activate a project.
+3. From the Google Developer Console download the .p12 file for the user who will own short URL data generated.
+4. Within a developer terminal, convert the .p12 file to a .pem file using the generic "notasecret" password.
+5. Upload the service account and .pem file to your custom server.
+6. Code node.js to receive requests from a client (such as the demo client).
 7. Make requests to Google servers by calling Google library functions with the service account address and .pem file.
 8. Forward responses back from the Google API servers to the client.
 
-Additionally, custom servers may want to (reduntantly) obtain data from Google 
+Additionally, custom servers may want to [(reduntantly) obtain data from Google](#Why_capture_data) 
 in order to have more flexiblity of presentation (with other data Google does not have)
 and to ensure that all data are under house control.
 
@@ -278,7 +278,7 @@ is still in beta with 90 open issues as of 2015.02.01. We are using it nonethele
 The functionality of these web pages can be implemented as a plug-in within UI frameworks:
 * https://wordpress.org/plugins/googl/
 
-Sample client code in various other programming languages have been published by Google at
+### <a name=client_libraries"></a> Sample client code in various other programming languages have been published by Google at
 https://developers.google.com/url-shortener/libraries
 and used by others:
 
@@ -557,8 +557,8 @@ After we give the **shortURL** Google generates to people and they use it,
 Google tracks those hits as analytics.
 But Google considers analytics private information private to each user.
 
-So Google provides a **service account** for custom **servers** to provide when 
-assemblying requests for access to data of an owner.
+So a [**service account**](#Get_service_account) can be defined for a project 
+so that custom **servers** can assemble requests for access to data of an owner.
 Instead of passing on the user's secret password, when a user's service account is created
 in the Developer Console, Google also generates and downloads a file of secrets called **.p12**.
 BTW, the name p12 comes from the "PKCS" public standard number 12 on which the format of the file is based.
