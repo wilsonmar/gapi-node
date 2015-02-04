@@ -56,7 +56,7 @@ In the future, we will show additional variations on use of Google APIs,
 
 TECHNICAL NOTES: 
 JavaScript are coded following [Douglas Crockford's conventions](http://javascript.crockford.com/code.html), 
-run through [JSLint](http://infohound.net/tidy/).
+run through [JSHint](http://infohound.net/tidy/).
 HTML are run through [HTMLTidy](http://infohound.net/tidy/).
 CSS are run through [CSSLint](http://csslint.net/).
 
@@ -151,12 +151,22 @@ This illustration shows how data is input into and output from Google's servers:
 
 ![Data flow](http://www.merc.tv/img/fig/goo.workflow_2015.02.03.png "Data flow")
 
-In this tutorial, we use Google's **URL Shortener** service because, among the many web services Google provides, one doesn’t need to stand-up a custom server to perform the URL Shortener calculations Google servers perform.
+In this tutorial, we use Google's **URL Shortener** web service that converts **long** URLs into **short** URLs that are quicker to type on keyboards and makes for smaller QR codes that the service generates.
+The URL shortener service is a good way to explore the technology behind the many web services Google provides
+because we don’t need to stand-up a custom server to use it.
 
-Google’s [goo.gl](http://goo.gl/) website converts **long** URLs into **short** URLs for inclusion within 140 character tweets or for quicker typing on keyboards.
-Google also provides an [API Explorer](http://developers.google.com/apis-explorer/?hl=en_US#p/urlshortener/v1/) and a [Playground](https://developers.google.com/oauthplayground/) for trying calls made on behalf of a Google user signed in. Google's APIs were also designed to allow **Custom** website servers to make use of Google's infrastructure.
+Google provides a public [goo.gl](http://goo.gl/) website to generate short URLs and QR codes using its own
+**API Key** used to track and limit usage.
+But **Custom** websites can also make use of Google's infrastructure on behalf of a signed-in Google user. 
+**service accounts** that stand-in for real users for a particular project, and the key that secure them,
+are obtained through Google's **Developer Console**.
 
-Because Google maintains statistics on where and when each shortUrl is created and invoked by the public, Google can display statistics over time on its web pages and on custom web sites through its [Reports analytics API](https://developers.google.com/admin-sdk/reports/).
+Google's [API Explorer](http://developers.google.com/apis-explorer/?hl=en_US#p/urlshortener/v1/) and 
+the more involved [Playground](https://developers.google.com/oauthplayground/) 
+provide a way to try out calls **custom server-side programs** make to retrieve statistics around
+**where and when** each Urls were invoked by the public.
+
+Google can display statistics over time on its web pages and on custom web sites through its [Reports analytics API](https://developers.google.com/admin-sdk/reports/).
 
 **Server code** powered by Node.js or other language is used to authenticate with Google using credentials Google assigns through its **Developer Console** for a particular project associated with service accounts that stand-in for real users. 
 
