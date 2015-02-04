@@ -4,8 +4,8 @@ Google provides a set of [client](#client_libraries)
 and [server](#server_libraries) 
 code libraries of many languages to access all the many APIs they run in their cloud.
 (still in alpha or beta)
-Google's libraries hide the mathematics of [calculating Base64 and signatures](#Keygen_dataflow) 
-to authenticate computers obtaining information Google holds on behalf of its users.
+Google's libraries hide the mathematics of [calculating date/time stamps, signatures, and Base64](#Keygen_dataflow) 
+needed to authenticate computers requesting information Google holds on behalf of its users.
 
 Google's service around [short URLs](#short_url_services) is used as an example that does not require more server setup. 
 
