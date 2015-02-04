@@ -151,15 +151,18 @@ This illustration shows how data is input into and output from Google's servers:
 
 ![Data flow](http://www.merc.tv/img/fig/goo.workflow_2015.02.03.png "Data flow")
 
-Among the many services Google provides, in this tutorial, we use Google's **URL Shortener** service because one doesn’t need to stand-up a custom server to perform the URL Shortener calculations which Google performs on its server.
+In this tutorial, we use Google's **URL Shortener** service because, among the many web services Google provides, one doesn’t need to stand-up a custom server to perform the URL Shortener calculations Google servers perform.
 
-Google’s [goo.gl](http://goo.gl/) website converts **long** URLs into **short** URLs for inclusion within 140 character tweets or for quicker typing in mobile keyboards.
-Google also provides an [API Explorer](http://developers.google.com/apis-explorer/?hl=en_US#p/urlshortener/v1/) and a [Playground](https://developers.google.com/oauthplayground/) for exploring calls made on behalf of a Google user signed in. These sites mock how **custom** sites can use [Google's API to generate shortUrls]().
+Google’s [goo.gl](http://goo.gl/) website converts **long** URLs into **short** URLs for inclusion within 140 character tweets or for quicker typing on keyboards.
+Google also provides an [API Explorer](http://developers.google.com/apis-explorer/?hl=en_US#p/urlshortener/v1/) and a [Playground](https://developers.google.com/oauthplayground/) for trying calls made on behalf of a Google user signed in. Google's APIs were also designed to allow **Custom** website servers to make use of Google's infrastructure.
 
-Behind the scenes within each of these websites, there needs to be calls to Google’s **authentication service** so Google can enforce limits on how many calls are made. And because Google maintains statistics on where and when each shortUrl is created and invoked by the public, Google can display statistics on its web pages but also offer metrics over time to custom web sites through its [Reports analytics API](https://developers.google.com/admin-sdk/reports/).
-But first, **server code** powered by Node.js or other language is used to authenticate with Google using credentials Google assigns through its **Developer Console** for a particular project associated with a Google account. 
+Because Google maintains statistics on where and when each shortUrl is created and invoked by the public, Google can display statistics over time on its web pages and on custom web sites through its [Reports analytics API](https://developers.google.com/admin-sdk/reports/).
 
-The authentication token assembled are sent to Google's authentication server to obtain an access token that will be sent along with requests for conversion. When an access token expires, the refresh token provided by Google is used to obtain more access tokens.
+**Server code** powered by Node.js or other language is used to authenticate with Google using credentials Google assigns through its **Developer Console** for a particular project associated with service accounts that stand-in for real users. 
+
+Behind the scenes, access to stats Google accumulates for each user make it necessary to obtain permissions from Google’s **authentication service**.
+
+Google makes use of the OAuth2 standard, so an authentication tokens assembled according to the "jot" standard are sent to Google's authentication server to obtain **access tokens** that are sent along with each server request. When an access token **expires**, the **refresh token** provided by Google is used to obtain more access tokens.
 
 <hr />
 
