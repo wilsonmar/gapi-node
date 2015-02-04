@@ -556,29 +556,38 @@ That API Key is passed to the server along with the **longURL** to be shortened.
 After we give the **shortURL** Google generates to people and they use it,
 Google tracks those hits as analytics.
 But Google considers analytics private information private to each user.
+
 So Google provides a **service account** for custom **servers** to provide when 
 assemblying requests for access to data of an owner.
 Instead of passing on the user's secret password, when a user's service account is created
 in the Developer Console, Google also generates and downloads a file of secrets called **.p12**.
 BTW, the name p12 comes from the "PKCS" public standard number 12 on which the format of the file is based.
+
 That standard defines very clever mathematics to create separate public and public keys such that
 eliminates the need to transmit passwords which can be exposed to interception during transit.
+
 A program written to the spec, **Openssl**, extracts a .pem file containing the private key
 that the server provides to algorithms which generates the JWT token,
 conveniently called "jot" perhaps because, internally, 
 a dot separates each of the 3 parts of the token combined so the server can 
 I say internally because these few steps are done inside a pre-defined library that takes care
 of the underlying math I'll cover next.
+
 The service account is combined with the Current Time and Expire Time of the token to get the JWT Body.
 This is necessary because otherwise the token can be reused.
 Google allows the server to specify how much time before a token expired, with a maximum of **30 minutes**.
+
 The text is then encoded Base64 to make all characters unambious to send over the internet.
 The private key is "signed" by passing the private key through an algorithm such asRSA SHA256,
 which Google has specified.
+
 The result is a duplicate set of **signatures** that is used **two** different ways.
 One of the identical signatures is run through an unescape function to yield the **claim set**.
-If all is well, the server returns an **Assess Token** along with a **refresh** token.
-When the access token expires, the refresh token is used to authorize more access tokens.
+
+If all is well, Google's authentication server returns an **Assess Token** along with a **refresh** token.
+
+The access token is reused until it expires.
+Then the refresh token is used to authorize more access tokens.
 
 Like most other major internet sites -- Amazon, Twitter, Facebook, LinkedIn, Yelp, etc. -- Google implements some form of the [OAuth 2.0 standard](http://tools.ietf.org/html/rfc6749) that defines the use of authorization tokens and access tokens. 
 But web service uses a slightly different approach.
