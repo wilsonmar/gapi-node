@@ -732,6 +732,21 @@ console.log(urlshortener.url);
 
 <hr />
 
+# <a name="Loopback_use"></a> StrongLoop API Explorer API Explorer
+
+StrongLoop provides an API Explorer much like Google's API Explorer.
+But Strongloop puts a nice color key for the various methods.
+
+The Set Access Token at the upper right corner establishes
+credentials for programs to create authorization tokens.
+
+Access tokens are defined
+
+user id from data 
+
+Loopback
+
+
 # <a name="Why_capture_data"></a> Why Capture Data from Google?
 
 [While viewing scroll of API Explorer from top to bottom]
