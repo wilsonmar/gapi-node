@@ -144,12 +144,8 @@ of how quickly URLs are shortend:
 
 # <a name="Workflow_diagram"></a> Workflow to shorten URLs using Google APIs
 
-NOTE: The following is the narration to this video ___ on YouTube.com and DailyMotion.com ___.
-Videos dynamically reveal these illustrations with spoken text and captioning.
-
-This illustration shows how data is input into and output from Google's servers:
-
-<object width="425" height="344"><param name="movie" value="http://www.youtube.com/v/DEX3KdZD4tg&hl=en&fs=1"></param><param name="allowFullScreen" value="true"></param><embed src="http://www.youtube.com/v/DEX3KdZD4tg&hl=en&fs=1" type="application/x-shockwave-flash" allowfullscreen="true" width="425" height="344"></embed></object>
+NOTE: The following is the narration to video http://www.youtube.com/v/DEX3KdZD4tg 
+which dynamically reveal the illustration below with spoken text.
 
 ![Google API workflow](http://www.merc.tv/img/fig/goo.workflow_2015.02.04a.png "Google API Workflow")
 
