@@ -1,4 +1,4 @@
-# TL;DR (Too Long; Do Not Read. Here's the Summary Gist)
+# Summary Gist (TL;DR)
 
 Google provides a set of [client](#client_libraries) 
 and [server](#server_libraries) 
