@@ -149,6 +149,8 @@ Videos dynamically reveal these illustrations with spoken text and captioning.
 
 This illustration shows how data is input into and output from Google's servers:
 
+<object width="425" height="344"><param name="movie" value="http://www.youtube.com/v/DEX3KdZD4tg&hl=en&fs=1"></param><param name="allowFullScreen" value="true"></param><embed src="http://www.youtube.com/v/DEX3KdZD4tg&hl=en&fs=1" type="application/x-shockwave-flash" allowfullscreen="true" width="425" height="344"></embed></object>
+
 ![Google API workflow](http://www.merc.tv/img/fig/goo.workflow_2015.02.04a.png "Google API Workflow")
 
 In this tutorial, we use Google's **URL Shortener** web service that converts **long** URLs into **short** URLs 
