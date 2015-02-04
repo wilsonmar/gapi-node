@@ -4,8 +4,8 @@ Google provides a set of [client](#client_libraries)
 and [server](#server_libraries) 
 code libraries of many languages to access all the many APIs they run in their cloud.
 (still in alpha or beta)
-Google's libraries hide the mathematics of [calculating Base64 and signatures](#Keygen_dataflow) 
-to authenticate computers obtaining information Google holds on behalf of its users.
+Google's libraries hide the mathematics of [calculating date/time stamps, signatures, and Base64](#Keygen_dataflow) 
+needed to authenticate computers requesting information Google holds on behalf of its users.
 
 Google's service around [short URLs](#short_url_services) is used as an example that does not require more server setup. 
 
@@ -56,7 +56,7 @@ In the future, we will show additional variations on use of Google APIs,
 
 TECHNICAL NOTES: 
 JavaScript are coded following [Douglas Crockford's conventions](http://javascript.crockford.com/code.html), 
-run through [JSLint](http://infohound.net/tidy/).
+run through [JSHint](http://infohound.net/tidy/).
 HTML are run through [HTMLTidy](http://infohound.net/tidy/).
 CSS are run through [CSSLint](http://csslint.net/).
 
@@ -151,18 +151,32 @@ This illustration shows how data is input into and output from Google's servers:
 
 ![Data flow](http://www.merc.tv/img/fig/goo.workflow_2015.02.03.png "Data flow")
 
-In this tutorial, we use Google's **URL Shortener** service because, among the many web services Google provides, one doesn’t need to stand-up a custom server to perform the URL Shortener calculations Google servers perform.
+In this tutorial, we use Google's **URL Shortener** web service that converts **long** URLs into **short** URLs 
+for quicker typing on keyboards and for smaller QR codes that Google generates.
+This URL shortener service is a good way to explore the technology behind the many web services Google provides
+because we don’t need to stand-up a custom server to use it.
 
-Google’s [goo.gl](http://goo.gl/) website converts **long** URLs into **short** URLs for inclusion within 140 character tweets or for quicker typing on keyboards.
-Google also provides an [API Explorer](http://developers.google.com/apis-explorer/?hl=en_US#p/urlshortener/v1/) and a [Playground](https://developers.google.com/oauthplayground/) for trying calls made on behalf of a Google user signed in. Google's APIs were also designed to allow **Custom** website servers to make use of Google's infrastructure.
+Google provides a public [goo.gl](http://goo.gl/) website to generate short URLs and QR codes using its own
+**API Key** used to track and limit usage.
+**Custom** websites can get their own API Key from Google's **Developer Console**.
 
-Because Google maintains statistics on where and when each shortUrl is created and invoked by the public, Google can display statistics over time on its web pages and on custom web sites through its [Reports analytics API](https://developers.google.com/admin-sdk/reports/).
+When a shortened URL is requested, the browser used provides data about itself and thus
+**where and when** each Urls were used. This information Google saves and makes available
+through its [Reports analytics API](https://developers.google.com/admin-sdk/reports/).
 
-**Server code** powered by Node.js or other language is used to authenticate with Google using credentials Google assigns through its **Developer Console** for a particular project associated with service accounts that stand-in for real users. 
+**Custom web servers** powered by Node.js or other language can get to that data if it has 
+**service accounts** which stand-in for real Google users.
+A key pair is generated for each account for use in creating electronic signatures
+presented to Google's **Authentication server**.
 
-Behind the scenes, access to stats Google accumulates for each user make it necessary to obtain permissions from Google’s **authentication service**.
+To help developers figure out how to make calls to Google API servers,
+Google created an [API Explorer](http://developers.google.com/apis-explorer/?hl=en_US#p/urlshortener/v1/) 
+and the more involved [Playground](https://developers.google.com/oauthplayground/).
 
-Google makes use of the OAuth2 standard, so an authentication token assembled according to the "jot" standard is sent to Google's authentication server to obtain **access tokens** that are sent along with each server request. When an access token **expires**, the **refresh token** is used to obtain more access tokens.
+Google makes use of the OAuth2 standard.
+So an **authentication token** assembled according to the "jot" standard 
+is sent to Google's authentication server to obtain **access tokens** that are sent along with each server request. 
+When an access token **expires**, the **refresh token** is used to obtain more access tokens.
 
 <hr />
 
@@ -736,15 +750,33 @@ console.log(urlshortener.url);
 
 StrongLoop provides an API Explorer much like Google's API Explorer.
 But Strongloop puts a nice color key for the various methods.
+More importantly, custom methods are shown in the same explorer.
 
 The Set Access Token at the upper right corner establishes
 credentials for programs to create authorization tokens.
+
+Loopback has a office supplies sample app
 
 Access tokens are defined
 
 user id from data 
 
 Loopback
+
+The JWT is calculated
+within modules > strongloop > node_modules > loopback > lib > models > 
+	access-token.js, acl.js
+	access-context.js
+
+	user.js line 127 has accessTokens class create method to createAccessToken using auth token inside userModel
+	
+user.login instantiates the accessToken
+	
+middleware > token.js
+	
+trace through the chain of calls
+
+callbacks jump to functions defined in various libraries
 
 
 # <a name="Why_capture_data"></a> Why Capture Data from Google?
@@ -759,4 +791,42 @@ Let's take a look at this line chart showing corresponding data series across ti
 ...   ![Data series from several sources](http://www.merc.tv/img/fig/goo.combined_data_v01.png "Data series")
 
 If you want to add event flags or additional data series **not** in Google servers you might need to have all the data on your **own** server. Google can automatically purge data on its severs anytime it wants. And Google has cancelled many services it has provided. So you need a way of keeping your data where **you** can really control.
+
+
+# <a name="Using_analytics"></a> Making Use of Analytics from Google
+
+Below is a description of the default response from Google when ".info" is added as a suffix to the short URL.
+
+### <a name="Click_history_periods"></a> Click History Periods
+
+The default download of data consists of several groupings of time:
+
+Clicks for the past: two hours | day | week | month | all time
+
+This is so that viewers have the information readily available for quick display upon click.
+
+FEATURE REQUEST: 
+Is there a "star schema" database behind the scenes so that we can see?
+
+
+### <a name="Countries_desc"></a> Country Id Descriptions
+A description lookup file is needed for the value of id's in the countries section.
+
+```
+ countries: [
+            {
+               count: "10903",
+               id: "US"
+            },
+            {
+               count: "1072",
+               id: "CA"
+            },
+```
+
+### <a name="OS_metrics_version"></a> Operating System Metrics No Version
+
+FEATURE REQUEST: 
+In platforms, it would be good to have the version of each operating system.
+Such information is available from browsers.
 
