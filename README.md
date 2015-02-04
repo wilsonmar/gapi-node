@@ -162,7 +162,7 @@ Because Google maintains statistics on where and when each shortUrl is created a
 
 Behind the scenes, access to stats Google accumulates for each user make it necessary to obtain permissions from Google’s **authentication service**.
 
-Google makes use of the OAuth2 standard, so an authentication tokens assembled according to the "jot" standard are sent to Google's authentication server to obtain **access tokens** that are sent along with each server request. When an access token **expires**, the **refresh token** provided by Google is used to obtain more access tokens.
+Google makes use of the OAuth2 standard, so an authentication token assembled according to the "jot" standard is sent to Google's authentication server to obtain **access tokens** that are sent along with each server request. When an access token **expires**, the **refresh token** is used to obtain more access tokens.
 
 <hr />
 
