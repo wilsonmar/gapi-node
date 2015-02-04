@@ -736,15 +736,33 @@ console.log(urlshortener.url);
 
 StrongLoop provides an API Explorer much like Google's API Explorer.
 But Strongloop puts a nice color key for the various methods.
+More importantly, custom methods are shown in the same explorer.
 
 The Set Access Token at the upper right corner establishes
 credentials for programs to create authorization tokens.
+
+Loopback has a office supplies sample app
 
 Access tokens are defined
 
 user id from data 
 
 Loopback
+
+The JWT is calculated
+within modules > strongloop > node_modules > loopback > lib > models > 
+	access-token.js, acl.js
+	access-context.js
+
+	user.js line 127 has accessTokens class create method to createAccessToken using auth token inside userModel
+	
+user.login instantiates the accessToken
+	
+middleware > token.js
+	
+trace through the chain of calls
+
+callbacks jump to functions defined in various libraries
 
 
 # <a name="Why_capture_data"></a> Why Capture Data from Google?
