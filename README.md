@@ -152,7 +152,7 @@ This illustration shows how data is input into and output from Google's servers:
 ![Data flow](http://www.merc.tv/img/fig/goo.workflow_2015.02.03.png "Data flow")
 
 In this tutorial, we use Google's **URL Shortener** web service that converts **long** URLs into **short** URLs 
-For quicker typing on keyboards and for smaller QR codes that Google generates.
+for quicker typing on keyboards and for smaller QR codes that Google generates.
 This URL shortener service is a good way to explore the technology behind the many web services Google provides
 because we don’t need to stand-up a custom server to use it.
 
@@ -166,14 +166,15 @@ through its [Reports analytics API](https://developers.google.com/admin-sdk/repo
 
 **Custom web servers** powered by Node.js or other language can get to that data if it has 
 **service accounts** which stand-in for real Google users.
+A key pair is generated for each account for use in creating electronic signatures
+presented to Google's **Authentication server**.
 
-Google generates a key pair used to create electronic signatures, and
-provide a [API Explorer](http://developers.google.com/apis-explorer/?hl=en_US#p/urlshortener/v1/) 
-and the more involved [Playground](https://developers.google.com/oauthplayground/) 
-for trying out how to make calls to Google API servers through Google's **Authentication server**.
+To help developers figure out how to make calls to Google API servers,
+Google created an [API Explorer](http://developers.google.com/apis-explorer/?hl=en_US#p/urlshortener/v1/) 
+and the more involved [Playground](https://developers.google.com/oauthplayground/).
 
-Google makes use of the OAuth2 standard, so 
-an **authentication token** assembled according to the "jot" standard 
+Google makes use of the OAuth2 standard.
+So an **authentication token** assembled according to the "jot" standard 
 is sent to Google's authentication server to obtain **access tokens** that are sent along with each server request. 
 When an access token **expires**, the **refresh token** is used to obtain more access tokens.
 
