@@ -170,7 +170,7 @@ through its [Reports analytics API](https://developers.google.com/admin-sdk/repo
 Google generates a key pair used to create electronic signatures, and
 provide a [API Explorer](http://developers.google.com/apis-explorer/?hl=en_US#p/urlshortener/v1/) 
 and the more involved [Playground](https://developers.google.com/oauthplayground/) 
-for trying out how to make calls to Google API servers.
+for trying out how to make calls to Google API servers through Google's **Authentication server**.
 
 Google makes use of the OAuth2 standard, so 
 an **authentication token** assembled according to the "jot" standard 
