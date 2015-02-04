@@ -288,6 +288,7 @@ and used by others:
 * Go language : https://godoc.org/code.google.com/p/google-api-go-client/urlshortener/v1
 * .NET : https://developers.google.com/api-client-library/dotnet/apis/urlshortener/v1
 * .NET C# : http://www.jphellemons.nl/post/Shorten-your-URL-with-Googl-or-Bitly-in-AspNet-C
+* .NET C# : https://zavitax.wordpress.com/2012/12/17/logging-in-with-google-service-account-in-c-jwt/
 * Java
 * Python: https://github.com/parthrbhatt/pyShortUrl supports several shortener services (and provides a comparison)
 
@@ -543,42 +544,46 @@ which the computer uses to "sign" requests made on the user's behalf.
 
 ...   ![Token Generation Dataflow](http://www.merc.tv/img/fig/goo_dataflow_2015.02.03.png "Token Generation Dataflow")
 
-If we want to generate and manage our own short URLs, we would need to login under our own Google account,
-get in Google's Developer Console 
-define a specific project, and generate an API key that we 
-paste into the client-side code.
+Let's recap. Instead of annonymous calls to goo.gl,
+credentials or manual input of Google account passwords, 
+if we want to generate and manage our own short URLs using Google's API,
+We would login under our own Google account, and go into
+**Google's Developer Console**
+to define a specific **project**, and 
+generate an **API key** for pasting into client-side JavaScript code.
 
-When a visitor to the API client web page enters a longURL, the request contains the API Key 
-and a specification of the scope specifying which API is being invoked.
-
-The Google API server responds with a short URL.
-The API Key used visible to anyone who looks at the client-side source code.
-
-In place of a user name and password, 
-the **secure client** and Google servers are allowed to make changes to the data of a user when they
-present a **service account** and its keys associated with a project.
-
-So the Developer Console generates and downloads to your machine a **.p12** file for the user signed in.
-The name p12 comes from the "PKCS" public standard number 12 on which the format of the file is based.
-The .p12 file contains both a publishale public key and a private key.
-Unlike shared passwords, the private doesn't need to be transmitted thus be exposed to interception.
-A program written to the spec, **Openssl**, generates a .pem file containing the private key.
-
+That API Key is passed to the server along with the **longURL** to be shortened.
+After we give the **shortURL** Google generates to people and they use it,
+Google tracks those hits as analytics.
+But Google considers analytics private information private to each user.
+So Google provides a **service account** for custom **servers** to provide when 
+assemblying requests for access to data of an owner.
+Instead of passing on the user's secret password, when a user's service account is created
+in the Developer Console, Google also generates and downloads a file of secrets called **.p12**.
+BTW, the name p12 comes from the "PKCS" public standard number 12 on which the format of the file is based.
+That standard defines very clever mathematics to create separate public and public keys such that
+eliminates the need to transmit passwords which can be exposed to interception during transit.
+A program written to the spec, **Openssl**, extracts a .pem file containing the private key
+that the server provides to algorithms which generates the JWT token,
+conveniently called "jot" perhaps because, internally, 
+a dot separates each of the 3 parts of the token combined so the server can 
+I say internally because these few steps are done inside a pre-defined library that takes care
+of the underlying math I'll cover next.
 The service account is combined with the Current Time and Expire Time of the token to get the JWT Body.
 This is necessary because otherwise the token can be reused.
+Google allows the server to specify how much time before a token expired, with a maximum of **30 minutes**.
+The text is then encoded Base64 to make all characters unambious to send over the internet.
+The private key is "signed" by passing the private key through an algorithm such asRSA SHA256,
+which Google has specified.
+The result is a duplicate set of **signatures** that is used **two** different ways.
+One of the identical signatures is run through an unescape function to yield the **claim set**.
+If all is well, the server returns an **Assess Token** along with a **refresh** token.
+When the access token expires, the refresh token is used to authorize more access tokens.
 
-which is encoded Base64 to make all characters unambious to send over the internet.
-The private key is "signed" by passing the private key through RSA SHA256 algorithm.
-Running through an unescape function yields the **JWT Assertion** sent to the authorization folder.
-If all is well, the server returns an **Assess Token** along with a refresh token.
-When the access token expires, the refresh token is used like the original authorization to obtain the access token.
+Like most other major internet sites -- Amazon, Twitter, Facebook, LinkedIn, Yelp, etc. -- Google implements some form of the [OAuth 2.0 standard](http://tools.ietf.org/html/rfc6749) that defines the use of authorization tokens and access tokens. 
+But web service uses a slightly different approach.
 
-Programs usually only need call pre-defined library functions that accept a service account and private key as input,
-and the underlying format of calls are done automatically within the library code.
-
-Like most other major internet sites -- Amazon, Twitter, Facebook, LinkedIn, Yelp, etc. -- Google implements some form of the OAuth 2.0 standard formally defined at http://tools.ietf.org/html/rfc6749. This spec provides guidelines for token issuing patterns. It does not dictate how identity is validated. So it is up to each service to deploy patterns appropriate for its own use case. Each web service uses a slightly different approach.
-
-Now let's look at an implementation of the above.
+Now let's dive into the coding to implement the above.
 
 
 ## <a name="Get_service_account"></a> Get service account email for project
