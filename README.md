@@ -149,7 +149,7 @@ Videos dynamically reveal these illustrations with spoken text and captioning.
 
 This illustration shows how data is input into and output from Google's servers:
 
-![Data flow](http://www.merc.tv/img/fig/goo.workflow_2015.02.03.png "Data flow")
+![Data flow](http://www.merc.tv/img/fig/goo.workflow_2015.02.04.png "Data flow")
 
 In this tutorial, we use Google's **URL Shortener** web service that converts **long** URLs into **short** URLs 
 for quicker typing on keyboards and for smaller QR codes that Google generates.
