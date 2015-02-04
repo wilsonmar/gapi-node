@@ -1,7 +1,25 @@
 <!DOCTYPE html>
-<html lang="en" class="">
+<!--
+  Copyright (c) 2011 Google Inc.
+
+  Licensed under the Apache License, Version 2.0 (the "License"); you may not
+  use this file except in compliance with the License. You may obtain a copy of
+  the License at
+
+  http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+  WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+  License for the specific language governing permissions and limitations under
+  the License.
+
+  To run this sample, replace YOUR API KEY with your application's API key.
+  It can be found at https://code.google.com/apis/console/?api=plus under API Access.
+-->
+<html>
 <head>
-  <title>Google API Example :: URL Shortener</title>
+  <title>Google API Example</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
@@ -9,13 +27,8 @@
   <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
 </head>
 <script type="text/javascript">
-function load() {
-    //Get your own Browser API Key from  https://code.google.com/apis/console/
-    gapi.client.setApiKey('AIzaSyCV1OW_OWlNCHjAtnMhJcCufzKwIti1KJ0');
-    gapi.client.load('urlshortener', 'v1',function(){document.getElementById("output").innerHTML="";});
- 
-}
-function makeShort() {
+function makeShort() 
+{
    var longUrl=document.getElementById("longurl").value;
     var request = gapi.client.urlshortener.url.insert({
       'resource': {
@@ -24,57 +37,68 @@ function makeShort() {
     });
     request.execute(function(response) 
     {
-        if(response.id != null){
-            /*
-            str ="<b>Long URL:</b>"+longUrl+"<br />";
-            str +="<b>Short URL:</b> <a target="_blank" href='"+response.id+"'>"+response.id+"</a><br />";
-            document.getElementById("output").innerHTML = str;
-            */
-            str = '<a target="_blank" href='+response.id+'.qr">'+response.id+'.qr</a>';
-            document.getElementById("shorturl_qr").innerHTML = str;
-
-            str = '<a target="_blank" href='+response.id+'.info">'+response.id+'.info</a>';
-            document.getElementById("shorturl_info").innerHTML = str;
-        } else {
-            str = "Error creating short url n"+ response.error;
+        if(response.id != null)
+        {
+            str ="<b>Long URL:</b>"+longUrl+"<br>";
+            str +="<b>Short URL:</b> <a href='"+response.id+"'>"+response.id+"</a><br>";
             document.getElementById("output").innerHTML = str;
         }
+        else
+        {
+            alert("error: creating short url n"+ response.error);
+        }
+ 
     });
  }
  
-function callShort() {
- // Abdul: call customer node.js server:
-}   
-function getQR() {
- // Abdul: call customer node.js server:
-}    
-function expandShort() {
- // Abdul: call customer node.js server:    
+function callShort() 
+{ // Abdul: call customer node.js server:
+    
+function getQR() 
+{ // Abdul: call customer node.js server:
+    
+function expandShort() 
+{ // Abdul: call customer node.js server:
+    
 }
 
-function getShortInfo() {
-    
-    var shortUrl=document.getElementById("shorturl").value;
+ function getShortInfo()
+{
+var shortUrl=document.getElementById("shorturl").value;
+ 
     var request = gapi.client.urlshortener.url.get({
       'shortUrl': shortUrl,
     'projection':'FULL'
     });
     request.execute(function(response) 
-    { 
-        if(response.longUrl != null) {
+    {
+ 
+        if(response.longUrl!= null)
+        {
             str ="<b>Long URL:</b>"+response.longUrl+"<br>";
             str +="<b>Create On:</b>"+response.created+"<br>";
             str +="<b>Short URL Clicks:</b>"+response.analytics.allTime.shortUrlClicks+"<br>";
             str +="<b>Long URL Clicks:</b>"+response.analytics.allTime.longUrlClicks+"<br>";
  
             document.getElementById("output").innerHTML = str;
-        } else {
-            str ="ERROR: "+response.error;
-            document.getElementById("output").innerHTML = str;
         }
+        else
+        {
+            alert("error: "+response.error);
+        }
+ 
     });
+ 
+}
+function load()
+{
+    //Get your own Browser API Key from  https://code.google.com/apis/console/
+    gapi.client.setApiKey('AIzaSyCV1OW_OWlNCHjAtnMhJcCufzKwIti1KJ0');
+    gapi.client.load('urlshortener', 'v1',function(){document.getElementById("output").innerHTML="";});
+ 
 }
 window.onload = load;
+ 
 </script>
 <script src="https://apis.google.com/js/client.js"> </script>
 <style>
@@ -106,7 +130,6 @@ window.onload = load;
             onclick="callShort();" />
         </div>
     </div>
-
   <div class="row">
     <div class="col-sm-1">
         <span class="grid_heading">Short URL:</span>
@@ -114,47 +137,33 @@ window.onload = load;
     <div class="col-sm-5">
         <input type="text" size="23" id="shorturl" name="url" value="http://goo.gl/NHj1c" />
         </div>
-    <div class="col-sm-6">
+    <div class="col-sm-3">
         <input type="button" value="Expand short to long URL" onclick="expandShort();" />
         </div>
+    <div class="col-sm-3">
+        <input type="button" value="Get info JSON" onclick="getShortInfo();" />
+        </div>
     </div>
-
   <div class="row">
     <div class="col-sm-1">
         &nbsp;
         </div>
     <div class="col-sm-5">
-        <span class="shorturl_qr"></span>
+        <span class="shorturl_qr">http://goo.gl/NHj1c.qr</span>
         </div>
     <div class="col-sm-6">
         <input type="button" value="Get QR code image" onclick="getQR();" />
         </div>
     </div>
-
   <div class="row">
     <div class="col-sm-1">
         &nbsp;
         </div>
     <div class="col-sm-5">
-        <span class="shorturl_info"></span>
+        <span class="shorturl_qr">http://goo.gl/NHj1c.info</span>
         </div>
-    <div class="col-sm-3">
-        <input type="button" value="Get Info (on new window)" onclick="getShortInfo();" />
-        </div>
-    <div class="col-sm-3">
-        <input type="button" value="Get info in JSON format" onclick="getShortInfo();" />
-        </div>
-    </div>
-
-  <div class="row">
     <div class="col-sm-6">
-        &nbsp;
-        </div>
-    <div class="col-sm-3">
-        <input type="button" value="Combine data" onclick="combineData();" />
-        </div>
-    <div class="col-sm-3">
-        <input type="button" value="View combined data" onclick="viewCombined();" />
+        <input type="button" value="Get Info (on new window)" onclick="getShortInfo();" />
         </div>
     </div>
 </form>
