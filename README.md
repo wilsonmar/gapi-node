@@ -164,12 +164,13 @@ When a shortened URL is requested, the browser used provides data about itself a
 **where and when** each Urls were used. This information Google saves and makes available
 through its [Reports analytics API](https://developers.google.com/admin-sdk/reports/).
 
-**Custom web servers** powered by Node.js or other language can get to that data only if it has 
-**service accounts** which stand-in for real Google users constantly at a computer.
+**Custom web servers** powered by Node.js or other language can get to that data if it has 
+**service accounts** which stand-in for real Google users.
+
 Google generates a key pair used to create electronic signatures, and
-provide a [API Explorer](http://developers.google.com/apis-explorer/?hl=en_US#p/urlshortener/v1/) and 
-the more involved [Playground](https://developers.google.com/oauthplayground/) 
-for trying out the credentials and calls to retrieve statistics.
+provide a [API Explorer](http://developers.google.com/apis-explorer/?hl=en_US#p/urlshortener/v1/) 
+and the more involved [Playground](https://developers.google.com/oauthplayground/) 
+for trying out how to make calls to Google API servers.
 
 Google makes use of the OAuth2 standard, so 
 an **authentication token** assembled according to the "jot" standard 
