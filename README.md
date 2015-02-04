@@ -149,7 +149,7 @@ Videos dynamically reveal these illustrations with spoken text and captioning.
 
 This illustration shows how data is input into and output from Google's servers:
 
-![Google API workflow](http://www.merc.tv/img/fig/goo.workflow_2015.02.04.png "Google API Workflow")
+![Google API workflow](http://www.merc.tv/img/fig/goo.workflow_2015.02.04a.png "Google API Workflow")
 
 In this tutorial, we use Google's **URL Shortener** web service that converts **long** URLs into **short** URLs 
 for quicker typing on keyboards and for smaller QR codes that Google generates.
@@ -559,7 +559,7 @@ which the computer uses to "sign" requests made on the user's behalf.
 
 ## <a name="Keygen_dataflow"></a> Token Generation Dataflow
 
-...   ![Token Generation Dataflow](http://www.merc.tv/img/fig/goo_dataflow_2015.02.04.png "Token Generation Dataflow")
+...   ![Token Generation Dataflow](http://www.merc.tv/img/fig/goo_dataflow_2015.02.04a.png "Token Generation Dataflow")
 
 Let's recap. Instead of annonymous calls to goo.gl,
 credentials or manual input of Google account passwords, 
