@@ -151,13 +151,15 @@ This illustration shows how data is input into and output from Google's servers:
 
 ![Data flow](http://www.merc.tv/img/fig/goo.workflow_2015.02.03.png "Data flow")
 
-In this tutorial, we use Google's **URL Shortener** web service that converts **long** URLs into **short** URLs that are quicker to type on keyboards and makes for smaller QR codes that the service generates.
-The URL shortener service is a good way to explore the technology behind the many web services Google provides
+In this tutorial, we use Google's **URL Shortener** web service that converts **long** URLs into **short** URLs 
+For quicker typing on keyboards and for smaller QR codes that Google generates.
+This URL shortener service is a good way to explore the technology behind the many web services Google provides
 because we don’t need to stand-up a custom server to use it.
 
 Google provides a public [goo.gl](http://goo.gl/) website to generate short URLs and QR codes using its own
 **API Key** used to track and limit usage.
-But **Custom** websites can also make use of Google's infrastructure on behalf of a signed-in Google user. 
+But **Custom** websites can also make use of Google's infrastructure on behalf of a signed-in Google user
+
 **service accounts** that stand-in for real users for a particular project, and the key that secure them,
 are obtained through Google's **Developer Console**.
 
@@ -787,4 +789,5 @@ Let's take a look at this line chart showing corresponding data series across ti
 ...   ![Data series from several sources](http://www.merc.tv/img/fig/goo.combined_data_v01.png "Data series")
 
 If you want to add event flags or additional data series **not** in Google servers you might need to have all the data on your **own** server. Google can automatically purge data on its severs anytime it wants. And Google has cancelled many services it has provided. So you need a way of keeping your data where **you** can really control.
+
 
