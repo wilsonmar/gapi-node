@@ -793,3 +793,40 @@ Let's take a look at this line chart showing corresponding data series across ti
 If you want to add event flags or additional data series **not** in Google servers you might need to have all the data on your **own** server. Google can automatically purge data on its severs anytime it wants. And Google has cancelled many services it has provided. So you need a way of keeping your data where **you** can really control.
 
 
+# <a name="Using_analytics"></a> Making Use of Analytics from Google
+
+Below is a description of the default response from Google when ".info" is added as a suffix to the short URL.
+
+### <a name="Click_history_periods"></a> Click History Periods
+
+The default download of data consists of several groupings of time:
+
+Clicks for the past: two hours | day | week | month | all time
+
+This is so that viewers have the information readily available for quick display upon click.
+
+FEATURE REQUEST: 
+Is there a "star schema" database behind the scenes so that we can see?
+
+
+### <a name="Countries_desc"></a> Country Id Descriptions
+A description lookup file is needed for the value of id's in the countries section.
+
+```
+ countries: [
+            {
+               count: "10903",
+               id: "US"
+            },
+            {
+               count: "1072",
+               id: "CA"
+            },
+```
+
+### <a name="OS_metrics_version"></a> Operating System Metrics No Version
+
+FEATURE REQUEST: 
+In platforms, it would be good to have the version of each operating system.
+Such information is available from browsers.
+
