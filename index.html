@@ -10,7 +10,7 @@
 </head>
 <script type="text/javascript">
 function load() {
-    //Get your own Browser API Key from  https://code.google.com/apis/console/
+    // Get your own Request API Key from  https://code.google.com/apis/console/
     gapi.client.setApiKey('AIzaSyCV1OW_OWlNCHjAtnMhJcCufzKwIti1KJ0');
     gapi.client.load('urlshortener', 'v1',function(){document.getElementById("output").innerHTML="";});
  
@@ -158,6 +158,23 @@ window.onload = load;
         </div>
     </div>
 </form>
+
+<input type="text" class="form-control" id="scopes" 
+        value="https://www.googleapis.com/auth/urlshortener">
+      TODO: List from .json file.
+    <br />
+      URL Shortener
+      <a target="_blank" href="https://developers.google.com/apis-explorer/#p/urlshortener/v1/">
+        API Explorer</a> and
+        <a target="_blank" href="https://developers.google.com/url-shortener/v1/getting_started">
+        Getting Started</a>
+
+    <h4>For each shortened URL :</h4>
+      <a target="_blank" href="http://goo.gl/#analytics/goo.gl/bNCI0m/all_time">
+      Analytics &amp; QR code image for a particular link (goo.gl/bNC10m)
+  </p>
+
+ 
 </div><!-- container -->
  
 <p>FIXME: click buttons not returning text.</p>

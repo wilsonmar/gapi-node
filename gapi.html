@@ -36,9 +36,6 @@
     Google's API Console</a>.</p>
     <p>
     The project Name, ID, etc. are stored in an encrypted database.</p>
-    <p>
-    Drag the .p12 file in any beige space and it will be automatically thru openssl pkcs12 to 
-    create the .pem file, then stored in the encrypted database on the web server.</p>
   </header>
 
     <table border="0" cellpadding="4" cellspacing="0"><tr valign="top"><td>
@@ -60,10 +57,10 @@
     <a target="_blank" href="https://console.developers.google.com/project/467693042906/apiui/credential"> Credentials</a>
     
     <h4>Service Account CLIENT ID :</h4>
-    <input type="text" class="form-control" id="client_id" value="837050751313">
+    <input type="text" class="form-control" id="client_id" value="467693042906-5lk8j...6e8s4.apps.googleusercontent.com">
 
     <h4>Service Account EMAIL ADDRESS :</h4>
-    <input type="email" class="form-control" id="service_email" value="wilsonmar@gmail.com">
+    <input type="email" class="form-control" id="service_email" value="467693042906-5lk8j...6e8s4@developer.gserviceaccount.com">
 
     <h4>CERTIFICATE FINGERPRINTS / API KEY :</h4>
     <input type="text" class="form-control" id="api_key" 
@@ -74,39 +71,32 @@
     Google's API Explorer</a> and
     <a target="_blank" href="https://developers.google.com/oauthplayground/">
     OAuth 2.0 Playground API list</a>
-    <input type="text" class="form-control" id="scopes" 
-        value="https://www.googleapis.com/auth/urlshortener">
-      TODO: List from .json file.
-    <br />
-      URL Shortener
-      <a target="_blank" href="https://developers.google.com/apis-explorer/#p/urlshortener/v1/">
-        API Explorer</a> and
-        <a target="_blank" href="https://developers.google.com/url-shortener/v1/getting_started">
-        Getting Started</a>
-
-    <h4>For each shortened URL :</h4>
-      <a target="_blank" href="http://goo.gl/#analytics/goo.gl/bNCI0m/all_time">
-      Analytics &amp; QR code image for a particular link (goo.gl/bNC10m)
-  </p>
-
     <p>&nbsp;</p>
     <!--Add a button for the user to click to initiate auth sequence -->
     <button id="authorize-button">Save to database</button>
     <!-- style="visibility: hidden" in original sample code removed -->
     </form>
-  </td><td>
-      <img align="right" src="dist/img/Google_API_Svc_Account_Keys.png" width="400" />
-    </td></tr></table>
+  </td><td valign="top">
+      <p>
+    Drag the .p12 file in any beige space and it will be automatically thru openssl pkcs12 to 
+    create the .pem file, then stored in the encrypted database on the web server.
+    Much like what <a target="_blank" href="https://www.sslshopper.com/ssl-converter.html">
+    the page at SSLShoper.com</a> provides.
+    </p>
 
+    <p>
+    <a target="_blank" href="https://developers.google.com/admin-sdk/reports/v1/guides/migrate">
+    Reporting API</a>
+    </p>
+    
+    <img align="right" src="dist/img/Google_API_Svc_Account_Keys.png" width="400" />
+
+      <img src="dist/img/Google_All_APIs_over_time.png" width="400" />
+  
+    </td></tr></table>
 
     <div class="content">Messages here.</div><!-- Error messages here under Authorize button -->
 
-<p>
-  <a target="_blank" href="https://developers.google.com/admin-sdk/reports/v1/guides/migrate">
-    Reporting API</a>
-<p>
-      <img src="dist/img/Google_All_APIs_over_time.png" width="400" />
-  
     <footer>
     <p>&nbsp;</p>
     <p>This form, from 
