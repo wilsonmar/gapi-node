@@ -68,31 +68,6 @@ Client-side coding makes use of
 jQuery 
 and Bootstrap responsive theme library.
 
-
-# Tasks To Build This
-- [ ] Objective 2 - Explore libraries (done first to not waste time on objective 1)
-	Decision to use https://github.com/google/google-api-javascript-client with documentation at
-	https://cloud.google.com/compute/docs/tutorials/javascript-guide#authorization
-
-- [ ] Objective 1 - Call Google API
-  - [x] Create github repo (Wilson)
-  - [x] Create github.io/gapi-node (wilson)
-  - [x] Provide API key (Wilson)
-  - [ ] Code running skeleton client form and node.js express with no formatting, no retrieval of QR code (Abdul)
-  - [ ] Describe skeleton (Wilson with Abdul)
-  - [ ] Add test code (Wilson)
-
-  - [ ] Add library to call Google API (Abdul)
-  - [ ] Add calling code in node server code (Abdul)
-  - [ ] Code client QR code retrieval and display client side (Abdul)
-
-  - [ ] Transfer server code to Heroku?
-  - [ ] ~~Store credentials in MongoDB~~
-
-- [ ] Objective 3 - Explain JWT
-- [ ] Objective 4 - Reports API calls
-
-
 # <a name="from_goo.gl_anon"></a> Obtain short URLs manually from goo.gl as an anonymous user
 As an introduction to how Google’s URL Shortener API service works, let’s look at the human user interface which web services APIs replace.
 
@@ -178,15 +153,16 @@ When an access token **expires**, the **refresh token** is used to obtain more a
 
 <hr />
 
-# <a name="Client_API_access"></a> Using the Google URL Shortener API server:
+# <a name="Client_API_access"></a> Hands-on Exploration of API Services - Google URL Shortener :
 
 The remainder of this tutorial takes a "deep dive" into the different ways Google's URL Shortener service can be accessed. 
 Along the way, we consider several technical details. 
 That is the reason why steps covered in other documentation are repeated here.
 
 1.	[Obtain short URL manually from goo.gl as an anonymous user](#from_goo.gl_anon) was presented earlier.
-	* [QR code](#QR_code)
+
 	* [Detailed Statistics](#Details_stats)
+	* [QR code](#QR_code)
 
 2.	[Obtain short URL manually from goo.gl as a signed-in Google user](#from_goo.gl_signed_in) 
 3.	[Obtain short URL manually from custom client as an anonymous user](#Interactive_demo_client)
@@ -827,4 +803,30 @@ A description lookup file is needed for the value of id's in the countries secti
 FEATURE REQUEST: 
 In platforms, it would be good to have the version of each operating system.
 Such information is available from browsers.
+
+
+
+# <a name="Tasks_here"></a> Tasks To Build This Repo
+- [ ] Objective 2 - Explore libraries (done first to not waste time on objective 1)
+	Decision to use https://github.com/google/google-api-javascript-client with documentation at
+	https://cloud.google.com/compute/docs/tutorials/javascript-guide#authorization
+
+- [ ] Objective 1 - Call Google API
+  - [x] Create github repo (Wilson)
+  - [x] Create github.io/gapi-node (wilson)
+  - [x] Provide API key (Wilson)
+  - [ ] Code running skeleton client form and node.js express with no formatting, no retrieval of QR code (Abdul)
+  - [ ] Describe skeleton (Wilson with Abdul)
+  - [ ] Add test code (Wilson)
+
+  - [ ] Add library to call Google API (Abdul)
+  - [ ] Add calling code in node server code (Abdul)
+  - [ ] Code client QR code retrieval and display client side (Abdul)
+
+  - [ ] Transfer server code to Heroku?
+  - [ ] ~~Store credentials in MongoDB~~
+
+- [ ] Objective 3 - Explain JWT
+- [ ] Objective 4 - Reports API calls
+
 
