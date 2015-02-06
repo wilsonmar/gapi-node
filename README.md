@@ -85,7 +85,7 @@ As an introduction to how Google’s URL Shortener API service works, let’s lo
 > Notice in this example, Google provides both the front-end and back-end processing under its own account (not that of a Google user).
 
 
-# <a name="short_url_services"></a> Short URL Services
+# <a name="short_url_services"></a> Short URL Services and QR Code Images
 
 Up until recently, short URLs were needed to not waste any of the 140 characters allowed in a single tweet on 
 [Twitter](http://www.twitter.com/). Long URLs would be first be shortened using a utility website and then pasted into Twitter.
@@ -822,7 +822,7 @@ Such information is available from browsers.
   - [x] Create github.io/gapi-node (wilson)
   - [x] Provide API key (Wilson)
   - [ ] Code running skeleton client form and node.js express with no formatting, no retrieval of QR code (Abdul)
-  - [ ] Describe skeleton (Wilson with Abdul)
+  - [ ] Describe loopback skeleton (Wilson)
   - [ ] Add test code (Wilson)
 
   - [ ] Add library to call Google API (Abdul)
