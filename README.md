@@ -239,6 +239,12 @@ do not have the circle graph and the world map.
 13.	To obtain the QR code, change the address by adding *.qr* after the generated code (l6MS) to
 http://goo.gl/l6MS.qr.
 
+...   ![QR code for this page](http://www.merc.tv/img/fig/goo.gl_l6MS.qr.png "QR code for this page")
+
+To save the file from your internet browser, right-click on it and select Save image.
+
+> Notice this QR codes is 100 x 100 because only 4 characters were used When goo.gl started. New QR code files may be 150 x 150 or more since codes need to increase over time as more characters are needed to uniquely index a larger number of URLs shortened.
+
 
 ## <a name="Interactive_demo_client"></a> Interactive Demo Client to Shorten Long URLs
 The sample app shown at https://wilsonmar.github.com/gapi-node 
