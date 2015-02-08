@@ -179,6 +179,7 @@ That is the reason why steps covered in other documentation are repeated here.
 6.	[Obtain short URL manually using Google's API Playground](#from_playground)
 7.	[Obtain short URL manually using Google Code](#from_devtools)
 8.	[Obtain short URL from Google's Node.js program](#from_google_node_js)
+9.	[Obtain short URL from C-language LoadRunner script](#from_lr_script)
 
 
 <hr />
@@ -487,6 +488,9 @@ The Access token is added to communications from the client to establish its aut
 > Notice the token_type is "Bearer" (carrier) of the access token as defined in the 
 OAuth2 spec.
 
+> Notice also the "expires_in" : 3600 because the default maximum time is used.
+Google allows this to be set during JWT requests.
+
 8.	Click *List possible operations* for the pop-up, then expand **Insert Url**:
  
 ...   ![Google API Send Request](http://www.merc.tv/img/fig/goo.play.list_ops.png "Google API Send Request")
@@ -726,7 +730,16 @@ console.log(urlshortener.url);
 
 <hr />
 
-# <a name="Loopback_use"></a> StrongLoop API Explorer API Explorer
+## <a name="from_lr_script"></a> Obtain short URL from C-language LoadRunner script
+
+See github.com/wilsonmar/gapi-lr
+
+<hr />
+
+## <a name="Loopback_use"></a> Obtain short URL from a Node.js custom program 
+
+an example of a node.js program running loopback.io 
+calling Google APIs.
 
 StrongLoop provides an API Explorer much like Google's API Explorer.
 But Strongloop puts a nice color key for the various methods.
