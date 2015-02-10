@@ -5,7 +5,7 @@ and [server](#server_libraries)
 code libraries of many languages to access all the many APIs they run in their cloud.
 (still in alpha or beta)
 Google's libraries hide the mathematics of [calculating date/time stamps, signatures, and Base64](#Keygen_dataflow) 
-needed to authenticate computers requesting information Google holds on behalf of its users.
+needed to authenticate computers requesting information Google holds on behalf of its users. In 2013, Google spent $1.6bn on its datacentres in three months, which is $6bn a year. That figure is nearly one-quarter of the whole venture capital expenditure in the USA for one year – rather a lot of storage. And it's just the start.
 
 Google's service around [short URLs](#short_url_services) is used as an example that does not require more server setup. 
 
